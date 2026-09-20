@@ -89,11 +89,29 @@ function labelOf(group: Place[]): string {
   return `${named.join(", ")} and nearby (${countries.join(" / ")}; around ${where})`;
 }
 
+// The first stage always splits the same global list the same way, and a run does that once per
+// strategy per photo. It is deterministic, so compute it once and hand back the same cells.
+// Keyed by the array itself, so a different pool never collides with a cached answer.
+const memo = new WeakMap<Place[], Map<number, Cell[]>>();
+
 /**
  * Splits a set of places into `1 << depth` cells of roughly equal place count, cutting each group
  * along its longer side at the median. Deterministic: same input, same cells.
  */
 export function partition(group: Place[], depth: number, prefix = "c"): Cell[] {
+  if (prefix === "c") {
+    const byDepth = memo.get(group) ?? new Map<number, Cell[]>();
+    const hit = byDepth.get(depth);
+    if (hit) return hit;
+    const built = split(group, depth, prefix);
+    byDepth.set(depth, built);
+    memo.set(group, byDepth);
+    return built;
+  }
+  return split(group, depth, prefix);
+}
+
+function split(group: Place[], depth: number, prefix: string): Cell[] {
   if (depth <= 0 || group.length <= 1) {
     return [{
       id: prefix,
@@ -109,8 +127,8 @@ export function partition(group: Place[], depth: number, prefix = "c"): Cell[] {
     : (a, b) => a.lat - b.lat || a.lng - b.lng || a.name.localeCompare(b.name));
   const mid = Math.floor(sorted.length / 2);
   return [
-    ...partition(sorted.slice(0, mid), depth - 1, `${prefix}0`),
-    ...partition(sorted.slice(mid), depth - 1, `${prefix}1`),
+    ...split(sorted.slice(0, mid), depth - 1, `${prefix}0`),
+    ...split(sorted.slice(mid), depth - 1, `${prefix}1`),
   ];
 }
 

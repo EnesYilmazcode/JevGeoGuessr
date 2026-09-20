@@ -1,0 +1,2088 @@
+{
+ "mode": "balanced",
+ "seed": 7,
+ "minBorderMargin": 0.02,
+ "builtAt": "2026-09-20",
+ "cases": [
+  {
+   "photo": {
+    "id": "1727689897",
+    "lat": 42.567228,
+    "lng": 1.600947,
+    "heading": 233.63,
+    "shotDate": "2023-05-18 07:14:59.000",
+    "username": "toni-serra",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2023/5/18/proc/7260569_d2ba9_64661343de66a.jpg"
+   },
+   "truthCode": "AD",
+   "city": "Canillo"
+  },
+  {
+   "photo": {
+    "id": "1388563709",
+    "lat": 42.539962,
+    "lng": 1.519332,
+    "heading": 18.98,
+    "shotDate": "2021-10-27 07:18:19.000",
+    "username": "toni-serra",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/10/27/proc/3884161_d13b6b752e33825310d9c68de0584881.jpg"
+   },
+   "truthCode": "AD",
+   "city": "Anyós"
+  },
+  {
+   "photo": {
+    "id": "11384745",
+    "lat": 42.544554,
+    "lng": 1.591982,
+    "heading": 24.01,
+    "shotDate": "2016-11-06 15:00:46.000",
+    "username": "DanRun",
+    "url": "https://api.openstreetcam.org/storage2/files/photo/2016/11/10/proc/27054_987eb_582461b065810.jpg"
+   },
+   "truthCode": "AD",
+   "city": "Les Bons"
+  },
+  {
+   "photo": {
+    "id": "1703702441",
+    "lat": 24.931451,
+    "lng": 55.468319,
+    "heading": 254.07,
+    "shotDate": "2023-03-11 13:59:13.000",
+    "username": "dennis-g-d",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2023/3/12/proc/6894089_08057_640d68b99156e.jpg"
+   },
+   "truthCode": "AE",
+   "city": "Al Lusaylī"
+  },
+  {
+   "photo": {
+    "id": "1208618805",
+    "lat": 25.269643,
+    "lng": 55.316536,
+    "heading": 31.68,
+    "shotDate": "2020-12-21 11:00:35.000",
+    "username": "ali-ismail",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/12/21/proc/3332525_662ae466b61958539e84f2ae293c26c5.jpg"
+   },
+   "truthCode": "AE",
+   "city": "Al Muteena"
+  },
+  {
+   "photo": {
+    "id": "1595007945",
+    "lat": 23.651388,
+    "lng": 53.705752,
+    "heading": 156.88,
+    "shotDate": "2022-08-31 19:51:31.000",
+    "username": "saeed85sa",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2022/8/31/proc/6007049_de856073e6ae09111c70bc446fc0e17c.jpg"
+   },
+   "truthCode": "AE",
+   "city": "Zayed City"
+  },
+  {
+   "photo": {
+    "id": "1583506121",
+    "lat": 41.511043,
+    "lng": 19.792111,
+    "heading": 142.57,
+    "shotDate": "2022-08-23 16:53:10.000",
+    "username": "tr4sk",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2022/8/24/proc/5970153_2f537_6305bd55137c1.jpg"
+   },
+   "truthCode": "AL",
+   "city": "Krujë"
+  },
+  {
+   "photo": {
+    "id": "1289968617",
+    "lat": 39.987657,
+    "lng": 19.914188,
+    "heading": 143.85,
+    "shotDate": "2020-08-05 12:31:29.000",
+    "username": "DenisJu",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/5/6/proc/3558917_c613a_6094246a54c18.jpg"
+   },
+   "truthCode": "AL",
+   "city": "Lukovë"
+  },
+  {
+   "photo": {
+    "id": "1583332521",
+    "lat": 41.052003,
+    "lng": 19.957078,
+    "heading": 134.53,
+    "shotDate": "2022-08-22 17:59:24.000",
+    "username": "tr4sk",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2022/8/24/proc/5970073_409ce_6305aa92630ca.jpg"
+   },
+   "truthCode": "AL",
+   "city": "Papër"
+  },
+  {
+   "photo": {
+    "id": "1352688793",
+    "lat": 46.809362,
+    "lng": 15.812172,
+    "heading": 41.35,
+    "shotDate": "2021-08-02 15:31:09.000",
+    "username": "hazelnut2",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/8/2/proc/3756561_c4f1a242eca1410d7cb307c834634e81.jpg"
+   },
+   "truthCode": "AT",
+   "city": "Dietersdorf am Gnasbach"
+  },
+  {
+   "photo": {
+    "id": "325341243",
+    "lat": 46.847258,
+    "lng": 15.642,
+    "heading": 126,
+    "shotDate": null,
+    "username": "datendelphin",
+    "url": "https://api.openstreetcam.org/storage9/files/photo/2018/11/4/proc/1304245_ef90c_5bdeffed66323.jpg"
+   },
+   "truthCode": "AT",
+   "city": "Breitenfeld am Tannenriegel"
+  },
+  {
+   "photo": {
+    "id": "2269142089",
+    "lat": 47.736846,
+    "lng": 16.1667,
+    "heading": 232.82,
+    "shotDate": "2024-08-05 10:10:05.000",
+    "username": "erias1",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2024/9/14/proc/9529449_b3a1b_66f23a2de87ae.jpg"
+   },
+   "truthCode": "AT",
+   "city": "Schwarzau am Steinfeld"
+  },
+  {
+   "photo": {
+    "id": "362144189",
+    "lat": -33.349244,
+    "lng": 151.43171,
+    "heading": 155,
+    "shotDate": "2019-02-16 04:06:52.000",
+    "username": "moult",
+    "url": "https://api.openstreetcam.org/storage11/files/photo/2019/2/19/proc/1342295_9dc33_2433.jpg"
+   },
+   "truthCode": "AU",
+   "city": "Glenning Valley"
+  },
+  {
+   "photo": {
+    "id": "577673622",
+    "lat": -34.547592,
+    "lng": 150.861212,
+    "heading": null,
+    "shotDate": "2020-01-10 08:51:45.000",
+    "username": "daviewales",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/1/11/proc/2071554_970c1_301.jpg"
+   },
+   "truthCode": "AU",
+   "city": "Warilla"
+  },
+  {
+   "photo": {
+    "id": "398233738",
+    "lat": -33.820149,
+    "lng": 151.09913,
+    "heading": 270,
+    "shotDate": "2019-04-29 21:17:57.000",
+    "username": "andy-to",
+    "url": "https://api.openstreetcam.org/storage11/files/photo/2019/4/30/proc/1435454_0704c_5cc83a0a5f20a.jpg"
+   },
+   "truthCode": "AU",
+   "city": "Putney"
+  },
+  {
+   "photo": {
+    "id": "569811022",
+    "lat": 44.2262,
+    "lng": 17.659392,
+    "heading": null,
+    "shotDate": "2019-12-21 13:11:31.000",
+    "username": "nebojsa-tejic",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2019/12/23/proc/2066250_0_f4592_20.jpg"
+   },
+   "truthCode": "BA",
+   "city": "Travnik"
+  },
+  {
+   "photo": {
+    "id": "569812694",
+    "lat": 44.247083,
+    "lng": 17.568981,
+    "heading": null,
+    "shotDate": "2019-12-21 13:24:11.000",
+    "username": "nebojsa-tejic",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2019/12/23/proc/2066250_8_c68d5_38.jpg"
+   },
+   "truthCode": "BA",
+   "city": "Turbe"
+  },
+  {
+   "photo": {
+    "id": "1679441817",
+    "lat": 44.757118,
+    "lng": 17.189374,
+    "heading": 234.85,
+    "shotDate": "2023-01-15 10:06:40.000",
+    "username": "nebojsa-tejic",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2023/1/15/proc/6582841_3b7de9f2c4bef6cc75fdc47623ef6d43.jpg"
+   },
+   "truthCode": "BA",
+   "city": "Mejdan - Obilićevo"
+  },
+  {
+   "photo": {
+    "id": "1041432254",
+    "lat": 18.40628,
+    "lng": -88.390539,
+    "heading": 99.1,
+    "shotDate": "2020-03-09 15:18:38.000",
+    "username": "charlie-plett",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/8/9/proc/2888998_98b01_5f2fe15c6291c.jpg"
+   },
+   "truthCode": "BZ",
+   "city": "Paraiso"
+  },
+  {
+   "photo": {
+    "id": "1039022086",
+    "lat": 17.260013,
+    "lng": -88.792544,
+    "heading": 263.15,
+    "shotDate": "2019-08-10 20:19:06.000",
+    "username": "charlie-plett",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/8/8/proc/2883490_2454d_5f2e60cb630ee.jpg"
+   },
+   "truthCode": "BZ",
+   "city": "Roaring Creek"
+  },
+  {
+   "photo": {
+    "id": "1040256418",
+    "lat": 16.865703,
+    "lng": -88.285289,
+    "heading": 345.37,
+    "shotDate": "2020-01-23 15:25:47.000",
+    "username": "charlie-plett",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/8/8/proc/2886042_986b5_5f2f16a8d6f60.jpg"
+   },
+   "truthCode": "BZ",
+   "city": "Hopkins"
+  },
+  {
+   "photo": {
+    "id": "155765203",
+    "lat": 44.630872,
+    "lng": -63.615601,
+    "heading": 132.11,
+    "shotDate": "2017-10-25 13:05:50.000",
+    "username": "mark-burke",
+    "url": "https://api.openstreetcam.org/storage6/files/photo/2017/11/1/proc/961621_1f9ff_59fa49431665b.jpg"
+   },
+   "truthCode": "CA",
+   "city": "Cowie Hill"
+  },
+  {
+   "photo": {
+    "id": "150436369",
+    "lat": 52.141931,
+    "lng": -106.681395,
+    "heading": null,
+    "shotDate": "2017-10-24 23:44:20.000",
+    "username": "chris-ozmun2",
+    "url": "https://api.openstreetcam.org/storage6/files/photo/2017/10/25/proc/955813_6d73f_54.jpg"
+   },
+   "truthCode": "CA",
+   "city": "Hudson Bay Park"
+  },
+  {
+   "photo": {
+    "id": "81319695",
+    "lat": 46.894009,
+    "lng": -71.143901,
+    "heading": 78.2,
+    "shotDate": "2017-07-31 13:59:14.000",
+    "username": "j-f-sergerie",
+    "url": "https://api.openstreetcam.org/storage5/files/photo/2017/7/31/proc/506183_c0e89_19.jpg"
+   },
+   "truthCode": "CA",
+   "city": "Boischatel"
+  },
+  {
+   "photo": {
+    "id": "19837145",
+    "lat": 47.20142,
+    "lng": 8.941394,
+    "heading": 180.5,
+    "shotDate": null,
+    "username": "skorbut",
+    "url": "https://api.openstreetcam.org/storage2/files/photo/2017/3/8/proc/51348_2d115_58bff8430e099.jpg"
+   },
+   "truthCode": "CH",
+   "city": "Tuggen"
+  },
+  {
+   "photo": {
+    "id": "1353758385",
+    "lat": 47.375817,
+    "lng": 8.484269,
+    "heading": 158.52,
+    "shotDate": "2017-10-18 08:21:59.000",
+    "username": "beat-doebeli-honegger2",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/8/5/proc/3760721_e509c_610ba72028a58.jpg"
+   },
+   "truthCode": "CH",
+   "city": "Zürich (Kreis 9) / Albisrieden"
+  },
+  {
+   "photo": {
+    "id": "10887103",
+    "lat": 47.653631,
+    "lng": 9.136908,
+    "heading": 320.38,
+    "shotDate": null,
+    "username": "mstock",
+    "url": "https://api.openstreetcam.org/storage2/files/photo/2016/11/1/proc/26258_27a84_58191620b7cd4.jpg"
+   },
+   "truthCode": "CH",
+   "city": "Tägerwilen"
+  },
+  {
+   "photo": {
+    "id": "1719525593",
+    "lat": -32.790854,
+    "lng": -71.190575,
+    "heading": 224.83,
+    "shotDate": "2023-04-22 17:59:15.000",
+    "username": "marcelo-andres",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2023/4/22/proc/7130153_72b33813b0effa8ff7d8b4b705c9de27.jpg"
+   },
+   "truthCode": "CL",
+   "city": "La Calera"
+  },
+  {
+   "photo": {
+    "id": "1710762889",
+    "lat": 9.877318,
+    "lng": -84.078649,
+    "heading": 82.93,
+    "shotDate": "2023-04-01 18:27:08.000",
+    "username": "roirobo",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2023/4/2/proc/7052729_46dc7_6428f2d116d1a.jpg"
+   },
+   "truthCode": "CR",
+   "city": "San Juan de Dios"
+  },
+  {
+   "photo": {
+    "id": "1217130693",
+    "lat": 10.322828,
+    "lng": -84.429616,
+    "heading": 0,
+    "shotDate": "2018-07-24 17:27:56.000",
+    "username": "elotrojames",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/1/8/proc/3362249_1716a_5ff80b24759a4.jpg"
+   },
+   "truthCode": "CR",
+   "city": "Quesada"
+  },
+  {
+   "photo": {
+    "id": "1711486569",
+    "lat": 9.931857,
+    "lng": -84.130185,
+    "heading": 239.46,
+    "shotDate": "2023-04-02 14:48:23.000",
+    "username": "roirobo",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2023/4/3/proc/7060601_c4681_642b4efee519f.jpg"
+   },
+   "truthCode": "CR",
+   "city": "San Rafael"
+  },
+  {
+   "photo": {
+    "id": "29503417",
+    "lat": 23.163429,
+    "lng": -82.13194,
+    "heading": null,
+    "shotDate": "2017-04-22 15:18:47.000",
+    "username": "jvlio",
+    "url": "https://api.openstreetcam.org/storage3/files/photo/2017/4/25/proc/162370_7967e_58ff4a148f356.jpg"
+   },
+   "truthCode": "CU",
+   "city": "Guanabo"
+  },
+  {
+   "photo": {
+    "id": "267380079",
+    "lat": 23.06763,
+    "lng": -82.399864,
+    "heading": 277.89,
+    "shotDate": "2018-06-16 17:10:34.000",
+    "username": "jvlio",
+    "url": "https://api.openstreetcam.org/storage8/files/photo/2018/6/19/proc/1252377_962df_28.jpg"
+   },
+   "truthCode": "CU",
+   "city": "Alta Habana"
+  },
+  {
+   "photo": {
+    "id": "264683853",
+    "lat": 34.881743,
+    "lng": 33.593601,
+    "heading": 73.38,
+    "shotDate": "2018-06-12 07:11:49.000",
+    "username": "Bogdan Andrei",
+    "url": "https://api.openstreetcam.org/storage8/files/photo/2018/6/14/proc/1249541_36e1c_36.jpg"
+   },
+   "truthCode": "CY",
+   "city": "Dhromolaxia"
+  },
+  {
+   "photo": {
+    "id": "1712022553",
+    "lat": 34.746932,
+    "lng": 32.472628,
+    "heading": 320.34,
+    "shotDate": "2023-04-06 12:57:02.000",
+    "username": "dennis-g-d",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2023/4/6/proc/7072569_a29b694a8204065bf52d5f0cb8610577.jpg"
+   },
+   "truthCode": "CY",
+   "city": "Koloni"
+  },
+  {
+   "photo": {
+    "id": "1714741033",
+    "lat": 35.169052,
+    "lng": 33.347945,
+    "heading": 66.65,
+    "shotDate": "2023-04-10 14:39:14.000",
+    "username": "dennis-g-d",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2023/4/12/proc/7087801_7ac12aa2d2458deb2c56661d1ae446ad.jpg"
+   },
+   "truthCode": "CY",
+   "city": "Ágios Dométios"
+  },
+  {
+   "photo": {
+    "id": "1966412473",
+    "lat": 49.813163,
+    "lng": 6.424366,
+    "heading": 290.49,
+    "shotDate": "2024-06-02 08:15:08.000",
+    "username": "cyberclems",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2024/6/2/proc/9016953_3d673876893232b5188d16b8e4dd3fd7.jpg"
+   },
+   "truthCode": "DE",
+   "city": "Echternach"
+  },
+  {
+   "photo": {
+    "id": "996073982",
+    "lat": 54.402246,
+    "lng": 10.13457,
+    "heading": 170.61,
+    "shotDate": "2019-08-11 15:17:50.000",
+    "username": "cageythree",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/7/18/proc/2774054_216c9_5f13826c711dc.jpg"
+   },
+   "truthCode": "DE",
+   "city": "Altenholz"
+  },
+  {
+   "photo": {
+    "id": "2626126165",
+    "lat": 49.48524,
+    "lng": 7.894767,
+    "heading": 250.62,
+    "shotDate": "2025-08-21 15:12:48.000",
+    "username": "madflex",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2025/9/28/proc/11610343_d325a_68d916b851237.jpg"
+   },
+   "truthCode": "DE",
+   "city": "Enkenbach-Alsenborn"
+  },
+  {
+   "photo": {
+    "id": "1322409705",
+    "lat": 55.060074,
+    "lng": 8.831119,
+    "heading": 34.73,
+    "shotDate": "2021-05-17 15:26:33.000",
+    "username": "niels-elgaard-larsen",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/6/13/proc/3662637_34955_60c643d19ec8e.jpg"
+   },
+   "truthCode": "DK",
+   "city": "Bredebro"
+  },
+  {
+   "photo": {
+    "id": "1280374565",
+    "lat": 56.7506,
+    "lng": 8.423407,
+    "heading": 115.13,
+    "shotDate": "2019-12-30 09:20:02.000",
+    "username": "dennis-kjaer-jensen",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/4/23/proc/3530777_fa40e_6082119c87b7c.jpg"
+   },
+   "truthCode": "DK",
+   "city": "Hurup"
+  },
+  {
+   "photo": {
+    "id": "1355313425",
+    "lat": 55.327773,
+    "lng": 10.447684,
+    "heading": 18.43,
+    "shotDate": "2021-08-07 16:29:27.000",
+    "username": "niels-elgaard-larsen",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/8/7/proc/3765957_14eec30bdfb7f2f5894255f8e15f6625.jpg"
+   },
+   "truthCode": "DK",
+   "city": "Højby"
+  },
+  {
+   "photo": {
+    "id": "160719233",
+    "lat": 15.48569,
+    "lng": -61.462466,
+    "heading": 62.56,
+    "shotDate": null,
+    "username": "danbjoseph",
+    "url": "https://api.openstreetcam.org/storage6/files/photo/2017/11/10/proc/966641_10a5b_5a05c2221e408.jpg"
+   },
+   "truthCode": "DM",
+   "city": "Colihaut"
+  },
+  {
+   "photo": {
+    "id": "160766671",
+    "lat": 15.372921,
+    "lng": -61.263028,
+    "heading": 92.27,
+    "shotDate": null,
+    "username": "danbjoseph",
+    "url": "https://api.openstreetcam.org/storage6/files/photo/2017/11/10/proc/966673_44485_5a05ca1f94285.jpg"
+   },
+   "truthCode": "DM",
+   "city": "Rosalie"
+  },
+  {
+   "photo": {
+    "id": "160786181",
+    "lat": 15.434695,
+    "lng": -61.434965,
+    "heading": 151,
+    "shotDate": null,
+    "username": "danbjoseph",
+    "url": "https://api.openstreetcam.org/storage6/files/photo/2017/11/10/proc/966751_b9022_5a05de7f9f154.jpg"
+   },
+   "truthCode": "DM",
+   "city": "Salisbury"
+  },
+  {
+   "photo": {
+    "id": "139998395",
+    "lat": -2.900466,
+    "lng": -78.935007,
+    "heading": 326.6,
+    "shotDate": "2017-10-09 22:49:56.000",
+    "username": "juan-sardi",
+    "url": "https://api.openstreetcam.org/storage6/files/photo/2017/10/10/proc/935885_15ba9_49.jpg"
+   },
+   "truthCode": "EC",
+   "city": "Paccha"
+  },
+  {
+   "photo": {
+    "id": "178504317",
+    "lat": -0.954311,
+    "lng": -78.695326,
+    "heading": 131.86,
+    "shotDate": "2017-12-12 19:05:22.000",
+    "username": "wilman-norberto-vasconez-barahona",
+    "url": "https://api.openstreetcam.org/storage6/files/photo/2017/12/13/proc/985101_78059_31.jpg"
+   },
+   "truthCode": "EC",
+   "city": "Pujilí"
+  },
+  {
+   "photo": {
+    "id": "167163727",
+    "lat": -1.916063,
+    "lng": -78.639135,
+    "heading": 115.96,
+    "shotDate": "2017-11-21 16:41:35.000",
+    "username": "juan-sardi",
+    "url": "https://api.openstreetcam.org/storage6/files/photo/2017/11/22/proc/973667_90930_46.jpg"
+   },
+   "truthCode": "EC",
+   "city": "Cebadas"
+  },
+  {
+   "photo": {
+    "id": "10359906",
+    "lat": 59.376984,
+    "lng": 24.682191,
+    "heading": 2.72,
+    "shotDate": "2016-10-02 10:31:11.000",
+    "username": "telenavdrives",
+    "url": "https://api.openstreetcam.org/storage2/files/photo/2016/10/20/proc/25451_71986_580894f64ec37.jpg"
+   },
+   "truthCode": "EE",
+   "city": "Nõmme"
+  },
+  {
+   "photo": {
+    "id": "1069350218",
+    "lat": 59.165333,
+    "lng": 24.755916,
+    "heading": 169.12,
+    "shotDate": "2018-06-01 12:08:02.000",
+    "username": "changchun_1",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/8/29/proc/2960358_b9161_5f49a25780701.jpg"
+   },
+   "truthCode": "EE",
+   "city": "Kohila"
+  },
+  {
+   "photo": {
+    "id": "1317358257",
+    "lat": 58.369195,
+    "lng": 25.585253,
+    "heading": 317.93,
+    "shotDate": "2021-06-05 09:17:30.000",
+    "username": "boscu",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/6/6/proc/3641909_89f13701ecb123397f6486084006a1c5.jpg"
+   },
+   "truthCode": "EE",
+   "city": "Viljandi"
+  },
+  {
+   "photo": {
+    "id": "1201232213",
+    "lat": 31.04646,
+    "lng": 30.84962,
+    "heading": 174.1,
+    "shotDate": "2020-12-07 10:01:19.000",
+    "username": "wael-elkoumi",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/12/7/proc/3316881_7430948d7ecfb94135caf904e3dbdd10.jpg"
+   },
+   "truthCode": "EG",
+   "city": "Qillīn"
+  },
+  {
+   "photo": {
+    "id": "1068532678",
+    "lat": 60.219532,
+    "lng": 25.122459,
+    "heading": 67.18,
+    "shotDate": "2018-05-16 08:02:19.000",
+    "username": "changchun_1",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/8/28/proc/2957886_f73bc_5f4959cd547ce.jpg"
+   },
+   "truthCode": "FI",
+   "city": "Vartioharju"
+  },
+  {
+   "photo": {
+    "id": "15230933",
+    "lat": 61.506911,
+    "lng": 23.775421,
+    "heading": 74.14,
+    "shotDate": "2017-01-06 17:30:38.000",
+    "username": "MapMick",
+    "url": "https://api.openstreetcam.org/storage2/files/photo/2017/1/21/proc/31483_bf31a_5883045ee9db0.jpg"
+   },
+   "truthCode": "FI",
+   "city": "Osmonmäki"
+  },
+  {
+   "photo": {
+    "id": "973458646",
+    "lat": 60.417923,
+    "lng": 22.293079,
+    "heading": 124.98,
+    "shotDate": "2020-07-04 14:40:32.000",
+    "username": "julius-eskola",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/7/4/proc/2730898_3962e9d6859b4a07471a00e92fada643.jpg"
+   },
+   "truthCode": "FI",
+   "city": "Ilpoinen"
+  },
+  {
+   "photo": {
+    "id": "11816231",
+    "lat": 43.754475,
+    "lng": 7.430728,
+    "heading": 272.71,
+    "shotDate": "2016-10-30 14:49:31.000",
+    "username": "telenavdrives",
+    "url": "https://api.openstreetcam.org/storage2/files/photo/2016/11/16/proc/27471_e0a45_582c1b9f8fd5c.jpg"
+   },
+   "truthCode": "FR",
+   "city": "Saint-Roman"
+  },
+  {
+   "photo": {
+    "id": "1194755053",
+    "lat": 49.348156,
+    "lng": 2.608306,
+    "heading": 11.44,
+    "shotDate": "2018-04-05 12:18:05.000",
+    "username": "zors1843",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/11/28/proc/3300029_a5b69_5fc260aeabeff.jpg"
+   },
+   "truthCode": "FR",
+   "city": "Saint-Martin-Longueau"
+  },
+  {
+   "photo": {
+    "id": "1128913526",
+    "lat": 49.33161,
+    "lng": 1.092531,
+    "heading": 78.28,
+    "shotDate": null,
+    "username": "maftieu",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/10/12/proc/3134406_3fafe_5f84194b12556.jpg"
+   },
+   "truthCode": "FR",
+   "city": "Oissel-sur-Seine"
+  },
+  {
+   "photo": {
+    "id": "2085609385",
+    "lat": 52.948294,
+    "lng": -3.989856,
+    "heading": 0,
+    "shotDate": "2024-09-07 15:15:09.000",
+    "username": "rac-uk",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2024/9/7/proc/9475161_c20d174e1766ecfe20034c60c614542c.jpg"
+   },
+   "truthCode": "GB",
+   "city": "Maentwrog"
+  },
+  {
+   "photo": {
+    "id": "1903916329",
+    "lat": 51.88956,
+    "lng": 0.818581,
+    "heading": 250.79,
+    "shotDate": "2024-01-29 09:56:23.000",
+    "username": "ipswichedits",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2024/1/29/proc/8532249_ed423_65b7ae522e00f.jpg"
+   },
+   "truthCode": "GB",
+   "city": "Eight Ash Green"
+  },
+  {
+   "photo": {
+    "id": "1293987957",
+    "lat": 52.248136,
+    "lng": 0.811408,
+    "heading": 305.38,
+    "shotDate": "2019-05-23 17:20:07.000",
+    "username": "leoaye",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/5/8/proc/3572173_bf13e_60967f210f2d2.jpg"
+   },
+   "truthCode": "GB",
+   "city": "Thurston"
+  },
+  {
+   "photo": {
+    "id": "16426535",
+    "lat": 41.818589,
+    "lng": 44.755955,
+    "heading": 75.87,
+    "shotDate": null,
+    "username": "skorbut",
+    "url": "https://api.openstreetcam.org/storage2/files/photo/2017/2/5/proc/47739_78728_5897370e2a467.jpg"
+   },
+   "truthCode": "GE",
+   "city": "Zahesi"
+  },
+  {
+   "photo": {
+    "id": "16430023",
+    "lat": 41.921524,
+    "lng": 44.415852,
+    "heading": 122.18,
+    "shotDate": null,
+    "username": "skorbut",
+    "url": "https://api.openstreetcam.org/storage2/files/photo/2017/2/5/proc/47758_8f47e_58973accdaebc.jpg"
+   },
+   "truthCode": "GE",
+   "city": "Kaspi"
+  },
+  {
+   "photo": {
+    "id": "16435797",
+    "lat": 41.644081,
+    "lng": 42.98344,
+    "heading": 37.54,
+    "shotDate": null,
+    "username": "skorbut",
+    "url": "https://api.openstreetcam.org/storage2/files/photo/2017/2/5/proc/47782_95084_58974109cf452.jpg"
+   },
+   "truthCode": "GE",
+   "city": "Akhaltsikhe"
+  },
+  {
+   "photo": {
+    "id": "1761490633",
+    "lat": 40.267371,
+    "lng": 23.229391,
+    "heading": 117.11,
+    "shotDate": "2023-07-08 12:10:01.000",
+    "username": "boyan-alexiev",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2023/7/9/proc/7517849_5921eef200a346bef28209a3ca12fc1a.jpg"
+   },
+   "truthCode": "GR",
+   "city": "Néa Flogitá"
+  },
+  {
+   "photo": {
+    "id": "1061487202",
+    "lat": 35.514148,
+    "lng": 23.921395,
+    "heading": 252.5,
+    "shotDate": "2017-10-03 10:09:07.000",
+    "username": "teddy73",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/8/22/proc/2942270_9f24b_5f414b8ee2d6c.jpg"
+   },
+   "truthCode": "GR",
+   "city": "Agía Marína"
+  },
+  {
+   "photo": {
+    "id": "139744971",
+    "lat": 38.031966,
+    "lng": 23.823372,
+    "heading": null,
+    "shotDate": "2017-10-09 09:46:44.000",
+    "username": "gavgerinos",
+    "url": "https://api.openstreetcam.org/storage6/files/photo/2017/10/9/proc/935555_cb60f_15.jpg"
+   },
+   "truthCode": "GR",
+   "city": "Vrilissia"
+  },
+  {
+   "photo": {
+    "id": "1263236717",
+    "lat": -10.15307,
+    "lng": 123.614435,
+    "heading": 74.81,
+    "shotDate": null,
+    "username": "yermias-kapa-kado",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/3/29/proc/3481345_64b82_60612a4d69a6b.jpg"
+   },
+   "truthCode": "ID",
+   "city": "Kelapalima"
+  },
+  {
+   "photo": {
+    "id": "31178158",
+    "lat": 51.552621,
+    "lng": -9.270015,
+    "heading": 242.84,
+    "shotDate": "2017-04-29 14:48:30.000",
+    "username": "mackerski",
+    "url": "https://api.openstreetcam.org/storage3/files/photo/2017/5/2/proc/165133_17988_5908c54136e18.jpg"
+   },
+   "truthCode": "IE",
+   "city": "Skibbereen"
+  },
+  {
+   "photo": {
+    "id": "1479206825",
+    "lat": 53.278381,
+    "lng": -6.107034,
+    "heading": 172.62,
+    "shotDate": "2022-04-24 16:43:37.000",
+    "username": "yaniskyr",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2022/4/24/proc/5106297_92473b5d3febccafd19a2d688096870c.jpg"
+   },
+   "truthCode": "IE",
+   "city": "Dalkey"
+  },
+  {
+   "photo": {
+    "id": "1463256217",
+    "lat": 53.522778,
+    "lng": -6.098347,
+    "heading": 270.85,
+    "shotDate": "2022-04-06 15:38:14.000",
+    "username": "yaniskyr",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2022/4/6/proc/5017097_4e87ced7456ffe73ff54579975e9a69e.jpg"
+   },
+   "truthCode": "IE",
+   "city": "An Ros"
+  },
+  {
+   "photo": {
+    "id": "19039426",
+    "lat": 32.541753,
+    "lng": 34.91599,
+    "heading": 211.88,
+    "shotDate": "2017-03-02 14:54:27.000",
+    "username": "YfrPcI4RzVGr",
+    "url": "https://api.openstreetcam.org/storage2/files/photo/2017/3/2/proc/50518_e22a4_58b8800535321.jpg"
+   },
+   "truthCode": "IL",
+   "city": "Jisr ez Zarqā"
+  },
+  {
+   "photo": {
+    "id": "16392703",
+    "lat": 32.252992,
+    "lng": 77.176846,
+    "heading": 116.9,
+    "shotDate": null,
+    "username": "skorbut",
+    "url": "https://api.openstreetcam.org/storage2/files/photo/2017/2/5/proc/47681_17b06_5896f4ee4b9ec.jpg"
+   },
+   "truthCode": "IN",
+   "city": "Manāli"
+  },
+  {
+   "photo": {
+    "id": "1867980665",
+    "lat": 9.658563,
+    "lng": 76.379227,
+    "heading": 232.74,
+    "shotDate": "2023-11-29 11:27:32.000",
+    "username": "vis-m",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2023/11/29/proc/8325065_c7f06e941995dd13b76022625e87b606.jpg"
+   },
+   "truthCode": "IN",
+   "city": "Thanneermukkom"
+  },
+  {
+   "photo": {
+    "id": "1036395166",
+    "lat": 64.132094,
+    "lng": -21.892025,
+    "heading": 108.73,
+    "shotDate": "2019-08-03 09:15:34.000",
+    "username": "Kjarrval",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/8/6/proc/2874902_b4939_5f2c6fd2b74f0.jpg"
+   },
+   "truthCode": "IS",
+   "city": "Reykjavík"
+  },
+  {
+   "photo": {
+    "id": "1031849558",
+    "lat": 66.070844,
+    "lng": -23.14046,
+    "heading": 55.27,
+    "shotDate": "2019-06-23 17:02:13.000",
+    "username": "Kjarrval",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/8/4/proc/2862522_2bfb8_5f294771e3a81.jpg"
+   },
+   "truthCode": "IS",
+   "city": "Ísafjörður"
+  },
+  {
+   "photo": {
+    "id": "1038405294",
+    "lat": 65.970784,
+    "lng": -18.532441,
+    "heading": 193.25,
+    "shotDate": "2019-08-05 08:27:24.000",
+    "username": "Kjarrval",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/8/8/proc/2882270_4d164_5f2df5a65909e.jpg"
+   },
+   "truthCode": "IS",
+   "city": "Dalvík"
+  },
+  {
+   "photo": {
+    "id": "2294013",
+    "lat": 41.901417,
+    "lng": 12.458129,
+    "heading": 180.32,
+    "shotDate": null,
+    "username": "telenavdrives",
+    "url": "https://api.openstreetcam.org/storage1/files/photo/2016/6/16/proc/7505_108ad_5762040da801c.jpg"
+   },
+   "truthCode": "IT",
+   "city": "Vatican City"
+  },
+  {
+   "photo": {
+    "id": "2833629",
+    "lat": 46.186859,
+    "lng": 12.290535,
+    "heading": 230.65,
+    "shotDate": "2016-06-25 08:59:30.000",
+    "username": "telenavdrives",
+    "url": "https://api.openstreetcam.org/storage1/files/photo/2016/6/27/proc/8363_8b47d_5771061b91495.jpg"
+   },
+   "truthCode": "IT",
+   "city": "Ponte nelle Alpi"
+  },
+  {
+   "photo": {
+    "id": "1686099849",
+    "lat": 31.680656,
+    "lng": 35.725885,
+    "heading": 263.45,
+    "shotDate": "2023-01-23 09:57:44.000",
+    "username": "gk0112127093203",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2023/1/25/proc/6650633_a54c5_63d0a37036a40.jpg"
+   },
+   "truthCode": "JO",
+   "city": "Mā‘īn"
+  },
+  {
+   "photo": {
+    "id": "1692870649",
+    "lat": 31.176667,
+    "lng": 35.703507,
+    "heading": 359.11,
+    "shotDate": "2023-01-17 12:09:09.000",
+    "username": "connected-motion",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2023/2/6/proc/6720265_1debf_63e08d1b865b1.jpg"
+   },
+   "truthCode": "JO",
+   "city": "Qīr Moāv"
+  },
+  {
+   "photo": {
+    "id": "1690396249",
+    "lat": 32.350378,
+    "lng": 36.227158,
+    "heading": 4.46,
+    "shotDate": "2023-01-30 08:49:20.000",
+    "username": "gk0112127159903",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2023/2/1/proc/6704297_ca906_63da8e5202f87.jpg"
+   },
+   "truthCode": "JO",
+   "city": "Muthallath Jāmi‘at Āl al Bayt"
+  },
+  {
+   "photo": {
+    "id": "673808842",
+    "lat": 35.571776,
+    "lng": 139.732404,
+    "heading": null,
+    "shotDate": null,
+    "username": "hayashi",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/5/5/proc/2195554_d084b_5eb0fd729bb0a.jpg"
+   },
+   "truthCode": "JP",
+   "city": "Ōmorinaka"
+  },
+  {
+   "photo": {
+    "id": "4755060",
+    "lat": 37.744192,
+    "lng": 140.463374,
+    "heading": 298.92,
+    "shotDate": "2016-07-25 01:45:27.000",
+    "username": "ken50map",
+    "url": "https://api.openstreetcam.org/storage1/files/photo/2016/7/25/proc/10364_ff07a_57957e903ad67.jpg"
+   },
+   "truthCode": "JP",
+   "city": "Fukushima"
+  },
+  {
+   "photo": {
+    "id": "139392443",
+    "lat": 35.671938,
+    "lng": 139.74378,
+    "heading": 69,
+    "shotDate": "2017-10-08 11:05:18.000",
+    "username": "Matt H@Japan",
+    "url": "https://api.openstreetcam.org/storage6/files/photo/2017/10/8/proc/935057_0b07b_38.jpg"
+   },
+   "truthCode": "JP",
+   "city": "Toranomon"
+  },
+  {
+   "photo": {
+    "id": "179775577",
+    "lat": 29.359486,
+    "lng": 47.98217,
+    "heading": 254.78,
+    "shotDate": null,
+    "username": "Skippern",
+    "url": "https://api.openstreetcam.org/storage3/files/photo/2017/12/15/proc/986257_6759f_5a3444478ccf2.jpg"
+   },
+   "truthCode": "KW",
+   "city": "Al Murqāb"
+  },
+  {
+   "photo": {
+    "id": "92109413",
+    "lat": 29.272782,
+    "lng": 47.965279,
+    "heading": 294.87,
+    "shotDate": null,
+    "username": "Skippern",
+    "url": "https://api.openstreetcam.org/storage5/files/photo/2017/8/9/proc/521619_385dc_598b94600a78d.jpg"
+   },
+   "truthCode": "KW",
+   "city": "Al Farwānīyah"
+  },
+  {
+   "photo": {
+    "id": "1288694637",
+    "lat": 34.431155,
+    "lng": 35.84388,
+    "heading": 205.59,
+    "shotDate": "2018-07-19 10:42:18.000",
+    "username": "leoaye",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/5/5/proc/3554817_4a7cd_6092a1a11f6b5.jpg"
+   },
+   "truthCode": "LB",
+   "city": "Tripoli"
+  },
+  {
+   "photo": {
+    "id": "1288728685",
+    "lat": 33.69576,
+    "lng": 35.583098,
+    "heading": 251.38,
+    "shotDate": "2018-07-20 08:38:10.000",
+    "username": "leoaye",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/5/5/proc/3554969_31c49_6092a7090301b.jpg"
+   },
+   "truthCode": "LB",
+   "city": "Beït ed Dîne"
+  },
+  {
+   "photo": {
+    "id": "2449792089",
+    "lat": 47.240956,
+    "lng": 9.51944,
+    "heading": 27.62,
+    "shotDate": "2024-09-24 15:11:56.000",
+    "username": "madflex",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2024/10/3/proc/9993561_82c28_66ff10233a30a.jpg"
+   },
+   "truthCode": "LI",
+   "city": "Ruggell"
+  },
+  {
+   "photo": {
+    "id": "2449769481",
+    "lat": 47.166754,
+    "lng": 9.506422,
+    "heading": 41.16,
+    "shotDate": "2024-09-24 14:48:22.000",
+    "username": "madflex",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2024/10/3/proc/9993561_e6d75_66ff0ccee6789.jpg"
+   },
+   "truthCode": "LI",
+   "city": "Schaan"
+  },
+  {
+   "photo": {
+    "id": "1297180181",
+    "lat": 6.772934,
+    "lng": 79.884794,
+    "heading": 270,
+    "shotDate": "2021-05-09 12:44:16.000",
+    "username": "ishan-uditha",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/5/11/proc/3580225_5ba91b2b237ac07d837c3fa4ca3b7028.jpg"
+   },
+   "truthCode": "LK",
+   "city": "Moratuwa"
+  },
+  {
+   "photo": {
+    "id": "1432757417",
+    "lat": 7.486558,
+    "lng": 80.364752,
+    "heading": 209.47,
+    "shotDate": "2022-02-15 04:52:58.000",
+    "username": "sahanbsb",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2022/2/15/proc/4531529_64268_620bd1b708491.jpg"
+   },
+   "truthCode": "LK",
+   "city": "Kurunegala"
+  },
+  {
+   "photo": {
+    "id": "1396002053",
+    "lat": 8.353239,
+    "lng": 80.509672,
+    "heading": 1.47,
+    "shotDate": "2021-12-12 07:33:39.000",
+    "username": "ishan-uditha",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/12/13/proc/3998789_6dabc174d2fc6a14f7e606883447eea2.jpg"
+   },
+   "truthCode": "LK",
+   "city": "Mihintale"
+  },
+  {
+   "photo": {
+    "id": "95846851",
+    "lat": 54.73135,
+    "lng": 25.237157,
+    "heading": null,
+    "shotDate": "2017-08-13 14:44:22.000",
+    "username": "ciprian-habuc",
+    "url": "https://api.openstreetcam.org/storage5/files/photo/2017/8/13/proc/525939_60fd4_37.jpg"
+   },
+   "truthCode": "LT",
+   "city": "Fabijoniškės"
+  },
+  {
+   "photo": {
+    "id": "1353798113",
+    "lat": 55.594104,
+    "lng": 23.211214,
+    "heading": 88.41,
+    "shotDate": null,
+    "username": "talkless",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/8/5/proc/3760817_cdc67_610bb2dfc1693.jpg"
+   },
+   "truthCode": "LT",
+   "city": "Tytuvėnai"
+  },
+  {
+   "photo": {
+    "id": "328338001",
+    "lat": 49.642722,
+    "lng": 6.216271,
+    "heading": 275,
+    "shotDate": "2018-10-09 09:23:36.000",
+    "username": "telenavdrives",
+    "url": "https://api.openstreetcam.org/storage9/files/photo/2018/10/29/proc/1302771_6ae6b_8074.jpg"
+   },
+   "truthCode": "LU",
+   "city": "Senningerberg"
+  },
+  {
+   "photo": {
+    "id": "3591768",
+    "lat": 49.541617,
+    "lng": 6.154581,
+    "heading": 222.94,
+    "shotDate": "2016-06-28 17:37:26.000",
+    "username": "telenavdrives",
+    "url": "https://api.openstreetcam.org/storage1/files/photo/2016/7/5/proc/8820_35eee_577c04381033b.jpg"
+   },
+   "truthCode": "LU",
+   "city": "Crauthem"
+  },
+  {
+   "photo": {
+    "id": "307086435",
+    "lat": 49.618755,
+    "lng": 6.134831,
+    "heading": 265.14,
+    "shotDate": "2018-08-31 12:00:27.000",
+    "username": "Stereo",
+    "url": "https://api.openstreetcam.org/storage9/files/photo/2018/8/31/proc/1284615_0_b1359_13.jpg"
+   },
+   "truthCode": "LU",
+   "city": "Pfaffenthal"
+  },
+  {
+   "photo": {
+    "id": "1055536338",
+    "lat": 56.552769,
+    "lng": 21.011829,
+    "heading": 340.57,
+    "shotDate": "2017-07-03 11:06:31.000",
+    "username": "changchun_1",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/8/16/proc/2923746_9a143_5f39a2b8eed0d.jpg"
+   },
+   "truthCode": "LV",
+   "city": "Karosta"
+  },
+  {
+   "photo": {
+    "id": "286712367",
+    "lat": 56.665023,
+    "lng": 22.483818,
+    "heading": 263.08,
+    "shotDate": "2018-07-15 08:51:46.000",
+    "username": "jptrek974",
+    "url": "https://api.openstreetcam.org/storage8/files/photo/2018/7/17/proc/1266973_52_ac2eb_64.jpg"
+   },
+   "truthCode": "LV",
+   "city": "Saldus"
+  },
+  {
+   "photo": {
+    "id": "1455172489",
+    "lat": 57.901164,
+    "lng": 25.340642,
+    "heading": 227.26,
+    "shotDate": "2022-03-21 14:16:50.000",
+    "username": "auser0",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2022/3/21/proc/4861721_1d2bb_6238b55559f1e.jpg"
+   },
+   "truthCode": "LV",
+   "city": "Rūjiena"
+  },
+  {
+   "photo": {
+    "id": "1197839405",
+    "lat": 27.549744,
+    "lng": 13.632908,
+    "heading": 262.06,
+    "shotDate": "2020-12-03 11:27:26.000",
+    "username": "aabd-lsl-m-blk-sm",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/12/3/proc/3309341_85b6f_5fc8cd712b43a.jpg"
+   },
+   "truthCode": "LY",
+   "city": "Barqin"
+  },
+  {
+   "photo": {
+    "id": "1172724233",
+    "lat": 31.956537,
+    "lng": 12.025478,
+    "heading": 85.3,
+    "shotDate": "2020-11-13 13:33:32.000",
+    "username": "aal-ldyn-bn-saayd",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/11/14/proc/3241865_8efbca67fc14f26615b31cb2bef57856.jpg"
+   },
+   "truthCode": "LY",
+   "city": "Jādū"
+  },
+  {
+   "photo": {
+    "id": "1202216369",
+    "lat": 26.586965,
+    "lng": 12.773408,
+    "heading": 160.58,
+    "shotDate": "2020-12-08 13:55:25.000",
+    "username": "bdrmhmd",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/12/9/proc/3319733_568075f337afa2243811830f534fb92c.jpg"
+   },
+   "truthCode": "LY",
+   "city": "Ubari"
+  },
+  {
+   "photo": {
+    "id": "1450574601",
+    "lat": 30.574386,
+    "lng": -7.206592,
+    "heading": 50.95,
+    "shotDate": "2022-03-14 10:09:39.000",
+    "username": "ahmed-ait",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2022/3/14/proc/4738153_b1628ea6d532e7adc51ade2c75f5c364.jpg"
+   },
+   "truthCode": "MA",
+   "city": "Taznakht"
+  },
+  {
+   "photo": {
+    "id": "341371351",
+    "lat": 43.743576,
+    "lng": 7.426391,
+    "heading": 44,
+    "shotDate": "2018-12-25 15:23:10.000",
+    "username": "mds08011",
+    "url": "https://api.openstreetcam.org/storage8/files/photo/2018/12/25/proc/1318991_d6a70_321.jpg"
+   },
+   "truthCode": "MC",
+   "city": "La Rousse"
+  },
+  {
+   "photo": {
+    "id": "341409091",
+    "lat": 43.729138,
+    "lng": 7.412398,
+    "heading": 219,
+    "shotDate": "2018-12-25 14:33:48.000",
+    "username": "mds08011",
+    "url": "https://api.openstreetcam.org/storage8/files/photo/2018/12/25/proc/1319023_db5b7_469.jpg"
+   },
+   "truthCode": "MC",
+   "city": "Fontvieille"
+  },
+  {
+   "photo": {
+    "id": "1363184565",
+    "lat": 43.732307,
+    "lng": 7.413382,
+    "heading": 188.22,
+    "shotDate": "2019-04-21 16:34:40.000",
+    "username": "thetornado76",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/8/15/proc/3789521_044a2_611999a5de932.jpg"
+   },
+   "truthCode": "MC",
+   "city": "Moneghetti"
+  },
+  {
+   "photo": {
+    "id": "431379442",
+    "lat": 42.095986,
+    "lng": 19.094549,
+    "heading": 341,
+    "shotDate": "2019-06-11 11:16:55.000",
+    "username": "brackone",
+    "url": "https://api.openstreetcam.org/storage11/files/photo/2019/6/11/proc/1518918_cfedb_186.jpg"
+   },
+   "truthCode": "ME",
+   "city": "Bar"
+  },
+  {
+   "photo": {
+    "id": "1325657061",
+    "lat": 43.157108,
+    "lng": 19.121208,
+    "heading": 0,
+    "shotDate": "2021-06-20 12:40:53.000",
+    "username": "pinok",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/6/20/proc/3683701_45b15c43444fcae2b4f042182e03ba73.jpg"
+   },
+   "truthCode": "ME",
+   "city": "Žabljak"
+  },
+  {
+   "photo": {
+    "id": "417036574",
+    "lat": 42.772218,
+    "lng": 18.95041,
+    "heading": 245,
+    "shotDate": "2019-05-23 09:39:58.000",
+    "username": "brackone",
+    "url": "https://api.openstreetcam.org/storage11/files/photo/2019/5/23/proc/1456862_bfb3d_1998.jpg"
+   },
+   "truthCode": "ME",
+   "city": "Nikšić"
+  },
+  {
+   "photo": {
+    "id": "1409900233",
+    "lat": 35.863059,
+    "lng": 14.510589,
+    "heading": 116.4,
+    "shotDate": "2022-01-09 15:22:59.000",
+    "username": "kpull",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2022/1/9/proc/4177945_5a86e_61db072266d04.jpg"
+   },
+   "truthCode": "MT",
+   "city": "Santa Luċija"
+  },
+  {
+   "photo": {
+    "id": "1409909353",
+    "lat": 35.871638,
+    "lng": 14.496327,
+    "heading": 290.55,
+    "shotDate": "2022-01-09 15:36:55.000",
+    "username": "kpull",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2022/1/9/proc/4177945_1b30a_61db083eebf31.jpg"
+   },
+   "truthCode": "MT",
+   "city": "Paola"
+  },
+  {
+   "photo": {
+    "id": "817618974",
+    "lat": 4.204594,
+    "lng": 100.674713,
+    "heading": null,
+    "shotDate": "2020-06-16 06:42:58.000",
+    "username": "chong-weei-sean",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/6/16/proc/2400018_2_fd46f_37.jpg"
+   },
+   "truthCode": "MY",
+   "city": "Seri Manjung"
+  },
+  {
+   "photo": {
+    "id": "896877070",
+    "lat": 5.465287,
+    "lng": 100.283873,
+    "heading": 261.57,
+    "shotDate": "2020-06-27 05:12:37.000",
+    "username": "alan-yau",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/6/27/proc/2721470_746de09bd184d1153e2bfc8c1eed1e44.jpg"
+   },
+   "truthCode": "MY",
+   "city": "Tanjung Bungah"
+  },
+  {
+   "photo": {
+    "id": "1395498353",
+    "lat": 4.513115,
+    "lng": 103.44409,
+    "heading": 190.21,
+    "shotDate": "2021-12-10 04:21:37.000",
+    "username": "jeddy",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/12/10/proc/3995673_b2a506f2bef4089cff4e19834c35d535.jpg"
+   },
+   "truthCode": "MY",
+   "city": "Kertih"
+  },
+  {
+   "photo": {
+    "id": "2022397465",
+    "lat": 53.325302,
+    "lng": 6.000722,
+    "heading": 133,
+    "shotDate": null,
+    "username": "changchun_1",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2024/7/25/proc/9210601_0c7c1_66a213ec80374.jpg"
+   },
+   "truthCode": "NL",
+   "city": "Dokkum"
+  },
+  {
+   "photo": {
+    "id": "1090729302",
+    "lat": 51.6091,
+    "lng": 4.790754,
+    "heading": 183.74,
+    "shotDate": "2020-07-28 08:04:27.000",
+    "username": "teddy73",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/9/14/proc/3019906_22eef_5f5fa8180be4e.jpg"
+   },
+   "truthCode": "NL",
+   "city": "Biesdonk"
+  },
+  {
+   "photo": {
+    "id": "2020660025",
+    "lat": 51.972203,
+    "lng": 4.314252,
+    "heading": 225,
+    "shotDate": null,
+    "username": "changchun_1",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2024/7/24/proc/9202409_e99ea_66a065f61877e.jpg"
+   },
+   "truthCode": "NL",
+   "city": "Schipluiden"
+  },
+  {
+   "photo": {
+    "id": "319807409",
+    "lat": 59.91192,
+    "lng": 10.741453,
+    "heading": 270.7,
+    "shotDate": "2018-10-11 09:06:56.000",
+    "username": "ecloud",
+    "url": "https://api.openstreetcam.org/storage9/files/photo/2018/10/11/proc/1297805_23_f6516_51.jpg"
+   },
+   "truthCode": "NO",
+   "city": "Oslo"
+  },
+  {
+   "photo": {
+    "id": "1784454153",
+    "lat": 58.095748,
+    "lng": 6.79854,
+    "heading": 83.8,
+    "shotDate": "2023-08-10 20:28:57.000",
+    "username": "m-e-menk",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2023/8/12/proc/7649257_3fafe_64d7689cd30d8.jpg"
+   },
+   "truthCode": "NO",
+   "city": "Farsund"
+  },
+  {
+   "photo": {
+    "id": "1506369673",
+    "lat": 59.744938,
+    "lng": 10.203902,
+    "heading": 112.01,
+    "shotDate": "2021-08-21 10:04:03.000",
+    "username": "patchie",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2022/6/1/proc/5290761_55a545c26392861e89695866e6032f67.jpg"
+   },
+   "truthCode": "NO",
+   "city": "Drammen"
+  },
+  {
+   "photo": {
+    "id": "396211706",
+    "lat": -35.729253,
+    "lng": 174.314871,
+    "heading": 53.51,
+    "shotDate": "2019-04-23 00:58:23.000",
+    "username": "harrison-spooner",
+    "url": "https://api.openstreetcam.org/storage11/files/photo/2019/4/25/proc/1386882_0_f5d02_36.jpg"
+   },
+   "truthCode": "NZ",
+   "city": "Morningside"
+  },
+  {
+   "photo": {
+    "id": "1032990486",
+    "lat": -40.382898,
+    "lng": 175.631237,
+    "heading": 151.78,
+    "shotDate": "2017-04-18 04:10:58.000",
+    "username": "nigelramsay",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/8/4/proc/2864502_3f0f2_5f29f845325c5.jpg"
+   },
+   "truthCode": "NZ",
+   "city": "Fitzherbert"
+  },
+  {
+   "photo": {
+    "id": "691755166",
+    "lat": -44.729264,
+    "lng": 171.054659,
+    "heading": null,
+    "shotDate": "2020-05-01 01:47:22.000",
+    "username": "david-blyth",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/5/11/proc/2220250_504f9_1635.jpg"
+   },
+   "truthCode": "NZ",
+   "city": "Waimate"
+  },
+  {
+   "photo": {
+    "id": "1378739649",
+    "lat": 17.833848,
+    "lng": 52.660565,
+    "heading": 259.09,
+    "shotDate": "2020-11-25 13:41:50.000",
+    "username": "vincent-bombaerts",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/9/22/proc/3852793_ef4d5_614a75fe67a2f.jpg"
+   },
+   "truthCode": "OM",
+   "city": "Al Mazyūnah"
+  },
+  {
+   "photo": {
+    "id": "1378451677",
+    "lat": 17.012001,
+    "lng": 54.090478,
+    "heading": 299.35,
+    "shotDate": "2020-09-14 12:23:20.000",
+    "username": "vincent-bombaerts",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/9/21/proc/3851793_b56b6_614a532b5b85e.jpg"
+   },
+   "truthCode": "OM",
+   "city": "Şalālah"
+  },
+  {
+   "photo": {
+    "id": "1630666057",
+    "lat": 26.197013,
+    "lng": 56.254032,
+    "heading": 332,
+    "shotDate": "2022-10-14 13:04:04.000",
+    "username": "dennis-g-d",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2022/10/15/proc/6216025_994e747f9ed5d2db95ff1cdb524c5277.jpg"
+   },
+   "truthCode": "OM",
+   "city": "Dib Dibba"
+  },
+  {
+   "photo": {
+    "id": "2578086921",
+    "lat": 14.386253,
+    "lng": 121.049949,
+    "heading": 108.32,
+    "shotDate": "2025-06-13 02:22:00.000",
+    "username": "angel-astin-julliana-r-corlit",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2025/6/13/proc/11393609_28c03_684b9e986022a.jpg"
+   },
+   "truthCode": "PH",
+   "city": "Muntinlupa"
+  },
+  {
+   "photo": {
+    "id": "1311741145",
+    "lat": 53.723002,
+    "lng": 18.932407,
+    "heading": 305.92,
+    "shotDate": "2021-05-30 07:21:20.000",
+    "username": "and987",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/5/30/proc/3614249_c856628a662e357d2d198373e0bc7232.jpg"
+   },
+   "truthCode": "PL",
+   "city": "Kwidzyn"
+  },
+  {
+   "photo": {
+    "id": "1024019498",
+    "lat": 50.671499,
+    "lng": 17.922976,
+    "heading": 326.04,
+    "shotDate": "2019-12-24 09:10:04.000",
+    "username": "ekeshkekesh",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/7/31/proc/2842546_c16ae_5f2445980aa8d.jpg"
+   },
+   "truthCode": "PL",
+   "city": "Opole"
+  },
+  {
+   "photo": {
+    "id": "1204772545",
+    "lat": 50.018148,
+    "lng": 22.224802,
+    "heading": 181.73,
+    "shotDate": "2020-12-11 11:11:32.000",
+    "username": "czecko",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/12/12/proc/3325609_0594b_5fd4da71004a7.jpg"
+   },
+   "truthCode": "PL",
+   "city": "Albigowa"
+  },
+  {
+   "photo": {
+    "id": "2019674633",
+    "lat": 32.795215,
+    "lng": -17.040369,
+    "heading": 288.67,
+    "shotDate": "2024-07-15 11:05:58.000",
+    "username": "thetornado76",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2024/7/23/proc/9198521_a7eac431726bc78babd7c54aa3ac6aab.jpg"
+   },
+   "truthCode": "PT",
+   "city": "São Vicente"
+  },
+  {
+   "photo": {
+    "id": "2477836249",
+    "lat": 41.154492,
+    "lng": -8.582764,
+    "heading": 157.59,
+    "shotDate": "2024-10-14 13:14:03.000",
+    "username": "alchimista",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2024/10/20/proc/10063241_7f40206046d9561d15c2412841bb6e98.jpg"
+   },
+   "truthCode": "PT",
+   "city": "Godim"
+  },
+  {
+   "photo": {
+    "id": "2254454425",
+    "lat": 41.168404,
+    "lng": -8.641715,
+    "heading": 264.39,
+    "shotDate": "2024-09-20 12:08:34.000",
+    "username": "alchimista",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2024/9/22/proc/9822889_c5fab2e454b310424cd322ca2abce3f6.jpg"
+   },
+   "truthCode": "PT",
+   "city": "Senhora do Porto"
+  },
+  {
+   "photo": {
+    "id": "1942278393",
+    "lat": 25.263006,
+    "lng": 51.537976,
+    "heading": 270.43,
+    "shotDate": "2024-04-01 08:57:50.000",
+    "username": "cbq-karwa47",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2024/4/24/proc/8795033_7f0736f2a43822d280e9aa97039541c3.jpg"
+   },
+   "truthCode": "QA",
+   "city": "An Najmah"
+  },
+  {
+   "photo": {
+    "id": "1654137577",
+    "lat": 25.167238,
+    "lng": 51.607631,
+    "heading": 176.37,
+    "shotDate": "2022-11-25 09:49:08.000",
+    "username": "Marc le Grand",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2022/11/25/proc/6351753_a2756110a9dbe4a4640d2214802fa9a7.jpg"
+   },
+   "truthCode": "QA",
+   "city": "Al Wakrah"
+  },
+  {
+   "photo": {
+    "id": "1973559161",
+    "lat": 25.252468,
+    "lng": 51.527268,
+    "heading": 166.17,
+    "shotDate": "2024-06-12 13:41:33.000",
+    "username": "arubi-risdianto",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2024/6/12/proc/9031385_6da36_6669c84073529.jpg"
+   },
+   "truthCode": "QA",
+   "city": "Nu‘ayjah"
+  },
+  {
+   "photo": {
+    "id": "1660500617",
+    "lat": 25.689544,
+    "lng": 51.502924,
+    "heading": 94.17,
+    "shotDate": "2022-12-14 12:35:09.000",
+    "username": "Marc le Grand",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2022/12/14/proc/6405481_61623a1793b9012b4459aa4447c5b105.jpg"
+   },
+   "truthCode": "QA",
+   "city": "Al Khawr"
+  },
+  {
+   "photo": {
+    "id": "1134971666",
+    "lat": 44.803718,
+    "lng": 20.712426,
+    "heading": 125.64,
+    "shotDate": "2020-10-17 06:43:40.000",
+    "username": "nik994",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/10/17/proc/3152150_efecaf8d43e462f09c30586cea4c8ebe.jpg"
+   },
+   "truthCode": "RS",
+   "city": "Starčevo"
+  },
+  {
+   "photo": {
+    "id": "128914707",
+    "lat": 44.989583,
+    "lng": 20.28331,
+    "heading": 27.61,
+    "shotDate": "2017-09-22 11:35:12.000",
+    "username": "smajser",
+    "url": "https://api.openstreetcam.org/storage6/files/photo/2017/9/22/proc/884383_6dcd6_59c59772dcb77.jpg"
+   },
+   "truthCode": "RS",
+   "city": "Stari Banovci"
+  },
+  {
+   "photo": {
+    "id": "1640815801",
+    "lat": 46.32031,
+    "lng": 15.572979,
+    "heading": 0,
+    "shotDate": "2022-11-01 14:48:52.000",
+    "username": "urosja",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2022/11/1/proc/6285593_05b8cf7864dcb03649837d033c4c184b.jpg"
+   },
+   "truthCode": "SI",
+   "city": "Poljčane"
+  },
+  {
+   "photo": {
+    "id": "1361825117",
+    "lat": 46.059872,
+    "lng": 15.18904,
+    "heading": 214.55,
+    "shotDate": "2020-02-01 14:41:13.000",
+    "username": "veverica",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/8/15/proc/3786973_c581d_6118dbbc101e2.jpg"
+   },
+   "truthCode": "SI",
+   "city": "Radeče"
+  },
+  {
+   "photo": {
+    "id": "2484497817",
+    "lat": 45.965173,
+    "lng": 15.48879,
+    "heading": 178.53,
+    "shotDate": "2024-08-27 07:33:10.000",
+    "username": "urosja",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2024/10/26/proc/10096761_76ac3_671cc033ec815.jpg"
+   },
+   "truthCode": "SI",
+   "city": "Krško"
+  },
+  {
+   "photo": {
+    "id": "598822058",
+    "lat": 48.013696,
+    "lng": 17.578598,
+    "heading": null,
+    "shotDate": "2020-03-09 11:30:55.000",
+    "username": "synalik",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/3/9/proc/2087902_a75c0_5e665b497ccc8.jpg"
+   },
+   "truthCode": "SK",
+   "city": "Vydrany"
+  },
+  {
+   "photo": {
+    "id": "1699357161",
+    "lat": 48.446621,
+    "lng": 17.767946,
+    "heading": 120.97,
+    "shotDate": "2023-02-26 13:55:21.000",
+    "username": "miroslav-sklenar-sklenar",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2023/2/26/proc/6796777_e2541_63ff4e89767cb.jpg"
+   },
+   "truthCode": "SK",
+   "city": "Leopoldov"
+  },
+  {
+   "photo": {
+    "id": "1660669113",
+    "lat": 43.945439,
+    "lng": 12.454451,
+    "heading": 259.98,
+    "shotDate": "2022-12-15 09:01:57.000",
+    "username": "damianeue",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2022/12/15/proc/6411865_0a850_639b10b30c440.jpg"
+   },
+   "truthCode": "SM",
+   "city": "Valdragone"
+  },
+  {
+   "photo": {
+    "id": "1660679241",
+    "lat": 43.953738,
+    "lng": 12.465186,
+    "heading": 354.7,
+    "shotDate": "2022-12-15 11:04:23.000",
+    "username": "damianeue",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2022/12/15/proc/6411929_71c33_639b12eed0667.jpg"
+   },
+   "truthCode": "SM",
+   "city": "Domagnano"
+  },
+  {
+   "photo": {
+    "id": "1660668729",
+    "lat": 43.946626,
+    "lng": 12.458021,
+    "heading": 292.14,
+    "shotDate": "2022-12-15 09:01:31.000",
+    "username": "damianeue",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2022/12/15/proc/6411865_4f437_639b10a5e3b60.jpg"
+   },
+   "truthCode": "SM",
+   "city": "Cailungo"
+  },
+  {
+   "photo": {
+    "id": "374721522",
+    "lat": 13.486624,
+    "lng": -89.326909,
+    "heading": 38.28,
+    "shotDate": "2019-03-25 15:22:46.000",
+    "username": "jaas",
+    "url": "https://api.openstreetcam.org/storage11/files/photo/2019/3/27/proc/1358454_10_b0ba6_7.jpg"
+   },
+   "truthCode": "SV",
+   "city": "La Libertad"
+  },
+  {
+   "photo": {
+    "id": "1325332869",
+    "lat": 6.556705,
+    "lng": 101.531276,
+    "heading": 219.89,
+    "shotDate": "2018-04-08 17:58:48.000",
+    "username": "mishari",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/6/20/proc/3681793_c4707_60cf6de71b4a1.jpg"
+   },
+   "truthCode": "TH",
+   "city": "Kapho"
+  },
+  {
+   "photo": {
+    "id": "2625072910",
+    "lat": 15.36349,
+    "lng": 99.927232,
+    "heading": 281.52,
+    "shotDate": "2025-08-27 08:29:53.000",
+    "username": "maxx8388@gmail.com",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2025/9/3/proc/11588355_213a9_68b7f288dfbfb.jpg"
+   },
+   "truthCode": "TH",
+   "city": "Nong Kha Yang"
+  },
+  {
+   "photo": {
+    "id": "2626875675",
+    "lat": 12.775963,
+    "lng": 101.642683,
+    "heading": 227.92,
+    "shotDate": "2025-11-01 06:26:32.000",
+    "username": "koki2529",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2025/11/2/proc/11614239_bf937_69078bf11e36a.jpg"
+   },
+   "truthCode": "TH",
+   "city": "Klaeng"
+  },
+  {
+   "photo": {
+    "id": "297716691",
+    "lat": 39.222852,
+    "lng": -76.590722,
+    "heading": 85,
+    "shotDate": "2018-08-10 23:33:07.000",
+    "username": "mdroads",
+    "url": "https://api.openstreetcam.org/storage9/files/photo/2018/8/11/proc/1276611_b0adc_1035.jpg"
+   },
+   "truthCode": "US",
+   "city": "Curtis Bay"
+  },
+  {
+   "photo": {
+    "id": "14786263",
+    "lat": 47.802277,
+    "lng": -122.112246,
+    "heading": 180.69,
+    "shotDate": "2017-01-14 20:57:02.000",
+    "username": "VirtualHannes",
+    "url": "https://api.openstreetcam.org/storage2/files/photo/2017/1/15/proc/31101_84b13_587ad5289c0d2.jpg"
+   },
+   "truthCode": "US",
+   "city": "Maltby"
+  },
+  {
+   "photo": {
+    "id": "591988690",
+    "lat": 27.85434,
+    "lng": -82.207314,
+    "heading": null,
+    "shotDate": "2020-02-19 21:27:10.000",
+    "username": "Jack the Ripper",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/2/21/proc/2082486_54f6e_269.jpg"
+   },
+   "truthCode": "US",
+   "city": "Fish Hawk"
+  },
+  {
+   "photo": {
+    "id": "1407825337",
+    "lat": 18.651616,
+    "lng": 105.698893,
+    "heading": null,
+    "shotDate": "2021-09-16 01:13:30.000",
+    "username": "OpenStreetView",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2022/1/4/proc/4132425_1fb51_61d492327ce65.jpg"
+   },
+   "truthCode": "VN",
+   "city": "Bến Thủy"
+  },
+  {
+   "photo": {
+    "id": "1595785673",
+    "lat": 12.007019,
+    "lng": 108.421631,
+    "heading": null,
+    "shotDate": "2021-09-30 02:10:30.000",
+    "username": "OpenStreetView",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2022/9/1/proc/6011401_fabc3_631069ee784dc.jpg"
+   },
+   "truthCode": "VN",
+   "city": "Lạc Dương"
+  },
+  {
+   "photo": {
+    "id": "1455740281",
+    "lat": 19.862985,
+    "lng": 105.855946,
+    "heading": null,
+    "shotDate": "2021-10-07 07:34:36.000",
+    "username": "OpenStreetView",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2022/3/22/proc/4869385_e45c8_62395697609e0.jpg"
+   },
+   "truthCode": "VN",
+   "city": "Bút Sơn"
+  }
+ ]
+}

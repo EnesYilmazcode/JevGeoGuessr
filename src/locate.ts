@@ -22,9 +22,14 @@ import type { Point } from "./geo.ts";
 
 export const JEV_MODEL = "typesafe-ai/jev";
 
-/** The evaluate API takes a bounded option map; stay well inside it. */
-const MAX_OPTIONS = 200;
-const SPLIT_DEPTH = 7; // 128 cells per stage
+// Measured, not guessed: 255 options succeed and 256 is refused with "TypeSafe Choice questions
+// support at most 255 options." A 255 option call costs about 7,000 tokens and still answers in
+// under a second.
+const MAX_OPTIONS = 255;
+
+// Cells come from binary splits, so a stage holds a power of two. 128 fits inside the cap with room
+// for the labels to grow; 256 would not fit at all.
+const SPLIT_DEPTH = 7;
 
 export type StageRanking = { cell: Cell; probability: number }[];
 

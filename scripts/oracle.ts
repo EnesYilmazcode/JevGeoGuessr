@@ -18,7 +18,7 @@ const arg = (name: string, fallback: string) =>
   process.argv.find((a) => a.startsWith(`--${name}=`))?.split("=")[1] ?? fallback;
 
 const setPath = new URL(`../${arg("set", "data/dev.json")}`, import.meta.url);
-const MAX_OPTIONS = 200, SPLIT_DEPTH = 7;
+const MAX_OPTIONS = 255, SPLIT_DEPTH = 7;
 
 type TestCase = { photo: Photo; truthCode: string; city: string };
 const cases = (JSON.parse(readFileSync(setPath, "utf8")) as { cases: TestCase[] }).cases;

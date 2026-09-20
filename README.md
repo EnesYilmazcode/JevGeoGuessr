@@ -91,7 +91,42 @@ countries. Jev still picks from all of them; the truth can only ever be one of t
 
 ## Results
 
-<!-- RESULTS -->
+`dev.json`: 160 photos across 61 countries, balanced so the menu is actually exercised, every photo
+at least two kilometres from a frontier and verified downloadable.
+
+**What each menu could score if Jev played perfectly.** Free, no API calls, all 160 photos. This is
+the ceiling, and it is the argument for not guessing countries:
+
+| menu, played perfectly | mean points | median km | within 100km | within 25km |
+|---|---:|---:|---:|---:|
+| Right country, pin on its centroid | 4212 | 153 | 38% | 14% |
+| Cells, 1 stage | 3986 | 252 | 13% | 4% |
+| Cells, 2 stages | 4727 | 26 | 80% | 48% |
+| Cells, 3 stages | 4751 | 12 | 83% | 59% |
+| Nearest settlement on the list | 4960 | 4 | 99% | 85% |
+
+Getting the country right still leaves a median of 153km on the table. The nested menu does not.
+
+**What it actually scores.** 23 photos, not 160: the run hit a spend limit on the API key partway
+through and the rest are not measured yet. Treat these as provisional.
+
+| strategy | mean points | median km | within 100km | right country |
+|---|---:|---:|---:|---:|
+| country, top pick | 2582 | 669 | 26% | 52% |
+| country, hedged across the distribution | 2596 | 1450 | 26% | 52% |
+| cells, 1 stage | 2598 | 995 | 9% | 13% |
+| cells, 2 stages | 3142 | 348 | 30% | 26% |
+| cells, 3 stages | 3093 | 542 | 39% | 57% |
+| **cells, 3 stages, top pick** | **3253** | **244** | **39%** | **61%** |
+| cells, 3 stages, beam 3 | 2978 | 671 | 35% | 43% |
+| _random country_ | 448 | | | 1% |
+| _best single country, chosen with hindsight_ | 1922 | | | 0% |
+
+Two things worth noting even at this sample size. Narrowing to a town cuts the median error from
+669km to 244km. And the nested menu lands in the right country more often than the menu that was
+actually asking about countries, 61% against 52%, which is the point: the photograph says which
+region it is, and the country falls out of that rather than the other way round.
+
 
 ## Running it
 

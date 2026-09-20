@@ -27,7 +27,12 @@ const want = Number(arg("n", "150"));
 const mode = arg("mode", "balanced");
 const seed = Number(arg("seed", "7"));
 const outPath = new URL(`../${arg("out", "data/dev.json")}`, import.meta.url);
-const concurrency = Number(arg("concurrency", "6"));
+const concurrency = Number(arg("concurrency", "8"));
+// A wall clock budget, because the target is not always reachable. Coverage is probed from a
+// handful of cities per country, so a country can pass the probe and still have nothing near the
+// places this draws from. Without a budget the run keeps trying until an attempt cap that is hours
+// away, which is exactly how the first version of this "took forty minutes" and then took longer.
+const budgetMs = Number(arg("maxSeconds", "600")) * 1000;
 
 // A photo this close to a frontier is not a fair test of telling two countries apart.
 const MIN_BORDER_MARGIN = 0.02; // degrees, roughly two kilometres
@@ -77,7 +82,7 @@ const tried = new Set<string>();
 let attempts = 0, noCoverage = 0, badImage = 0, nearBorder = 0, noTruth = 0;
 
 // In balanced mode, allow a country a second photo only once every country has had a first.
-const quotaFor = () => Math.max(1, Math.ceil(want / byCountry.size));
+const quotaFor = () => Math.max(1, Math.ceil(want / Math.max(1, byCountry.size)));
 
 function nextCity(): City | null {
   if (mode !== "balanced") return pick(inMenu);
@@ -87,7 +92,25 @@ function nextCity(): City | null {
   return pick(byCountry.get(pick(open))!);
 }
 
-const stop = () => cases.length >= want || attempts >= want * 30;
+// Countries that keep failing are dropped, so effort moves to places that actually answer.
+const misses = new Map<string, number>();
+const GIVE_UP_AFTER = 4;
+const startedAt = Date.now();
+let stopped: string | null = null;
+
+const stop = () => {
+  if (stopped) return true;
+  if (cases.length >= want) { stopped = "target reached"; return true; }
+  if (Date.now() - startedAt > budgetMs) { stopped = "time budget"; return true; }
+  if (attempts >= want * 8) { stopped = "attempt cap"; return true; }
+  return false;
+};
+
+const giveUp = (code: string) => {
+  const n = (misses.get(code) ?? 0) + 1;
+  misses.set(code, n);
+  if (n >= GIVE_UP_AFTER) byCountry.delete(code);
+};
 
 async function worker(): Promise<void> {
   while (!stop()) {
@@ -102,8 +125,8 @@ async function worker(): Promise<void> {
     let photos: Photo[];
     try {
       photos = await nearbyPhotos(Number(city.lat), Number(city.lng), 1000);
-    } catch { noCoverage += 1; continue; }
-    if (!photos.length) { noCoverage += 1; continue; }
+    } catch { noCoverage += 1; giveUp(city.country); continue; }
+    if (!photos.length) { noCoverage += 1; giveUp(city.country); continue; }
 
     // Truth first: it is free now, so spend nothing downloading a photo we would discard.
     const candidate = pick(photos);
@@ -119,7 +142,7 @@ async function worker(): Promise<void> {
     try {
       const bytes = await fetchImage(candidate, 2);
       if (bytes.byteLength < 20_000) { badImage += 1; continue; }
-    } catch { badImage += 1; continue; }
+    } catch { badImage += 1; giveUp(city.country); continue; }
 
     if (stop()) return;
     perCountry.set(truthCode, (perCountry.get(truthCode) ?? 0) + 1);

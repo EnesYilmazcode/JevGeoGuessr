@@ -19,7 +19,8 @@
     "ceiling": "node --experimental-strip-types scripts/ceiling.ts",
     "coverage": "node --experimental-strip-types scripts/build-coverage.ts",
     "places": "node --experimental-strip-types scripts/build-places.ts",
-    "compare": "node --experimental-strip-types scripts/compare.ts"
+    "compare": "node --experimental-strip-types scripts/compare.ts",
+    "ablate:describer": "node --experimental-strip-types scripts/ablate-describer.ts"
   },
   "dependencies": {
     "ai": "^7.0.107",

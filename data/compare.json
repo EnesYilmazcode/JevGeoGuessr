@@ -1,0 +1,69 @@
+{
+ "ranAt": "2026-09-20T19:32:51.609Z",
+ "set": "testset-smoke.json",
+ "n": 7,
+ "summary": {
+  "country": {
+   "meanPoints": 2362,
+   "medianKm": 1123,
+   "within100": 0,
+   "within500": 2,
+   "countryHits": 1
+  },
+  "country weighted": {
+   "meanPoints": 2263,
+   "medianKm": 805,
+   "within100": 0,
+   "within500": 0,
+   "countryHits": 1
+  },
+  "cells 1 stage": {
+   "meanPoints": 2567,
+   "medianKm": 554,
+   "within100": 0,
+   "within500": 3,
+   "countryHits": 0
+  },
+  "cells 2 stages": {
+   "meanPoints": 2365,
+   "medianKm": 1498,
+   "within100": 0,
+   "within500": 2,
+   "countryHits": 0
+  },
+  "cells 3 stages": {
+   "meanPoints": 2735,
+   "medianKm": 722,
+   "within100": 1,
+   "within500": 3,
+   "countryHits": 1
+  },
+  "cells 2 stages argmax": {
+   "meanPoints": 2396,
+   "medianKm": 1407,
+   "within100": 1,
+   "within500": 3,
+   "countryHits": 1
+  }
+ },
+ "baselines": [
+  {
+   "name": "Random country",
+   "accuracy": 0.005,
+   "meanPoints": 519.8357142857143,
+   "note": "uniform over 194, averaged over 200 draws"
+  },
+  {
+   "name": "Most common country in the set",
+   "accuracy": 0.14285714285714285,
+   "meanPoints": 1527.5714285714287,
+   "note": "always Luxembourg, which is 1 of 7 photos"
+  },
+  {
+   "name": "Best single country",
+   "accuracy": 0.14285714285714285,
+   "meanPoints": 1777.4285714285713,
+   "note": "always Qatar, chosen with hindsight on this very set"
+  }
+ ]
+}

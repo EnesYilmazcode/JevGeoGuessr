@@ -40,7 +40,27 @@ export const ObservationSchema = z.object({
 
 export type Observation = z.infer<typeof ObservationSchema>;
 
-const INSTRUCTIONS = `You are recording what is physically visible in one street level photograph, for someone who will never see it.
+// Two describers, so the effect of asking for specific evidence can be measured instead of assumed.
+// "plain" just asks for a description. "targeted" additionally lists what a player actually reads off
+// a street scene. Which one wins is an empirical question; see scripts/ablate-describer.ts.
+export const DESCRIBERS: Record<string, string> = {
+  plain: `You are recording what is physically visible in one street level photograph, for someone who will never see it.
+
+Describe only what is in the frame. Be concrete and specific about shapes, materials, colours and proportions.
+
+You must not state or hint at where the photograph was taken. Do not name, and do not allude to:
+- any country, territory, state, province, county, region, city, town or road
+- any nationality or demonym
+- any language, alphabet or writing system by name
+- any currency, company, brand or institution
+- any continent, hemisphere, or direction of travel from anywhere
+
+Copy legible writing into sign_text_verbatim exactly as it appears, character for character, in its original script. Do not translate it, do not transliterate it, and do not say what language it is. Copying the characters is recording the frame. Naming the language is not.
+
+Do not say that anything is iconic, famous, recognisable, a landmark, typical, traditional, or characteristic. If a structure is distinctive, give its shape, height, material and proportions and let those stand on their own.
+
+Everywhere else, write as though you do not know that places have names.`,
+  targeted: `You are recording what is physically visible in one street level photograph, for someone who will never see it.
 
 Describe only what is in the frame. Be concrete and specific about shapes, materials, colours and proportions. Prefer exact detail over fluent prose: "white plate, narrow blue strip on the left edge, black characters" is worth more than "a European looking plate on a parked car".
 
@@ -66,7 +86,11 @@ Copy legible writing into sign_text_verbatim exactly as it appears, character fo
 
 Do not say that anything is iconic, famous, recognisable, a landmark, typical, traditional, or characteristic. If a structure is distinctive, give its shape, height, material and proportions and let those stand on their own.
 
-Everywhere else, write as though you do not know that places have names.`;
+Everywhere else, write as though you do not know that places have names.`,
+};
+
+export const DEFAULT_DESCRIBER = "targeted";
+
 
 // Regions, continents, language families and writing systems. Country names, capitals and demonyms
 // come from the generated data instead, as whole phrases: "Marshall Islands" is banned, "islands" is
@@ -152,18 +176,26 @@ export type Observed = {
   cached: boolean;
 };
 
-/** Identifies this exact describer. Changing the model, the instructions or the schema changes it. */
-export const DESCRIBER_VERSION = describerVersion(
-  DESCRIBER_MODEL, INSTRUCTIONS, Object.keys(ObservationSchema.shape),
-);
+/** Identifies one describer exactly. Model, instructions or schema change, and so does this. */
+export const versionOf = (variant: string): string => {
+  const instructions = DESCRIBERS[variant];
+  if (!instructions) throw new Error(`unknown describer "${variant}". Have: ${Object.keys(DESCRIBERS).join(", ")}`);
+  return describerVersion(DESCRIBER_MODEL, instructions, Object.keys(ObservationSchema.shape));
+};
+
+export const DESCRIBER_VERSION = versionOf(DEFAULT_DESCRIBER);
 
 export async function observe(
   image: Uint8Array,
   photoId: string,
-  { useCache = true, mediaType = "image/jpeg" } = {},
+  { useCache = true, mediaType = "image/jpeg", variant = DEFAULT_DESCRIBER } = {},
 ): Promise<Observed> {
+  const instructions = DESCRIBERS[variant];
+  if (!instructions) throw new Error(`unknown describer "${variant}"`);
+  const version = versionOf(variant);
+
   if (useCache) {
-    const hit = readCached<Omit<Observed, "cached">>(DESCRIBER_VERSION, photoId);
+    const hit = readCached<Omit<Observed, "cached">>(version, photoId);
     // A cached observation was checked when it was written, but the checker itself changes, so
     // check it again on the way out rather than trusting a past version of this code.
     if (hit) {
@@ -178,7 +210,7 @@ export async function observe(
     messages: [{
       role: "user",
       content: [
-        { type: "text", text: INSTRUCTIONS },
+        { type: "text", text: instructions },
         { type: "file", mediaType, data: { type: "data", data: image } },
       ],
     }],
@@ -191,6 +223,6 @@ export async function observe(
     inputTokens: usage.inputTokens ?? 0,
     outputTokens: usage.outputTokens ?? 0,
   };
-  if (useCache) writeCached(DESCRIBER_VERSION, photoId, result);
+  if (useCache) writeCached(version, photoId, result);
   return { ...result, cached: false };
 }

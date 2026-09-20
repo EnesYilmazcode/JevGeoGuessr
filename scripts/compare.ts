@@ -33,14 +33,17 @@ const cases = testset.cases.slice(0, limit);
 type VariantResult = { points: number; km: number; countryHit: boolean };
 type Row = { truth: Point; truthCode: string; results: Record<string, VariantResult> };
 
-const VARIANTS = [
-  "country",
-  "country weighted",
-  "cells 1 stage",
-  "cells 2 stages",
-  "cells 3 stages",
-  "cells 2 stages argmax",
+// Each entry is one way of turning a distribution into a pin. They all read the same observation.
+const STRATEGIES = [
+  { name: "cells 1 stage", stages: 1, aggregate: "weighted", beam: 1, minConfidence: 0 },
+  { name: "cells 2 stages", stages: 2, aggregate: "weighted", beam: 1, minConfidence: 0 },
+  { name: "cells 3 stages", stages: 3, aggregate: "weighted", beam: 1, minConfidence: 0 },
+  { name: "cells 3 stages argmax", stages: 3, aggregate: "argmax", beam: 1, minConfidence: 0 },
+  { name: "cells 3 stages beam 3", stages: 3, aggregate: "weighted", beam: 3, minConfidence: 0 },
+  { name: "cells 3 stages beam 3, gated", stages: 3, aggregate: "weighted", beam: 3, minConfidence: 0.25 },
 ] as const;
+
+const VARIANTS = ["country", "country weighted", ...STRATEGIES.map((s) => s.name)] as const;
 
 const rows: Row[] = [];
 let cursor = 0, jevTokens = 0, jevCalls = 0, describerCost = 0, leaks = 0, errors = 0;
@@ -71,23 +74,18 @@ async function worker() {
       })));
       results["country weighted"] = { ...scoreGuess(blended, truth), countryHit: top.code === test.truthCode };
 
-      for (const [name, stages, aggregate] of [
-        ["cells 1 stage", 1, "weighted"],
-        ["cells 2 stages", 2, "weighted"],
-        ["cells 3 stages", 3, "weighted"],
-        ["cells 2 stages argmax", 2, "argmax"],
-      ] as const) {
-        const located = await locate(observation, { stages, aggregate });
+      for (const strategy of STRATEGIES) {
+        const located = await locate(observation, strategy);
         jevTokens += located.inputTokens; jevCalls += located.calls;
-        results[name] = {
+        results[strategy.name] = {
           ...scoreGuess(located.guess, truth),
           countryHit: countryCodeAtOffline(located.guess.lat, located.guess.lng) === test.truthCode,
         };
       }
 
       rows.push({ truth, truthCode: test.truthCode, results });
-      const best = VARIANTS.reduce((a, b) => (results[a]!.points >= results[b]!.points ? a : b));
-      console.log(`  ${test.truthCode}  country ${String(results["country"]!.points).padStart(4)}  cells2 ${String(results["cells 2 stages"]!.points).padStart(4)}  best: ${best}`);
+      const best = (VARIANTS as readonly string[]).reduce((a, b) => (results[a]!.points >= results[b]!.points ? a : b));
+      console.log(`  ${test.truthCode}  country ${String(results["country"]!.points).padStart(4)}  cells3 ${String(results["cells 3 stages"]!.points).padStart(4)}  best: ${best}`);
     } catch (error) {
       if (error instanceof PlaceLeakError) leaks += 1; else errors += 1;
     }

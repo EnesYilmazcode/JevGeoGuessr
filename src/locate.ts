@@ -115,37 +115,73 @@ function menuFor(pool: Place[]): { cells: Cell[]; last: boolean } {
   return { cells: partition(pool, SPLIT_DEPTH), last: false };
 }
 
+export type LocateOptions = {
+  stages?: number;
+  aggregate?: "weighted" | "argmax";
+  /**
+   * How many regions to carry into the next stage. One is greedy narrowing, and the oracle shows
+   * greedy can lose: committing to a single region at one stage can put the right answer out of
+   * reach at the next, and no later judgement recovers it. Carrying two or three keeps the
+   * alternative alive at the cost of one extra Jev call per stage, which is a quarter of a second.
+   */
+  beam?: number;
+  /**
+   * Stop narrowing when the leading region is not convincing. Splitting a region the model is not
+   * sure about just moves the pin somewhere more specific and more wrong.
+   */
+  minConfidence?: number;
+};
+
 export async function locate(
   observation: Observation,
-  { stages = 2, aggregate = "weighted" as "weighted" | "argmax" } = {},
+  { stages = 2, aggregate = "weighted", beam = 1, minConfidence = 0 }: LocateOptions = {},
 ): Promise<Located> {
   const started = Date.now();
-  let pool: Place[] = places();
-  const trail: StageRanking[] = [];
   let inputTokens = 0, calls = 0;
 
+  // Each frontier entry is a region still in play, carrying the probability of having got here.
+  let frontier: { pool: Place[]; weight: number }[] = [{ pool: places(), weight: 1 }];
+  const trail: StageRanking[] = [];
+  let distribution: { point: Point; weight: number }[] = [];
+  let leader: { cell: Cell; weight: number } | null = null;
+
   for (let stage = 0; stage < stages; stage += 1) {
-    const { cells, last } = menuFor(pool);
-    if (cells.length < 2) break;
+    const candidates: { cell: Cell; weight: number; exhausted: boolean }[] = [];
 
-    const { ranking, inputTokens: used } = await rankCells(observation, cells, stage, last);
-    trail.push(ranking);
-    inputTokens += used;
-    calls += 1;
+    for (const node of frontier) {
+      const { cells, last } = menuFor(node.pool);
+      if (cells.length < 2) {
+        candidates.push({ cell: cells[0]!, weight: node.weight, exhausted: true });
+        continue;
+      }
+      const { ranking, inputTokens: used } = await rankCells(observation, cells, stage, last);
+      inputTokens += used;
+      calls += 1;
+      if (frontier.length === 1) trail.push(ranking);
+      for (const r of ranking) {
+        // Chain rule: how likely this region is, given how likely its parent was.
+        candidates.push({ cell: r.cell, weight: node.weight * r.probability, exhausted: last || r.cell.places.length <= 1 });
+      }
+    }
 
-    const top = ranking[0]!;
-    if (last || top.cell.places.length <= 1) break;
-    pool = top.cell.places;
+    candidates.sort((a, b) => b.weight - a.weight);
+    distribution = candidates.map((c) => ({ point: c.cell.centre, weight: c.weight }));
+    leader = candidates[0]!;
+
+    const survivors = candidates.filter((c) => !c.exhausted).slice(0, Math.max(1, beam));
+    if (!survivors.length) break;
+    if (leader.weight < minConfidence) break;
+
+    frontier = survivors.map((c) => ({ pool: c.cell.places, weight: c.weight }));
   }
 
-  const final = trail[trail.length - 1];
-  if (!final) throw new Error("no stage produced a ranking");
+  if (!leader) throw new Error("no stage produced a ranking");
 
   const guess = aggregate === "argmax"
-    ? final[0]!.cell.centre
+    ? leader.cell.centre
     // Hedge across the final distribution. If the photograph really is ambiguous between two sides
     // of a border, the pin belongs between them, and distance scoring pays for that.
-    : weightedCentre(final.map((r) => ({ point: r.cell.centre, weight: r.probability })));
+    : weightedCentre(distribution);
 
   return { guess, stages: trail, inputTokens, calls, ms: Date.now() - started };
 }

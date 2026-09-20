@@ -48,15 +48,27 @@ if (!existsSync(CITIES_PATH)) {
   writeFileSync(CITIES_PATH, new Uint8Array(await res.arrayBuffer()));
 }
 
+// Only draw from countries KartaView is known to have photos in. Without this, balanced sampling
+// spends most of its time asking for a photo in a country that has none, and each of those asks
+// costs a thirty second network timeout. See scripts/build-coverage.mjs.
+const COVERAGE_PATH = new URL("../data/coverage.json", import.meta.url);
+const covered: Set<string> | null = existsSync(COVERAGE_PATH)
+  ? new Set((JSON.parse(readFileSync(COVERAGE_PATH, "utf8")) as { covered: string[] }).covered)
+  : null;
+if (!covered) console.log("data/coverage.json missing, falling back to probing every country (slow)");
+
+const eligible = (code: string) => !!countryByCode(code) && (!covered || covered.has(code));
+
 const cities = JSON.parse(readFileSync(CITIES_PATH, "utf8")) as City[];
 const byCountry = new Map<string, City[]>();
 for (const city of cities) {
-  if (!countryByCode(city.country)) continue;
+  if (!eligible(city.country)) continue;
   const list = byCountry.get(city.country);
   if (list) list.push(city); else byCountry.set(city.country, [city]);
 }
-const inMenu = cities.filter((c) => countryByCode(c.country));
-console.log(`${inMenu.length} seed cities across ${byCountry.size} of 194 countries`);
+const inMenu = cities.filter((c) => eligible(c.country));
+console.log(`${inMenu.length} seed cities across ${byCountry.size} countries with known coverage`);
+console.log(`Jev still picks from all 194; the truth can only ever be one of these ${byCountry.size}`);
 console.log(`target ${want} photos, mode=${mode} seed=${seed} -> ${outPath.pathname.split("/").pop()}\n`);
 
 const cases: TestCase[] = [];

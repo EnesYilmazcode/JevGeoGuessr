@@ -7,6 +7,9 @@ export type Photo = {
   lat: number;
   lng: number;
   heading: number | null;
+  /** Which drive this frame came from, and where in it. Consecutive frames are consecutive road. */
+  sequenceId: string;
+  index: number;
   shotDate: string | null;
   username: string;
   url: string;
@@ -18,12 +21,15 @@ const STORAGE = "https://api.openstreetcam.org/";
 type RawPhoto = {
   id: string; lat: string; lng: string; name: string;
   heading: string | null; shot_date: string | null; username: string; projection: string;
+  sequence_id: string; sequence_index: string;
 };
 
 const toPhoto = (r: RawPhoto): Photo => ({
   id: r.id,
   lat: Number(r.lat),
   lng: Number(r.lng),
+  sequenceId: String(r.sequence_id ?? ""),
+  index: Number(r.sequence_index ?? 0),
   heading: r.heading == null ? null : Number(r.heading),
   shotDate: r.shot_date,
   username: r.username,

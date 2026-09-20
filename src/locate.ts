@@ -90,14 +90,18 @@ const INSTRUCTIONS = (stage: number, last: boolean) => last
     "and roof forms, the plant species implied by the described foliage, the soil colour, and the sun " +
     "height, against each other rather than relying on any single one.";
 
-async function rankCells(observation: Observation, cells: Cell[], stage: number, last: boolean) {
+async function rankCells(evidence: Observation[], cells: Cell[], stage: number, last: boolean) {
   const criteria = Object.fromEntries(cells.map((c) => [c.id, c.label]));
   const result = await withRetry(() => evaluate({
     model: JEV_MODEL,
     state: {
-      task: "Geolocating one street level photograph from a written record of what is physically visible in it.",
-      observation,
-      note: "The record was written by someone forbidden to name any place, nationality or language. Copied sign text is the one exception and appears exactly as it was printed.",
+      task: evidence.length > 1
+        ? "Geolocating a place from written records of several photographs taken along one road, in order of travel."
+        : "Geolocating one street level photograph from a written record of what is physically visible in it.",
+      // Every look so far, oldest first. A later frame can contradict an earlier one, and the
+      // whole point of driving on is that the answer is allowed to change.
+      observations: evidence,
+      note: "The records were written by someone forbidden to name any place, nationality or language. Copied sign text is the one exception and appears exactly as it was printed. All of these photographs were taken within a few hundred metres of each other.",
     },
     questions: { where: { type: "choice" as const, instructions: INSTRUCTIONS(stage, last), criteria } },
     maxRetries: 0,
@@ -140,9 +144,11 @@ export type LocateOptions = {
 };
 
 export async function locate(
-  observation: Observation,
+  observation: Observation | Observation[],
   { stages = 2, aggregate = "weighted", beam = 1, minConfidence = 0 }: LocateOptions = {},
 ): Promise<Located> {
+  const evidence = Array.isArray(observation) ? observation : [observation];
+  if (!evidence.length) throw new Error("locate needs at least one observation");
   const started = Date.now();
   let inputTokens = 0, calls = 0;
 
@@ -161,7 +167,7 @@ export async function locate(
         candidates.push({ cell: cells[0]!, weight: node.weight, exhausted: true });
         continue;
       }
-      const { ranking, inputTokens: used } = await rankCells(observation, cells, stage, last);
+      const { ranking, inputTokens: used } = await rankCells(evidence, cells, stage, last);
       inputTokens += used;
       calls += 1;
       for (const r of ranking) {

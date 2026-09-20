@@ -6,3 +6,4 @@ dist/
 
 # Downloaded panoramas. The test set is reproducible from data/testset.json.
 data/photos/
+data/cities.json

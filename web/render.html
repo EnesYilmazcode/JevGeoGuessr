@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Jev vs the World</title>
+<style>
+  :root {
+    --paper: #f7f4ec;
+    --ink: #5f5952;
+    --ink-soft: #a29a90;
+    --chip: #cfc7bb;
+    --truth: #e8a33d;
+    --pin: #4f7fd4;
+    --land: #ded7ca;
+    --land-line: #c7bdae;
+    --panel: #ece7dd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--paper); }
+  body {
+    font-family: "Segoe UI", Inter, -apple-system, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    width: 100vw; height: 100vh; overflow: hidden;
+  }
+  #stage { position: relative; display: flex; flex-direction: column; }
+
+  header { display: flex; align-items: flex-start; gap: 20px; }
+  h1 { font-weight: 700; letter-spacing: -1px; line-height: 1; }
+  .chip { background: var(--chip); border-radius: 10px; text-align: center; color: #fff; }
+  .chip small { display: block; letter-spacing: 1.4px; font-weight: 700; opacity: .85; }
+  .chip b { display: block; font-weight: 700; line-height: 1.1; white-space: nowrap; }
+  .spacer { flex: 1; }
+
+  main { flex: 1; display: grid; grid-template-columns: 1fr 1fr; min-height: 0; }
+  .panel { position: relative; border-radius: 14px; overflow: hidden; background: var(--panel); }
+  .panel img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  canvas { width: 100%; height: 100%; display: block; }
+
+  /* How far along the road we are. */
+  #road { position: absolute; left: 0; right: 0; bottom: 0; height: 6px; background: rgba(0,0,0,.14); }
+  #roadFill { height: 100%; width: 0; background: var(--pin); }
+
+  footer { display: flex; align-items: baseline; }
+  #verdict { font-weight: 700; letter-spacing: -1px; font-variant-numeric: tabular-nums; }
+  #sub { color: var(--ink-soft); }
+  #note { margin-left: auto; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <header>
+    <h1>Jev</h1>
+    <div class="chip" id="guessChip"><small>THINKS</small><b id="guessName">—</b></div>
+    <div class="spacer"></div>
+    <div class="chip" style="background:#d8b578"><small>ACTUALLY</small><b id="truthName">—</b></div>
+  </header>
+  <main>
+    <div class="panel" id="photoPanel">
+      <img id="photoA" alt="" /><img id="photoB" alt="" />
+      <div id="road"><div id="roadFill"></div></div>
+    </div>
+    <div class="panel"><canvas id="map"></canvas></div>
+  </main>
+  <footer>
+    <div id="verdict">0 km</div>
+    <div id="sub">off</div>
+    <div id="note"></div>
+  </footer>
+</div>
+
+<script type="module">
+const params = new URLSearchParams(location.search);
+const [CW, CH] = (params.get("size") ?? "1600x900").split("x").map(Number);
+
+const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+const lerp = (a, b, t) => a + (b - a) * t;
+
+const drive = await fetch(params.get("data") ?? "drive.json").then((r) => r.json());
+const world = await fetch("world.json").then((r) => r.json());
+
+// Layout scales off the requested canvas size so a 1600x900 recording and a 1200x675 preview
+// look identical rather than one being a squashed copy of the other.
+const k = CW / 1600;
+const px = (n) => `${Math.round(n * k)}px`;
+const stage = document.getElementById("stage");
+Object.assign(stage.style, { width: `${CW}px`, height: `${CH}px`, padding: `${px(46)} ${px(54)}` });
+document.querySelector("h1").style.fontSize = px(50);
+document.querySelector("header").style.marginBottom = px(22);
+document.querySelector("footer").style.marginTop = px(22);
+document.querySelector("main").style.gap = px(30);
+for (const chip of document.querySelectorAll(".chip")) {
+  Object.assign(chip.style, { padding: `${px(8)} ${px(16)} ${px(10)}` });
+  chip.querySelector("small").style.fontSize = px(11);
+  chip.querySelector("b").style.fontSize = px(24);
+}
+document.getElementById("verdict").style.fontSize = px(50);
+document.getElementById("sub").style.fontSize = px(20);
+document.getElementById("sub").style.marginLeft = px(14);
+document.getElementById("note").style.fontSize = px(18);
+
+document.getElementById("truthName").textContent = drive.truthLabel;
+
+// --- timeline ---------------------------------------------------------------------------------
+// Each frame gets a beat: the photograph changes, then the pin answers. The last beat is held so
+// a recording ends on the result rather than cutting on the final motion.
+const LOOK = 1.15, SETTLE = 0.95, HOLD = 2.6;
+const BEAT = LOOK + SETTLE;
+const steps = drive.steps;
+const duration = steps.length * BEAT + HOLD;
+
+const canvas = document.getElementById("map");
+const ctx = canvas.getContext("2d");
+let W = 0, H = 0;
+
+function sizeCanvas() {
+  const rect = canvas.getBoundingClientRect();
+  const dpr = 2;
+  canvas.width = Math.round(rect.width * dpr);
+  canvas.height = Math.round(rect.height * dpr);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  W = rect.width; H = rect.height;
+}
+
+// Two framings, and the map closes from one to the other as the round goes on.
+//
+// A single world view makes the ending invisible: the last look is a few kilometres out and at
+// that scale the pin and the truth are the same dot. A single close view makes the beginning
+// invisible instead, because the first guess is on another continent. So the wide frame holds
+// every pin, the tight frame holds the truth and the last pin, and the camera moves between them.
+const allPts = [drive.origin, ...steps.map((s) => s.guess)];
+const endPts = [drive.origin, steps[steps.length - 1].guess];
+
+function frameFor(points, minSpan) {
+  let minLng = Math.min(...points.map((p) => p.lng)), maxLng = Math.max(...points.map((p) => p.lng));
+  let minLat = Math.min(...points.map((p) => p.lat)), maxLat = Math.max(...points.map((p) => p.lat));
+  const padLng = Math.max((maxLng - minLng) * 0.3, minSpan);
+  const padLat = Math.max((maxLat - minLat) * 0.3, minSpan);
+  return { minLng: minLng - padLng, maxLng: maxLng + padLng, minLat: minLat - padLat, maxLat: maxLat + padLat };
+}
+
+const WIDE = frameFor(allPts, 8);
+// Not as tight as the pin allows. Country outlines come from a generalised 110m map, so below a
+// few degrees the frame is a blank fill with two dots in it and the ending loses all context. A
+// regional frame still shows the shape of the place, and a pin sitting on the target reads as
+// "dead on" whether the miss is one kilometre or thirty.
+const TIGHT = frameFor(endPts, 3.2);
+
+let view = { ...WIDE };
+
+function fitAspect(v) {
+  const aspect = W / H;
+  const spanLng = v.maxLng - v.minLng, spanLat = v.maxLat - v.minLat;
+  if (spanLng / spanLat > aspect) {
+    const want = spanLng / aspect, mid = (v.minLat + v.maxLat) / 2;
+    v.minLat = mid - want / 2; v.maxLat = mid + want / 2;
+  } else {
+    const want = spanLat * aspect, mid = (v.minLng + v.maxLng) / 2;
+    v.minLng = mid - want / 2; v.maxLng = mid + want / 2;
+  }
+  return v;
+}
+
+// Zoom in degrees would race then crawl; in log space it reads as one steady move.
+function viewAt(progress) {
+  const wide = fitAspect({ ...WIDE }), tight = fitAspect({ ...TIGHT });
+  const t = easeInOut(Math.max(0, Math.min(1, progress)));
+  const mix = (a, b) => Math.exp(lerp(Math.log(a), Math.log(b), t));
+  const spanLng = mix(wide.maxLng - wide.minLng, tight.maxLng - tight.minLng);
+  const spanLat = mix(wide.maxLat - wide.minLat, tight.maxLat - tight.minLat);
+  const cLng = lerp((wide.minLng + wide.maxLng) / 2, (tight.minLng + tight.maxLng) / 2, t);
+  const cLat = lerp((wide.minLat + wide.maxLat) / 2, (tight.minLat + tight.maxLat) / 2, t);
+  return {
+    minLng: cLng - spanLng / 2, maxLng: cLng + spanLng / 2,
+    minLat: cLat - spanLat / 2, maxLat: cLat + spanLat / 2,
+  };
+}
+
+const project = (lng, lat) => [
+  ((lng - view.minLng) / (view.maxLng - view.minLng)) * W,
+  ((view.maxLat - lat) / (view.maxLat - view.minLat)) * H,
+];
+
+function drawMap(pin, trail, settle) {
+  ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue("--panel").trim();
+  ctx.fillRect(0, 0, W, H);
+
+  for (const shape of world) {
+    ctx.beginPath();
+    for (const ring of shape.rings) {
+      ring.forEach(([lng, lat], i) => {
+        const [x, y] = project(lng, lat);
+        i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+      });
+      ctx.closePath();
+    }
+    ctx.fillStyle = "#ded7ca";
+    ctx.fill();
+    ctx.strokeStyle = "#c7bdae";
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  // Where the pin has been, so a correction is visible as a correction.
+  if (trail.length > 1) {
+    ctx.beginPath();
+    trail.forEach((p, i) => {
+      const [x, y] = project(p.lng, p.lat);
+      i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+    });
+    ctx.strokeStyle = "rgba(79,127,212,.32)";
+    ctx.lineWidth = 2.5 * k;
+    ctx.setLineDash([6 * k, 6 * k]);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    for (const p of trail.slice(0, -1)) {
+      const [x, y] = project(p.lng, p.lat);
+      ctx.beginPath();
+      ctx.arc(x, y, 4.5 * k, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(79,127,212,.3)";
+      ctx.fill();
+    }
+  }
+
+  const t = project(drive.origin.lng, drive.origin.lat);
+  const p = project(pin.lng, pin.lat);
+
+  ctx.beginPath();
+  ctx.moveTo(p[0], p[1]);
+  ctx.lineTo(t[0], t[1]);
+  ctx.strokeStyle = "rgba(150,140,128,.75)";
+  ctx.lineWidth = 2.5 * k;
+  ctx.setLineDash([7 * k, 7 * k]);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  const dot = (xy, colour, r) => {
+    ctx.beginPath();
+    ctx.arc(xy[0], xy[1], r, 0, Math.PI * 2);
+    ctx.fillStyle = colour;
+    ctx.fill();
+    ctx.strokeStyle = "#f7f4ec";
+    ctx.lineWidth = 3.5 * k;
+    ctx.stroke();
+  };
+  // The truth is a ring, not a disc. Once the guess is close the two markers sit on top of each
+  // other, and a filled target simply disappears under the pin: the closer the model gets, the
+  // less there is to see. A ring the pin drops inside reads as a hit at any distance.
+  ctx.beginPath();
+  ctx.arc(t[0], t[1], 16 * k, 0, Math.PI * 2);
+  ctx.strokeStyle = "#e8a33d";
+  ctx.lineWidth = 5 * k;
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(t[0], t[1], 3.5 * k, 0, Math.PI * 2);
+  ctx.fillStyle = "#e8a33d";
+  ctx.fill();
+
+  // The pin swells as it lands, so a correction reads even at a glance.
+  dot(p, "#4f7fd4", (9 + 5 * (1 - settle)) * k);
+}
+
+const imgA = document.getElementById("photoA");
+const imgB = document.getElementById("photoB");
+for (const step of steps) { const pre = new Image(); pre.src = step.photo; }
+
+function seek(time) {
+  const clamped = Math.max(0, Math.min(time, duration - 0.001));
+  const i = Math.min(steps.length - 1, Math.floor(clamped / BEAT));
+  const within = clamped - i * BEAT;
+  const step = steps[i];
+  const previous = steps[i - 1];
+
+  // The photograph cross-fades in first; the pin answers once the look has landed.
+  const lookT = Math.min(1, within / LOOK);
+  const settleT = within <= LOOK ? 0 : Math.min(1, (within - LOOK) / SETTLE);
+
+  imgA.src = previous ? previous.photo : step.photo;
+  imgB.src = step.photo;
+  imgB.style.opacity = previous ? String(easeOut(Math.min(1, lookT * 1.6))) : "1";
+
+  const from = previous ? previous.guess : step.guess;
+  const eased = easeOut(settleT);
+  const pin = { lat: lerp(from.lat, step.guess.lat, eased), lng: lerp(from.lng, step.guess.lng, eased) };
+
+  // Stay wide while the pin is still jumping between continents; close in over the back half and
+  // finish tight, so the clip ends on how near it actually got.
+  const through = (i + Math.min(1, within / BEAT)) / steps.length;
+  view = viewAt(Math.max(0, (through - 0.45) / 0.55));
+
+  const trail = steps.slice(0, i).map((s) => s.guess).concat([pin]);
+  drawMap(pin, trail, settleT);
+
+  const shownKm = Math.round(lerp(previous ? previous.km : step.km, step.km, eased));
+  document.getElementById("verdict").textContent = `${shownKm.toLocaleString()} km`;
+  document.getElementById("sub").textContent = "off";
+  document.getElementById("guessName").textContent =
+    settleT > 0.45 ? (step.landedIn ? (drive.names?.[step.landedIn] ?? step.landedIn) : "open water")
+                   : (previous ? (drive.names?.[previous.landedIn] ?? previous.landedIn ?? "—") : "—");
+  document.getElementById("note").textContent = `look ${i + 1} of ${steps.length}`;
+  document.getElementById("roadFill").style.width = `${((i + lookT) / steps.length) * 100}%`;
+}
+
+sizeCanvas();
+seek(0);
+
+window.__render = { duration, seek, steps: steps.length };
+
+// Play in a browser; a capture run seeks instead and never starts this.
+if (!params.get("capture")) {
+  const t0 = performance.now();
+  const tick = () => {
+    seek(((performance.now() - t0) / 1000) % duration);
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+</script>
+</body>
+</html>

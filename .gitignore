@@ -10,3 +10,6 @@ data/cities.json
 data/borders.json
 data/observations/
 data/places.json
+renders/
+media/fixture.*
+web/drive.json

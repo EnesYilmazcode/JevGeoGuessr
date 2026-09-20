@@ -24,7 +24,8 @@
     "oracle": "node --experimental-strip-types scripts/oracle.ts",
     "card": "node --experimental-strip-types scripts/build-card.ts",
     "drive": "node --experimental-strip-types scripts/drive.ts",
-    "video": "python scripts/render.py"
+    "video": "python scripts/render.py",
+    "fixture": "node --experimental-strip-types scripts/build-fixture.ts"
   },
   "dependencies": {
     "ai": "^7.0.107",

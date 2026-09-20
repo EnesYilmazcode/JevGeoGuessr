@@ -1,0 +1,163 @@
+{
+ "fixture": true,
+ "note": "Photographs and coordinates are real. The pins are scripted, not Jev's. Not a result.",
+ "sequenceId": "3299993",
+ "origin": {
+  "lat": 48.859053,
+  "lng": 2.304144
+ },
+ "truthCode": "FR",
+ "truthLabel": "France",
+ "spanKm": 0.86,
+ "names": {
+  "US": "United States",
+  "IT": "Italy",
+  "FR": "France"
+ },
+ "steps": [
+  {
+   "photo": "https://api.openstreetcam.org/storage13/files/photo/2020/11/28/proc/3299993_b21bc_5fc25d03eba64.jpg",
+   "at": {
+    "lat": 48.859053,
+    "lng": 2.304144
+   },
+   "heading": 218.29,
+   "guess": {
+    "lat": 39,
+    "lng": -98
+   },
+   "km": 7507,
+   "points": 33,
+   "movedKm": 0,
+   "landedIn": "US",
+   "topLabel": "fixture",
+   "topProbability": 0
+  },
+  {
+   "photo": "https://api.openstreetcam.org/storage13/files/photo/2020/11/28/proc/3299993_dc3f4_5fc25d2364234.jpg",
+   "at": {
+    "lat": 48.858497,
+    "lng": 2.302272
+   },
+   "heading": 233.93,
+   "guess": {
+    "lat": 45,
+    "lng": 9
+   },
+   "km": 665,
+   "points": 3202,
+   "movedKm": 8171,
+   "landedIn": "IT",
+   "topLabel": "fixture",
+   "topProbability": 0
+  },
+  {
+   "photo": "https://api.openstreetcam.org/storage13/files/photo/2020/11/28/proc/3299993_80daf_5fc25d39c53ae.jpg",
+   "at": {
+    "lat": 48.857767,
+    "lng": 2.300175
+   },
+   "heading": 252.86,
+   "guess": {
+    "lat": 47.5,
+    "lng": 3
+   },
+   "km": 160,
+   "points": 4492,
+   "movedKm": 538,
+   "landedIn": "FR",
+   "topLabel": "fixture",
+   "topProbability": 0
+  },
+  {
+   "photo": "https://api.openstreetcam.org/storage13/files/photo/2020/11/28/proc/3299993_04e0d_5fc25d63677c2.jpg",
+   "at": {
+    "lat": 48.857386,
+    "lng": 2.298617
+   },
+   "heading": 270,
+   "guess": {
+    "lat": 48.4,
+    "lng": 2.6
+   },
+   "km": 55,
+   "points": 4817,
+   "movedKm": 104,
+   "landedIn": "FR",
+   "topLabel": "fixture",
+   "topProbability": 0
+  },
+  {
+   "photo": "https://api.openstreetcam.org/storage13/files/photo/2020/11/28/proc/3299993_659bc_5fc25d8186f1d.jpg",
+   "at": {
+    "lat": 48.856486,
+    "lng": 2.297639
+   },
+   "heading": 120.84,
+   "guess": {
+    "lat": 48.75,
+    "lng": 2.4
+   },
+   "km": 14,
+   "points": 4953,
+   "movedKm": 42,
+   "landedIn": "FR",
+   "topLabel": "fixture",
+   "topProbability": 0
+  },
+  {
+   "photo": "https://api.openstreetcam.org/storage13/files/photo/2020/11/28/proc/3299993_862f1_5fc25dbd2f0ce.jpg",
+   "at": {
+    "lat": 48.856825,
+    "lng": 2.296061
+   },
+   "heading": 270,
+   "guess": {
+    "lat": 48.84,
+    "lng": 2.33
+   },
+   "km": 3,
+   "points": 4990,
+   "movedKm": 11,
+   "landedIn": "FR",
+   "topLabel": "fixture",
+   "topProbability": 0
+  },
+  {
+   "photo": "https://api.openstreetcam.org/storage13/files/photo/2020/11/28/proc/3299993_9b577_5fc25dfda1d39.jpg",
+   "at": {
+    "lat": 48.856928,
+    "lng": 2.294244
+   },
+   "heading": 270,
+   "guess": {
+    "lat": 48.855,
+    "lng": 2.3
+   },
+   "km": 1,
+   "points": 4998,
+   "movedKm": 3,
+   "landedIn": "FR",
+   "topLabel": "fixture",
+   "topProbability": 0
+  },
+  {
+   "photo": "https://api.openstreetcam.org/storage13/files/photo/2020/11/28/proc/3299993_18b5d_5fc25e4a52b70.jpg",
+   "at": {
+    "lat": 48.857336,
+    "lng": 2.2927
+   },
+   "heading": 270,
+   "guess": {
+    "lat": 48.858,
+    "lng": 2.297
+   },
+   "km": 1,
+   "points": 4998,
+   "movedKm": 0,
+   "landedIn": "FR",
+   "topLabel": "fixture",
+   "topProbability": 0
+  }
+ ]
+}

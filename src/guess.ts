@@ -21,14 +21,15 @@ export type Round = {
   describerCost: number;
   jevCost: number;
   jevTokens: number;
+  describerCached: boolean;
   jevMs: number;
   totalMs: number;
 };
 
-export async function playRound(photo: Photo, truthCode: string | null): Promise<Round> {
+export async function playRound(photo: Photo, truthCode: string | null, { useCache = true } = {}): Promise<Round> {
   const started = Date.now();
   const image = await fetchImage(photo);
-  const { observation, inputTokens, outputTokens } = await observe(image);
+  const { observation, inputTokens, outputTokens, cached } = await observe(image, photo.id, { useCache });
   const jev = await rankCountries(observation);
 
   // Jev names a country; the guess dropped on the map is that country's centroid.
@@ -48,9 +49,10 @@ export async function playRound(photo: Photo, truthCode: string | null): Promise
     points,
     km,
     signsNamedAPlace: signsNameAPlace(observation),
-    describerCost: costOf("google/gemini-3.5-flash", { inputTokens, outputTokens }),
+    describerCost: cached ? 0 : costOf("google/gemini-3.5-flash", { inputTokens, outputTokens }),
     jevCost: costOf("typesafe-ai/jev", { inputTokens: jev.inputTokens, outputTokens: 0 }),
     jevTokens: jev.inputTokens,
+    describerCached: cached,
     jevMs: jev.ms,
     totalMs: Date.now() - started,
   };

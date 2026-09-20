@@ -9,6 +9,9 @@ import { playRound, type Round } from "../src/guess.ts";
 import { countryByCode, COUNTRIES } from "../src/countries.ts";
 import { PlaceLeakError } from "../src/observe.ts";
 import { usd } from "../src/pricing.ts";
+import { baselines } from "../src/baselines.ts";
+import { DESCRIBER_VERSION } from "../src/observe.ts";
+import { cacheStats } from "../src/cache.ts";
 import type { Photo } from "../src/kartaview.ts";
 
 process.loadEnvFile(new URL("../.env", import.meta.url).pathname.slice(1));
@@ -16,7 +19,9 @@ process.loadEnvFile(new URL("../.env", import.meta.url).pathname.slice(1));
 const arg = (name: string, fallback: string) =>
   process.argv.find((a) => a.startsWith(`--${name}=`))?.split("=")[1] ?? fallback;
 
-const setPath = new URL(`../${arg("set", "data/testset.json")}`, import.meta.url);
+const setPath = new URL(`../${arg("set", "data/dev.json")}`, import.meta.url);
+const useCache = arg("cache", "1") !== "0";
+const label = arg("label", "run");
 const concurrency = Number(arg("concurrency", "4"));
 
 type TestCase = { photo: Photo; truthCode: string; city: string };
@@ -37,7 +42,7 @@ async function worker() {
     const test = testset.cases[index]!;
     const truthName = countryByCode(test.truthCode)?.name ?? test.truthCode;
     try {
-      const round = await playRound(test.photo, test.truthCode);
+      const round = await playRound(test.photo, test.truthCode, { useCache });
       rounds.push(round);
       const mark = round.correct ? "HIT " : "MISS";
       const shown = round.correct ? "" : ` -> ${round.guess.name}`;
@@ -87,7 +92,16 @@ console.log(row("Photos with no place name on any sign", rounds.filter((r) => !r
 console.log(row("Photos where a sign named a place", rounds.filter((r) => r.signsNamedAPlace)));
 
 console.log(`\ntruth in top 3: ${top3} of ${n} (${Math.round((top3 / n) * 100)}%)   top 5: ${top5} of ${n} (${Math.round((top5 / n) * 100)}%)`);
-console.log(`chance at this menu size: ${(100 / 194).toFixed(1)}%`);
+
+const truths = rounds.map((r) => ({ lat: r.photo.lat, lng: r.photo.lng }));
+const codes = rounds.map((r) => r.truthCode!);
+console.log(`
+| baseline | correct | mean points | |`);
+console.log(`|---|---:|---:|---|`);
+for (const b of baselines(truths, codes)) {
+  console.log(`| ${b.name} | ${(b.accuracy * 100).toFixed(1)}% | ${Math.round(b.meanPoints)} | ${b.note} |`);
+}
+console.log(`| **Jev** | **${Math.round((hits / n) * 100)}%** | **${Math.round(sum((r) => r.points) / n)}** | |`);
 
 console.log(`\nJev        ${Math.round(sum((r) => r.jevTokens) / n)} tokens and ${Math.round(sum((r) => r.jevMs) / n)} ms per guess, ${usd(jevCost)} for all ${n}`);
 console.log(`describer  ${usd(describerCost)} for all ${n}`);
@@ -105,6 +119,8 @@ const record = {
     medianKm: Math.round(median(rounds.map((r) => r.km))),
     jevCost, describerCost, wallSeconds,
   },
+  label, describerVersion: DESCRIBER_VERSION,
+  baselines: baselines(rounds.map((r) => ({ lat: r.photo.lat, lng: r.photo.lng })), rounds.map((r) => r.truthCode!)),
   leaks, failures,
   // The full distribution, not just the winner. It is what the replay page animates, and it is the
   // only way to check afterwards whether a miss was a near miss.

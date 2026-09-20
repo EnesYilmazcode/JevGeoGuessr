@@ -9,6 +9,7 @@
 import { generateObject } from "ai";
 import { z } from "zod";
 import { COUNTRIES } from "./countries.ts";
+import { describerVersion, readCached, writeCached } from "./cache.ts";
 
 export const DESCRIBER_MODEL = "google/gemini-3.5-flash";
 
@@ -41,7 +42,18 @@ export type Observation = z.infer<typeof ObservationSchema>;
 
 const INSTRUCTIONS = `You are recording what is physically visible in one street level photograph, for someone who will never see it.
 
-Describe only what is in the frame. Be concrete and specific about shapes, materials, colours and proportions.
+Describe only what is in the frame. Be concrete and specific about shapes, materials, colours and proportions. Prefer exact detail over fluent prose: "white plate, narrow blue strip on the left edge, black characters" is worth more than "a European looking plate on a parked car".
+
+Record these precisely whenever they are visible, because they are what the reader has to work from:
+- the colour of the centre line and of the edge lines, and whether either is doubled
+- the exact colour, proportions and any coloured band on licence plates, even when the characters are unreadable
+- the cross section of utility poles (round, square, lattice, concrete, wood), and whether wires run overhead or underground
+- the shape, colour and reflector pattern of guide posts, bollards, kerb paint and guardrails
+- the backing shape and border colour of road signs, and the shape of any chevron or warning marker
+- the direction the shadows fall and how high the sun sits
+- whether the camera vehicle's own bonnet, wipers or mirrors are visible, and on which side its steering wheel is
+
+Say "not visible" for anything you genuinely cannot see. Do not pad, and do not soften a detail you are sure of.
 
 You must not state or hint at where the photograph was taken. Do not name, and do not allude to:
 - any country, territory, state, province, county, region, city, town or road
@@ -133,10 +145,33 @@ export function signsNameAPlace(observation: Observation): boolean {
   return BANNED.some((term) => text.includes(` ${term} `));
 }
 
+export type Observed = {
+  observation: Observation;
+  inputTokens: number;
+  outputTokens: number;
+  cached: boolean;
+};
+
+/** Identifies this exact describer. Changing the model, the instructions or the schema changes it. */
+export const DESCRIBER_VERSION = describerVersion(
+  DESCRIBER_MODEL, INSTRUCTIONS, Object.keys(ObservationSchema.shape),
+);
+
 export async function observe(
   image: Uint8Array,
-  mediaType = "image/jpeg",
-): Promise<{ observation: Observation; inputTokens: number; outputTokens: number }> {
+  photoId: string,
+  { useCache = true, mediaType = "image/jpeg" } = {},
+): Promise<Observed> {
+  if (useCache) {
+    const hit = readCached<Omit<Observed, "cached">>(DESCRIBER_VERSION, photoId);
+    // A cached observation was checked when it was written, but the checker itself changes, so
+    // check it again on the way out rather than trusting a past version of this code.
+    if (hit) {
+      assertPlaceBlind(hit.observation);
+      return { ...hit, cached: true };
+    }
+  }
+
   const { object, usage } = await generateObject({
     model: DESCRIBER_MODEL,
     schema: ObservationSchema,
@@ -150,5 +185,12 @@ export async function observe(
     abortSignal: AbortSignal.timeout(90_000),
   });
   assertPlaceBlind(object);
-  return { observation: object, inputTokens: usage.inputTokens ?? 0, outputTokens: usage.outputTokens ?? 0 };
+
+  const result = {
+    observation: object,
+    inputTokens: usage.inputTokens ?? 0,
+    outputTokens: usage.outputTokens ?? 0,
+  };
+  if (useCache) writeCached(DESCRIBER_VERSION, photoId, result);
+  return { ...result, cached: false };
 }

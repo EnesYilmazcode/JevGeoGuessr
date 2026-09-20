@@ -162,7 +162,6 @@ export async function locate(
       const { ranking, inputTokens: used } = await rankCells(observation, cells, stage, last);
       inputTokens += used;
       calls += 1;
-      if (frontier.length === 1) trail.push(ranking);
       for (const r of ranking) {
         // Chain rule: how likely this region is, given how likely its parent was.
         candidates.push({ cell: r.cell, weight: node.weight * r.probability, exhausted: last || r.cell.places.length <= 1 });
@@ -172,6 +171,9 @@ export async function locate(
     candidates.sort((a, b) => b.weight - a.weight);
     distribution = candidates.map((c) => ({ point: c.cell.centre, weight: c.weight }));
     leader = candidates[0]!;
+    // Record the merged view across every branch, so the trail is the same shape whatever the
+    // beam width. The replay page reads this.
+    trail.push(candidates.map((c) => ({ cell: c.cell, probability: c.weight })));
 
     const survivors = candidates.filter((c) => !c.exhausted).slice(0, Math.max(1, beam));
     if (!survivors.length) break;

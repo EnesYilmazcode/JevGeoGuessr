@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jev vs. the World</title>
+<style>
+  :root {
+    --bg: #0b0d10;
+    --panel: #14181d;
+    --line: #232a32;
+    --text: #e8edf2;
+    --dim: #79848f;
+    --bar: #253040;
+    --hit: #3ddc84;
+    --miss: #ff6b5e;
+    --truth: #ffd44d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font: 400 15px/1.45 ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100vh; padding: 20px;
+  }
+  #stage {
+    width: min(1600px, 100%); aspect-ratio: 16 / 9;
+    display: grid; gap: 12px;
+    grid-template-columns: 1.15fr 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: "photo ranks" "map ranks";
+  }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; position: relative; }
+
+  #photo { grid-area: photo; }
+  #photo img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; transition: opacity .5s ease; }
+  #photo img.in { opacity: 1; }
+
+  #obs {
+    position: absolute; inset: auto 0 0 0;
+    background: linear-gradient(transparent, rgba(11,13,16,.93) 22%);
+    padding: 40px 18px 16px; font-size: 12.5px; color: var(--dim);
+    display: grid; gap: 3px; max-height: 62%; overflow: hidden;
+  }
+  #obs div { opacity: 0; transform: translateY(5px); transition: opacity .25s ease, transform .25s ease; }
+  #obs div.in { opacity: 1; transform: none; }
+  #obs b { color: #9fb0c0; font-weight: 400; }
+
+  #ranks { grid-area: ranks; padding: 14px 16px; display: flex; flex-direction: column; }
+  #ranks h2 { font-size: 12px; font-weight: 400; color: var(--dim); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
+  #bars { position: relative; flex: 1; }
+  .row {
+    position: absolute; left: 0; right: 0; height: 22px;
+    display: grid; grid-template-columns: 1fr 52px; align-items: center; gap: 8px;
+    transition: transform .85s cubic-bezier(.22,.9,.24,1), opacity .5s ease;
+  }
+  .track { position: relative; height: 15px; background: #10151b; border-radius: 3px; overflow: hidden; }
+  .fill { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--bar); transition: width .85s cubic-bezier(.22,.9,.24,1); }
+  .name { position: absolute; left: 7px; top: 0; line-height: 15px; font-size: 11.5px; white-space: nowrap; }
+  .pct { font-size: 11px; color: var(--dim); text-align: right; font-variant-numeric: tabular-nums; }
+  .row.top .fill { background: #3a5cc4; }
+  .row.top .name { color: #fff; }
+  .row.truth .fill { background: var(--truth); }
+  .row.truth .name, .row.truth .pct { color: var(--truth); }
+  .row.top.truth .fill { background: var(--hit); }
+  .row.top.truth .name, .row.top.truth .pct { color: var(--hit); }
+
+  #map { grid-area: map; height: 300px; }
+  canvas { width: 100%; height: 100%; display: block; }
+
+  #score {
+    position: absolute; right: 14px; bottom: 12px; text-align: right;
+    font-variant-numeric: tabular-nums; opacity: 0; transition: opacity .4s ease;
+  }
+  #score.in { opacity: 1; }
+  #points { font-size: 34px; line-height: 1; }
+  #detail { font-size: 12px; color: var(--dim); margin-top: 4px; }
+  #meta { position: absolute; left: 14px; bottom: 12px; font-size: 12px; color: var(--dim); }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="panel" id="photo"><img alt="" /><div id="obs"></div></div>
+  <div class="panel" id="ranks"><h2>194 countries, scored</h2><div id="bars"></div></div>
+  <div class="panel" id="map">
+    <canvas></canvas>
+    <div id="meta"></div>
+    <div id="score"><div id="points">0</div><div id="detail"></div></div>
+  </div>
+</div>
+<script type="module">
+const ROW_H = 22, VISIBLE = 13;
+
+const $ = (s) => document.querySelector(s);
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+const [world, results] = await Promise.all([
+  fetch("world.json").then((r) => r.json()),
+  fetch("results.json").then((r) => r.json()),
+]);
+
+const countries = new Map(results.countries.map((c) => [c.code, c]));
+
+// Equirectangular, cropped to where people live so the empty polar bands do not eat the frame.
+const LAT0 = 84, LAT1 = -58;
+const canvas = $("canvas"), ctx = canvas.getContext("2d");
+let W = 0, H = 0;
+
+function resize() {
+  const rect = canvas.getBoundingClientRect(), dpr = devicePixelRatio || 1;
+  W = rect.width; H = rect.height;
+  canvas.width = W * dpr; canvas.height = H * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+const project = (lng, lat) => [((lng + 180) / 360) * W, ((LAT0 - lat) / (LAT0 - LAT1)) * H];
+
+function drawMap(highlightIso, truth, guess, arc = 0) {
+  ctx.clearRect(0, 0, W, H);
+  for (const shape of world) {
+    const on = shape.iso === highlightIso;
+    ctx.beginPath();
+    for (const ring of shape.rings) {
+      ring.forEach(([lng, lat], i) => {
+        const [x, y] = project(lng, lat);
+        i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+      });
+      ctx.closePath();
+    }
+    ctx.fillStyle = on ? "#3a5cc4" : "#1b2129";
+    ctx.fill();
+    ctx.strokeStyle = on ? "#6f8ae0" : "#242c36";
+    ctx.lineWidth = on ? 1.2 : 0.6;
+    ctx.stroke();
+  }
+  if (guess && truth && arc > 0) {
+    const a = project(guess.lng, guess.lat), b = project(truth.lng, truth.lat);
+    ctx.beginPath();
+    ctx.moveTo(a[0], a[1]);
+    ctx.lineTo(a[0] + (b[0] - a[0]) * arc, a[1] + (b[1] - a[1]) * arc);
+    ctx.strokeStyle = "#5c6b7d"; ctx.lineWidth = 1.4; ctx.setLineDash([4, 4]);
+    ctx.stroke(); ctx.setLineDash([]);
+  }
+  if (truth) {
+    const [x, y] = project(truth.lng, truth.lat);
+    ctx.beginPath(); ctx.arc(x, y, 5, 0, Math.PI * 2);
+    ctx.fillStyle = "#ffd44d"; ctx.fill();
+    ctx.strokeStyle = "#0b0d10"; ctx.lineWidth = 2; ctx.stroke();
+  }
+}
+
+function buildRows() {
+  const bars = $("#bars");
+  bars.innerHTML = "";
+  const rows = new Map();
+  for (const c of results.countries) {
+    const row = document.createElement("div");
+    row.className = "row";
+    row.innerHTML = `<div class="track"><div class="fill"></div><span class="name"></span></div><span class="pct"></span>`;
+    row.querySelector(".name").textContent = c.name;
+    row.style.opacity = "0";
+    bars.appendChild(row);
+    rows.set(c.code, row);
+  }
+  return rows;
+}
+
+async function playRound(round, rows) {
+  const truth = countries.get(round.truthCode), guess = countries.get(round.guess);
+
+  // Reset.
+  $("#score").classList.remove("in");
+  $("#obs").innerHTML = "";
+  const img = $("#photo img");
+  img.classList.remove("in");
+  for (const row of rows.values()) {
+    row.className = "row"; row.style.opacity = "0";
+    row.querySelector(".fill").style.width = "0";
+    row.querySelector(".pct").textContent = "";
+  }
+  resize();
+  drawMap(null, null, null, 0);
+  $("#meta").textContent = "";
+
+  // The photograph.
+  img.src = round.photo;
+  await img.decode().catch(() => {});
+  img.classList.add("in");
+  await sleep(500);
+
+  // The record, which is all Jev ever sees.
+  const fields = [
+    ["driving side", round.observation.driving_side],
+    ["signs", round.observation.sign_text_verbatim.length ? round.observation.sign_text_verbatim.join("  ") : "nothing legible"],
+    ["markings", round.observation.road_surface_and_markings],
+    ["plates", round.observation.license_plates],
+    ["poles", round.observation.poles_bollards_barriers],
+    ["building", round.observation.architecture],
+    ["plants", round.observation.vegetation],
+    ["ground", round.observation.terrain_and_soil],
+    ["light", round.observation.sky_and_light],
+  ];
+  for (const [label, value] of fields) {
+    const line = document.createElement("div");
+    line.innerHTML = `<b>${label}</b> ${String(value).slice(0, 115)}`;
+    $("#obs").appendChild(line);
+    requestAnimationFrame(() => line.classList.add("in"));
+    await sleep(155);
+  }
+  await sleep(400);
+
+  // Jev scores all 194 at once. Show them settling into order.
+  const ranked = [...round.all].sort((a, b) => b[1] - a[1]);
+  const max = ranked[0][1] || 1;
+  ranked.forEach(([code, p], i) => {
+    const row = rows.get(code);
+    if (!row) return;
+    row.style.transform = `translateY(${i * ROW_H}px)`;
+    row.style.opacity = i < VISIBLE ? "1" : "0";
+    if (i === 0) row.classList.add("top");
+    if (code === round.truthCode) row.classList.add("truth");
+    row.querySelector(".fill").style.width = `${Math.max(p / max, p > 0 ? 0.012 : 0) * 100}%`;
+    const pct = p * 100;
+    row.querySelector(".pct").textContent = pct >= 0.1 ? `${pct.toFixed(1)}%` : "";
+  });
+  $("#meta").textContent = `${round.jevTokens} tokens  ${round.jevMs} ms`;
+  await sleep(1300);
+
+  // Where that lands on the map.
+  drawMap(round.guess, null, null, 0);
+  await sleep(500);
+  for (let t = 0; t <= 1.001; t += 1 / 26) {
+    drawMap(round.guess, truth, guess, t);
+    await sleep(16);
+  }
+
+  // The score.
+  $("#detail").textContent = `${round.km.toLocaleString()} km`;
+  $("#points").style.color = round.correct ? "var(--hit)" : "var(--text)";
+  $("#score").classList.add("in");
+  const from = performance.now();
+  await new Promise((done) => {
+    const step = (now) => {
+      const k = Math.min(1, (now - from) / 700);
+      $("#points").textContent = Math.round(round.points * (1 - Math.pow(1 - k, 3))).toLocaleString();
+      k < 1 ? requestAnimationFrame(step) : done();
+    };
+    requestAnimationFrame(step);
+  });
+  await sleep(2600);
+}
+
+addEventListener("resize", () => resize());
+const rows = buildRows();
+
+// Rounds where Jev was right lead, so the tape opens on something worth watching.
+const order = [...results.rounds].sort((a, b) => b.points - a.points);
+for (let i = 0; ; i = (i + 1) % order.length) {
+  await playRound(order[i], rows);
+}
+</script>
+</body>
+</html>

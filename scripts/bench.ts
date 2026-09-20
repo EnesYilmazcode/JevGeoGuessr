@@ -6,7 +6,7 @@
 
 import { readFileSync, writeFileSync } from "node:fs";
 import { playRound, type Round } from "../src/guess.ts";
-import { countryByCode } from "../src/countries.ts";
+import { countryByCode, COUNTRIES } from "../src/countries.ts";
 import { PlaceLeakError } from "../src/observe.ts";
 import { usd } from "../src/pricing.ts";
 import type { Photo } from "../src/kartaview.ts";
@@ -96,7 +96,7 @@ console.log(`wall clock ${wallSeconds.toFixed(0)}s at concurrency ${concurrency}
 if (leaks.length) console.log(`\n${leaks.length} observations rejected for naming a place or pointing.`);
 if (failures.length) console.log(`${failures.length} rounds failed outright.`);
 
-writeFileSync(new URL("../data/results.json", import.meta.url), JSON.stringify({
+const record = {
   ranAt: new Date().toISOString(),
   set: { mode: testset.mode, seed: testset.seed, size: testset.cases.length },
   summary: {
@@ -106,12 +106,18 @@ writeFileSync(new URL("../data/results.json", import.meta.url), JSON.stringify({
     jevCost, describerCost, wallSeconds,
   },
   leaks, failures,
+  // The full distribution, not just the winner. It is what the replay page animates, and it is the
+  // only way to check afterwards whether a miss was a near miss.
+  countries: COUNTRIES.map((c) => ({ code: c.code, name: c.name, lat: c.lat, lng: c.lng })),
   rounds: rounds.map((r) => ({
     truthCode: r.truthCode, guess: r.guess.code, correct: r.correct, rankOfTruth: r.rankOfTruth,
     points: r.points, km: Math.round(r.km), signsNamedAPlace: r.signsNamedAPlace,
     jevTokens: r.jevTokens, jevMs: r.jevMs,
-    top5: r.ranking.slice(0, 5).map((x) => [x.country.code, x.probability]),
+    all: r.ranking.map((x) => [x.country.code, Number(x.probability.toFixed(4))]),
     photo: r.photo.url, observation: r.observation,
   })),
-}, null, 1), "utf8");
-console.log(`\nwrote data/results.json`);
+};
+
+writeFileSync(new URL("../data/results.json", import.meta.url), JSON.stringify(record, null, 1), "utf8");
+writeFileSync(new URL("../web/results.json", import.meta.url), JSON.stringify(record), "utf8");
+console.log(`\nwrote data/results.json and web/results.json`);

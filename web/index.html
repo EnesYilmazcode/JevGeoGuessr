@@ -25,10 +25,14 @@
     min-height: 100vh; padding: 20px;
   }
   #stage {
-    width: min(1600px, 100%); aspect-ratio: 16 / 9;
+    /* Fit the 16:9 stage to whichever runs out first, the width or the height, so nothing is ever
+       cut off the bottom on a short window. */
+    width: min(1600px, 100%, calc((100vh - 40px) * 16 / 9)); aspect-ratio: 16 / 9;
     display: grid; gap: 12px;
     grid-template-columns: 1.15fr 1fr;
-    grid-template-rows: 1fr auto;
+    /* Fractions, not a fixed map height: the stage is a fixed 16:9 box, so a pixel height here
+       overflows the panel and clips the distance and token readouts on a short window. */
+    grid-template-rows: 1.35fr 1fr;
     grid-template-areas: "photo ranks" "map ranks";
   }
   .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; position: relative; }
@@ -40,12 +44,17 @@
   #obs {
     position: absolute; inset: auto 0 0 0;
     background: linear-gradient(transparent, rgba(11,13,16,.93) 22%);
-    padding: 40px 18px 16px; font-size: 12.5px; color: var(--dim);
-    display: grid; gap: 3px; max-height: 62%; overflow: hidden;
+    padding: 54px 18px 14px; font-size: 12px; color: var(--dim);
+    display: grid; gap: 2px; max-height: 52%; overflow: hidden;
   }
   #obs div { opacity: 0; transform: translateY(5px); transition: opacity .25s ease, transform .25s ease; }
   #obs div.in { opacity: 1; transform: none; }
   #obs b { color: #9fb0c0; font-weight: 400; }
+
+  /* Clearing the last round has to land in one frame. If the bars are allowed to fade out on their
+     own, a cached photo for the next round appears while they are still on screen, and for about
+     half a second the page shows a new picture next to the previous round's answer. */
+  .resetting, .resetting * { transition: none !important; }
 
   #ranks { grid-area: ranks; padding: 14px 16px; display: flex; flex-direction: column; }
   #ranks h2 { font-size: 12px; font-weight: 400; color: var(--dim); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
@@ -59,14 +68,19 @@
   .fill { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--bar); transition: width .85s cubic-bezier(.22,.9,.24,1); }
   .name { position: absolute; left: 7px; top: 0; line-height: 15px; font-size: 11.5px; white-space: nowrap; }
   .pct { font-size: 11px; color: var(--dim); text-align: right; font-variant-numeric: tabular-nums; }
+  /* A row's label sits over the fill when the bar is wide and over the empty track when it is not,
+     so it stays light in every state and the fills stay dark enough to read against. The bright
+     accent is carried by the percentage instead, which is always on the panel background. */
   .row.top .fill { background: #3a5cc4; }
   .row.top .name { color: #fff; }
-  .row.truth .fill { background: var(--truth); }
-  .row.truth .name, .row.truth .pct { color: var(--truth); }
-  .row.top.truth .fill { background: var(--hit); }
-  .row.top.truth .name, .row.top.truth .pct { color: var(--hit); }
+  .row.truth .fill { background: #6d5500; }
+  .row.truth .name { color: #fff; }
+  .row.truth .pct { color: var(--truth); }
+  .row.top.truth .fill { background: #1c7a4b; }
+  .row.top.truth .name { color: #fff; }
+  .row.top.truth .pct { color: var(--hit); }
 
-  #map { grid-area: map; height: 300px; }
+  #map { grid-area: map; }
   canvas { width: 100%; height: 100%; display: block; }
 
   #score {
@@ -168,10 +182,12 @@ function buildRows() {
 async function playRound(round, rows) {
   const truth = countries.get(round.truthCode), guess = countries.get(round.guess);
 
-  // Reset.
+  // Clear the last round in a single frame, with transitions off.
+  const stage = $("#stage"), img = $("#photo img");
+  stage.classList.add("resetting");
   $("#score").classList.remove("in");
   $("#obs").innerHTML = "";
-  const img = $("#photo img");
+  $("#meta").textContent = "";
   img.classList.remove("in");
   for (const row of rows.values()) {
     row.className = "row"; row.style.opacity = "0";
@@ -180,7 +196,8 @@ async function playRound(round, rows) {
   }
   resize();
   drawMap(null, null, null, 0);
-  $("#meta").textContent = "";
+  void stage.offsetWidth; // force the cleared state to paint before transitions come back
+  stage.classList.remove("resetting");
 
   // The photograph.
   img.src = round.photo;

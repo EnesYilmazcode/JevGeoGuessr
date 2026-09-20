@@ -7,7 +7,7 @@
 //            hard on the handful of countries with the most towns, the way a world map does.
 
 import { writeFileSync, readFileSync, existsSync } from "node:fs";
-import { nearbyPhotos, type Photo } from "../src/kartaview.ts";
+import { nearbyPhotos, fetchImage, type Photo } from "../src/kartaview.ts";
 import { countryCodeAt } from "../src/truth.ts";
 import { countryByCode } from "../src/countries.ts";
 
@@ -80,7 +80,16 @@ while (cases.length < want && attempts < want * 40) {
   }
   if (!photos.length) continue;
 
-  const photo = pick(photos);
+  // Some photos are listed but never serve, answering 409 forever. A test set is supposed to
+  // measure the model, so a photo that cannot be downloaded has no business being in it.
+  let photo: Photo | undefined;
+  for (const candidate of [pick(photos), pick(photos), pick(photos)]) {
+    try {
+      const bytes = await fetchImage(candidate, 2);
+      if (bytes.byteLength > 20_000) { photo = candidate; break; }
+    } catch { /* try another from the same place */ }
+  }
+  if (!photo) continue;
 
   // The photo can sit a little outside the seed city, so resolve truth from the photo itself.
   let truthCode: string | null = null;

@@ -1,0 +1,111 @@
+{
+ "mode": "balanced",
+ "seed": 7,
+ "builtAt": "2026-09-20",
+ "cases": [
+  {
+   "photo": {
+    "id": "1216742041",
+    "lat": 10.07228,
+    "lng": -84.216219,
+    "heading": 41.97,
+    "shotDate": "2016-03-08 17:40:27.000",
+    "username": "elotrojames",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/1/8/proc/3358913_760e2_5ff7cbf0d60da.jpg"
+   },
+   "truthCode": "CR",
+   "city": "Sabanilla"
+  },
+  {
+   "photo": {
+    "id": "1187235829",
+    "lat": 49.560173,
+    "lng": 5.873312,
+    "heading": 72.18,
+    "shotDate": "2016-08-22 08:52:30.000",
+    "username": "zors1843",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/11/23/proc/3276325_7220b_5fbb0fcca9b9b.jpg"
+   },
+   "truthCode": "LU",
+   "city": "Pétange"
+  },
+  {
+   "photo": {
+    "id": "1363182025",
+    "lat": 43.732715,
+    "lng": 7.417951,
+    "heading": 141.95,
+    "shotDate": "2019-04-21 11:37:07.000",
+    "username": "thetornado76",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/8/15/proc/3789501_d3d5d_6119993d5e270.jpg"
+   },
+   "truthCode": "MC",
+   "city": "Monaco-Ville"
+  },
+  {
+   "photo": {
+    "id": "706285834",
+    "lat": 2.894658,
+    "lng": 112.096699,
+    "heading": null,
+    "shotDate": "2020-05-14 10:07:08.000",
+    "username": "jeremy-ong",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2020/5/16/proc/2240342_52_3e967_31.jpg"
+   },
+   "truthCode": "MY",
+   "city": "Mukah"
+  },
+  {
+   "photo": {
+    "id": "1378742353",
+    "lat": 17.83879,
+    "lng": 52.657006,
+    "heading": 348.72,
+    "shotDate": "2020-11-25 13:44:52.000",
+    "username": "vincent-bombaerts",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2021/9/22/proc/3852793_3cfaa_614a764cc0d9f.jpg"
+   },
+   "truthCode": "OM",
+   "city": "Al Mazyūnah"
+  },
+  {
+   "photo": {
+    "id": "1622041369",
+    "lat": 25.250685,
+    "lng": 55.289548,
+    "heading": 49.59,
+    "shotDate": "2022-10-05 05:52:41.000",
+    "username": "dennis-g-d",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2022/10/5/proc/6179913_053a899bd29025080b93ca1b3d211342.jpg"
+   },
+   "truthCode": "AE",
+   "city": "Mankhūl"
+  },
+  {
+   "photo": {
+    "id": "1942280249",
+    "lat": 25.266334,
+    "lng": 51.516624,
+    "heading": 309.06,
+    "shotDate": "2024-04-01 09:00:11.000",
+    "username": "cbq-karwa47",
+    "url": "https://api.openstreetcam.org/storage13/files/photo/2024/4/24/proc/8795033_05492bcd5fce7dd13fe4678033788268.jpg"
+   },
+   "truthCode": "QA",
+   "city": "As Sulţah al Jadīdah"
+  },
+  {
+   "photo": {
+    "id": "431407198",
+    "lat": 42.142094,
+    "lng": 19.04656,
+    "heading": 123,
+    "shotDate": "2019-06-11 10:58:06.000",
+    "username": "brackone",
+    "url": "https://api.openstreetcam.org/storage11/files/photo/2019/6/11/proc/1518926_54c49_1091.jpg"
+   },
+   "truthCode": "ME",
+   "city": "Sutomore"
+  }
+ ]
+}

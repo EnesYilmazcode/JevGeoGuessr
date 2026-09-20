@@ -6,7 +6,7 @@ import { countryByCode } from "../src/countries.ts";
 
 process.loadEnvFile(new URL("../.env", import.meta.url).pathname.slice(1));
 
-const [lat, lng] = process.argv.slice(2).map(Number);
+const [lat = NaN, lng = NaN] = process.argv.slice(2).map(Number);
 if (!Number.isFinite(lat) || !Number.isFinite(lng)) {
   console.error("usage: npm run guess -- <lat> <lng>");
   process.exit(1);

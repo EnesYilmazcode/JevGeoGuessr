@@ -1,0 +1,285 @@
+{
+ "ranAt": "2026-09-20T18:36:15.485Z",
+ "set": {
+  "mode": "balanced",
+  "seed": 7,
+  "size": 8
+ },
+ "summary": {
+  "completed": 5,
+  "hits": 1,
+  "top3": 1,
+  "top5": 2,
+  "meanPoints": 2752,
+  "medianKm": 657,
+  "jevCost": 0.0009451679999999999,
+  "describerCost": 0.0869715,
+  "wallSeconds": 35.009
+ },
+ "leaks": [
+  {
+   "truthCode": "CR",
+   "message": "Describer pointed instead of describing: \"characteristic of\" in sky_and_light"
+  },
+  {
+   "truthCode": "MC",
+   "message": "Describer named a place: \"islands\" in poles_bollards_barriers"
+  }
+ ],
+ "failures": [
+  {
+   "truthCode": "MY",
+   "message": "photo 706285834: HTTP 409"
+  }
+ ],
+ "rounds": [
+  {
+   "truthCode": "OM",
+   "guess": "MR",
+   "correct": false,
+   "rankOfTruth": 8,
+   "points": 54,
+   "km": 6762,
+   "signsNamedAPlace": false,
+   "jevTokens": 4409,
+   "jevMs": 904,
+   "top5": [
+    [
+     "MR",
+     0.16
+    ],
+    [
+     "SA",
+     0.15000000000000002
+    ],
+    [
+     "EG",
+     0.11
+    ],
+    [
+     "AF",
+     0.06999999999999999
+    ],
+    [
+     "LY",
+     0.06999999999999999
+    ]
+   ],
+   "photo": "https://api.openstreetcam.org/storage13/files/photo/2021/9/22/proc/3852793_3cfaa_614a764cc0d9f.jpg",
+   "observation": {
+    "sign_text_verbatim": [],
+    "driving_side": "right",
+    "road_surface_and_markings": "A narrow gray asphalt road with no painted lines or markings. The asphalt surface is somewhat worn and stained with dark patches.",
+    "license_plates": "Not legible.",
+    "poles_bollards_barriers": "Multiple wooden utility poles stand on the right side of the road, carrying several rows of overhead wires. There are no kerbs, guardrails, or bollards separating the road from the sandy ground.",
+    "architecture": "One- and two-storey buildings made of light-coloured, off-white concrete or plaster. The buildings have flat roofs, boxy rectangular designs, and some have surrounding compound walls.",
+    "vegetation": "Very sparse vegetation. Only a few scattered green bushes or small trees are visible in the far distance on the left.",
+    "terrain_and_soil": "Flat, arid landscape composed of light beige sand, loose dirt, and small pebbles on both sides of the road. Low, distant sandy hills are visible on the horizon.",
+    "sky_and_light": "Clear, pale blue sky with no clouds, transitioning to a light haze near the horizon. Bright, direct overhead sunlight casting short, faint shadows.",
+    "vehicles": "A white bus is parked on the sandy shoulder on the right side. A few distant light-coloured passenger vehicles are parked near the buildings.",
+    "other_details": "Overhead electricity cables are strung between the utility poles on the right."
+   }
+  },
+  {
+   "truthCode": "LU",
+   "guess": "DE",
+   "correct": false,
+   "rankOfTruth": 107,
+   "points": 4162,
+   "km": 274,
+   "signsNamedAPlace": false,
+   "jevTokens": 4423,
+   "jevMs": 295,
+   "top5": [
+    [
+     "DE",
+     0.41000000000000003
+    ],
+    [
+     "US",
+     0.23
+    ],
+    [
+     "FR",
+     0.060000000000000005
+    ],
+    [
+     "GB",
+     0.05
+    ],
+    [
+     "CA",
+     0.04
+    ]
+   ],
+   "photo": "https://api.openstreetcam.org/storage13/files/photo/2020/11/23/proc/3276325_7220b_5fbb0fcca9b9b.jpg",
+   "observation": {
+    "sign_text_verbatim": [],
+    "driving_side": "right",
+    "road_surface_and_markings": "The road is paved with dark grey asphalt, showing some signs of wear. Solid white lines mark both the left and right edges of the lane.",
+    "license_plates": "None visible.",
+    "poles_bollards_barriers": "On the left side of the road, there is a steel guardrail with a W-beam profile, and behind it, a blue-grey metal crash barrier. Tall, grey, octagonal metal light poles are installed at regular intervals along the left barrier, each with a single outreach arm. On the right grass shoulder, there is a white delineator post with a black slanted band.",
+    "architecture": "No buildings are visible.",
+    "vegetation": "A dense wall of green deciduous trees and shrubs grows along the right side of the road, with a strip of green grass along the shoulder. On the left side, behind the barrier, the tops of green trees are visible in the distance.",
+    "terrain_and_soil": "The terrain is flat, with the road appearing slightly elevated compared to the surrounding ground. No bare soil is visible.",
+    "sky_and_light": "The sky is overcast with a uniform layer of light grey clouds. The lighting is diffused and flat, producing no distinct shadows, suggesting a cloudy day in summer or late spring.",
+    "vehicles": "None visible.",
+    "other_details": "A few small pieces of light-coloured litter are visible on the narrow shoulder near the left guardrail."
+   }
+  },
+  {
+   "truthCode": "AE",
+   "guess": "AE",
+   "correct": true,
+   "rankOfTruth": 1,
+   "points": 4400,
+   "km": 191,
+   "signsNamedAPlace": false,
+   "jevTokens": 4582,
+   "jevMs": 222,
+   "top5": [
+    [
+     "AE",
+     0.2
+    ],
+    [
+     "SA",
+     0.18000000000000002
+    ],
+    [
+     "LB",
+     0.09999999999999999
+    ],
+    [
+     "US",
+     0.06999999999999999
+    ],
+    [
+     "EG",
+     0.05
+    ]
+   ],
+   "photo": "https://api.openstreetcam.org/storage13/files/photo/2022/10/5/proc/6179913_053a899bd29025080b93ca1b3d211342.jpg",
+   "observation": {
+    "sign_text_verbatim": [
+     "٦٠ م",
+     "60 m",
+     "MANHATTAN AVENUE HOTEL",
+     "TO LET",
+     "050-3839548",
+     "P"
+    ],
+    "driving_side": "right",
+    "road_surface_and_markings": "The road is paved with smooth, dark asphalt. It has a dashed white lane-line marking on the left and a painted white right-turn arrow pointing forward and slightly right. The curb bordering the sidewalk is painted with alternating black and white segments.",
+    "license_plates": "Not legible.",
+    "poles_bollards_barriers": "There is a grey metal pole holding a triangular traffic warning sign. The sidewalk has a concrete curb painted in alternating black and white blocks.",
+    "architecture": "On the right are beige stucco, two-to-three story villas featuring terracotta-tiled pitched roofs, decorative moldings, white-framed windows, and private balconies, surrounded by high matching boundary walls. In the background on the left are modern high-rise buildings, including one tower with a light-coloured facade and vertical blue glass windows, and another taller skyscraper with horizontal white bands.",
+    "vegetation": "A long, manicured green hedge with small pink flowers runs parallel to the sidewalk. Lush, leafy green trees of medium height are visible in the background behind the villas and along the far left street corner.",
+    "terrain_and_soil": "The terrain is flat and fully developed, with no exposed natural soil visible.",
+    "sky_and_light": "The sky is a clear, pale blue with a bright, hazy solar glare. Bright, direct daylight casts sharp, dark shadows underneath the hedges and structures, suggesting midday conditions in a warm season.",
+    "vehicles": "The interior dashboard, windshield, and light-coloured hood of the camera vehicle are visible in the immediate foreground. In the distant background on the far left, other light-coloured cars are partially visible on the road.",
+    "other_details": "A triangular yellow warning sign with a red border depicts a black silhouette of a pedestrian, with a white rectangular subplate underneath. A small orange parking sign with a blue square 'P' is visible further down the path, and a security camera or light fixture is mounted near the villas' walls."
+   }
+  },
+  {
+   "truthCode": "ME",
+   "guess": "FR",
+   "correct": false,
+   "rankOfTruth": 31,
+   "points": 1924,
+   "km": 1425,
+   "signsNamedAPlace": false,
+   "jevTokens": 4514,
+   "jevMs": 247,
+   "top5": [
+    [
+     "FR",
+     0.13
+    ],
+    [
+     "JP",
+     0.09999999999999999
+    ],
+    [
+     "GR",
+     0.09
+    ],
+    [
+     "IT",
+     0.08
+    ],
+    [
+     "CY",
+     0.05
+    ]
+   ],
+   "photo": "https://api.openstreetcam.org/storage11/files/photo/2019/6/11/proc/1518926_54c49_1091.jpg",
+   "observation": {
+    "sign_text_verbatim": [],
+    "driving_side": "right",
+    "road_surface_and_markings": "The road surface is grey asphalt. There is a solid white line on the outer edge, dashed white lane divider markings, and faint blue pedestrian crossing markings on the right side.",
+    "license_plates": "Not legible.",
+    "poles_bollards_barriers": "A tall grey metal streetlight pole stands in the center median with two long arms extending out. There are grey concrete curbs lining the sidewalks on both sides of the road.",
+    "architecture": "In the distance, there is a large concrete or metal pedestrian overpass structure spanning the road. On the hillside to the left, there are scattered small houses with tiled roofs. To the right, low-rise commercial or residential structures are partially visible behind trees.",
+    "vegetation": "A large green deciduous tree with dense foliage is on the right side of the road. The hillsides on the left are covered with green grass, shrubs, and dense forest of green trees.",
+    "terrain_and_soil": "The surrounding area is hilly and mountainous, with a steep slope rising to the left and mountains visible in the far background under a partly cloudy sky.",
+    "sky_and_light": "The sky is a clear bright blue with scattered large, puffy white cumulus clouds. The lighting is direct, bright sunlight from a high angle, indicating summer or a warm season.",
+    "vehicles": "A white modern station wagon is parked on the right side. Behind it is a black SUV, and further back, a yellow hatchback. On the left side of the road, a silver hatchback and a silver sedan are driving, and a large multi-axle dark dump truck is parked near the side road.",
+    "other_details": "A pedestrian carrying a bag is walking on the right-side sidewalk. A blue rectangular road sign displays white arrows indicating lane configuration. There are windshield reflections, including a green object, visible on the right side."
+   }
+  },
+  {
+   "truthCode": "QA",
+   "guess": "SA",
+   "correct": false,
+   "rankOfTruth": 5,
+   "points": 3220,
+   "km": 657,
+   "signsNamedAPlace": true,
+   "jevTokens": 4576,
+   "jevMs": 828,
+   "top5": [
+    [
+     "SA",
+     0.22
+    ],
+    [
+     "AE",
+     0.2
+    ],
+    [
+     "EG",
+     0.16
+    ],
+    [
+     "BH",
+     0.060000000000000005
+    ],
+    [
+     "QA",
+     0.05
+    ]
+   ],
+   "photo": "https://api.openstreetcam.org/storage13/files/photo/2024/4/24/proc/8795033_05492bcd5fce7dd13fe4678033788268.jpg",
+   "observation": {
+    "sign_text_verbatim": [
+     "GRIDCO I",
+     "American Hospital Clinics",
+     "عيادات المستشفى الأمريكي",
+     "LOTUS",
+     "لوتس"
+    ],
+    "driving_side": "right",
+    "road_surface_and_markings": "The road surface is smooth, dark grey asphalt. It has painted dashed white lines separating multiple lanes moving in the same direction, and a solid white line marking the edge near the curb on the right.",
+    "license_plates": "The license plates on the vehicles are not legible.",
+    "poles_bollards_barriers": "Tall, slender, light grey metal street light poles with double-curved arms are positioned along the route. Concrete curbs are present, with some sections painted in alternating black and white blocks. A low concrete median barrier is visible on the left side.",
+    "architecture": "On the right, modern multi-storey commercial buildings are present. The closest has a white and dark grey facade with green-tinted glass panels. Behind it is a modern building with a blue glass curtain wall. On the left, there is a building with traditional design elements, featuring a tall, slender, multi-tiered beige stone minaret with ornamental balconies and arched windows.",
+    "vegetation": "Very minimal vegetation is visible, consisting only of small, sparse green patches or distant low plantings near the base of the buildings.",
+    "terrain_and_soil": "The terrain is completely flat with no natural exposed soil visible, as the area is entirely paved or built over.",
+    "sky_and_light": "The sky is overcast with a dense layer of light grey and white clouds. The light is diffused, creating soft, indistinct shadows.",
+    "vehicles": "Several passenger cars are visible, including a prominent white mid-size sedan directly in front, a silver SUV partially visible on the right foreground, and various other sedans and SUVs of mixed colours (blue, white, red, grey) further ahead on the road and parked on the side.",
+    "other_details": "The lower portion of the frame shows the dark grey dashboard and the interior windshield of the camera vehicle. On the right sidewalk, there is a red circular sign and a triangular warning sign with a red border on metal posts."
+   }
+  }
+ ]
+}

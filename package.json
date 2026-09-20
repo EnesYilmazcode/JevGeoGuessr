@@ -4,15 +4,23 @@
   "private": true,
   "type": "module",
   "description": "Jev guesses where a photo was taken",
-  "engines": { "node": ">=22.6" },
+  "engines": {
+    "node": ">=22.6"
+  },
   "scripts": {
     "countries": "node scripts/build-countries.mjs",
     "sample": "node --experimental-strip-types scripts/sample.ts",
     "bench": "node --experimental-strip-types scripts/bench.ts",
-    "guess": "node --experimental-strip-types scripts/guess-one.ts"
+    "guess": "node --experimental-strip-types scripts/guess-one.ts",
+    "test": "node --experimental-strip-types --test src/*.test.ts",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "ai": "^7.0.107",
     "zod": "^4.1.13"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "typescript": "^5.9.0"
   }
 }

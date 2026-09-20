@@ -56,30 +56,45 @@ Do not say that anything is iconic, famous, recognisable, a landmark, typical, t
 
 Everywhere else, write as though you do not know that places have names.`;
 
-// Demonyms the model reaches for that are not just the country name with a suffix.
+// Regions, continents, language families and writing systems. Country names, capitals and demonyms
+// come from the generated data instead, as whole phrases: "Marshall Islands" is banned, "islands" is
+// not, because a describer has every right to say it can see islands.
 const EXTRA_BANNED = [
-  "european", "asian", "african", "american", "scandinavian", "nordic", "baltic", "balkan", "iberian",
-  "mediterranean", "caribbean", "latin", "hispanic", "anglo", "slavic", "arab", "arabic", "cyrillic",
-  "latin script", "kanji", "kana", "hiragana", "katakana", "hangul", "devanagari", "thai script",
-  "western", "eastern", "oriental", "tropics", "subcontinent", "commonwealth", "soviet", "ussr", "eu ",
+  "europe", "european", "asia", "asian", "africa", "african", "america", "american", "americas",
+  "oceania", "antarctica", "scandinavia", "scandinavian", "nordic", "baltic", "balkan", "balkans",
+  "iberia", "iberian", "mediterranean", "caribbean", "levant", "maghreb", "sahel", "patagonia",
+  "latin", "hispanic", "anglo", "slavic", "arab", "arabic", "cyrillic", "roman alphabet",
+  "kanji", "kana", "hiragana", "katakana", "hangul", "devanagari", "cyrillic script", "arabic script",
+  "oriental", "occidental", "subcontinent", "commonwealth", "soviet", "ussr",
   "english", "spanish", "french", "german", "portuguese", "russian", "chinese", "japanese", "korean",
-  "italian", "dutch", "polish", "turkish", "greek", "hebrew", "hindi", "vietnamese", "indonesian",
+  "italian", "dutch", "polish", "turkish", "greek", "hebrew", "hindi", "urdu", "vietnamese", "thai",
+  "swahili", "afrikaans", "mandarin", "cantonese", "farsi", "persian", "bengali", "tamil",
 ];
 
-// "Norway" also rules out Norwegian; strip the country name's stem and match on that.
-const stems = COUNTRIES.map((c) => c.name.toLowerCase()).flatMap((n) => {
-  const base = n.replace(/\b(and|the|of|republic|democratic|people's|united)\b/g, " ").replace(/\s+/g, " ").trim();
-  return base.split(" ").filter((w) => w.length >= 4);
-});
-const BANNED = [...new Set([...stems, ...EXTRA_BANNED])].sort((a, b) => b.length - a.length);
+// The alias list is in every language, which drags in one ordinary English noun: "Island" is what
+// Iceland is called in German and Danish. A describer that can see an island has to be able to say
+// so. Every other collision on the list ("China", "Turkey", "Georgia", "Chad") is the English name
+// of the country, and stays banned.
+const NOT_A_PLACE_IN_ENGLISH = new Set(["island"]);
+
+// Whole phrases, longest first, so "south africa" is tested before "africa".
+const BANNED = [...new Set([
+  ...COUNTRIES.flatMap((c) => c.aliases).map((a) => a.toLowerCase()),
+  ...EXTRA_BANNED,
+])]
+  .map((term) => term.replace(/[^a-z0-9]+/g, " ").trim())
+  .filter((term) => term.length >= 4 && !NOT_A_PLACE_IN_ENGLISH.has(term))
+  .sort((a, b) => b.length - a.length);
 
 // A describer can point without naming. "A very tall, iconic metal lattice tower" names no place
 // and passes the country check, but "iconic" is the describer telling you it recognised the thing.
 // Describing the shape is recording the frame. Flagging it as famous is doing the guessing.
+// Only words that claim recognition. "Characteristic of late summer" is a real observation about
+// the light, so blanket-banning "characteristic of" threw away good records; the place check already
+// catches the case where the thing being pointed at is a place.
 const HINT_WORDS = [
-  "iconic", "famous", "well known", "wellknown", "renowned", "recognisable", "recognizable",
-  "unmistakable", "landmark", "world famous", "instantly", "signature", "typical of", "characteristic of",
-  "reminiscent", "resembling the", "style associated", "traditional for", "native to", "endemic to",
+  "iconic", "famous", "world famous", "renowned", "recognisable", "recognizable", "unmistakable",
+  "instantly recognisable", "instantly recognizable", "landmark", "world renowned", "tourist",
 ];
 
 export class PlaceLeakError extends Error {

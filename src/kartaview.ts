@@ -45,8 +45,14 @@ export async function nearbyPhotos(lat: number, lng: number, radiusM = 5000): Pr
     .map(toPhoto);
 }
 
-export async function fetchImage(photo: Photo): Promise<Uint8Array> {
-  const res = await fetch(photo.url, { signal: AbortSignal.timeout(60_000) });
-  if (!res.ok) throw new Error(`photo ${photo.id}: HTTP ${res.status}`);
-  return new Uint8Array(await res.arrayBuffer());
+// The storage tier answers 409 and 5xx now and then on a photo that serves fine a moment later.
+export async function fetchImage(photo: Photo, attempts = 4): Promise<Uint8Array> {
+  for (let attempt = 1; ; attempt += 1) {
+    const res = await fetch(photo.url, { signal: AbortSignal.timeout(60_000) });
+    if (res.ok) return new Uint8Array(await res.arrayBuffer());
+    if (attempt >= attempts || (res.status !== 409 && res.status < 500)) {
+      throw new Error(`photo ${photo.id}: HTTP ${res.status}`);
+    }
+    await new Promise((r) => setTimeout(r, 400 * attempt));
+  }
 }

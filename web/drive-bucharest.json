@@ -1,0 +1,267 @@
+{
+ "sequenceId": "3434",
+ "origin": {
+  "lat": 44.42315,
+  "lng": 26.093667
+ },
+ "truthCode": "RO",
+ "truthLabel": "Romania",
+ "spanKm": 0.83,
+ "steps": [
+  {
+   "photo": "https://api.openstreetcam.org/storage2/files/photo/2016/5/4/proc/3434_16ada_572a5bc1874a7.jpeg",
+   "at": {
+    "lat": 44.42315,
+    "lng": 26.093667
+   },
+   "heading": 54.49,
+   "observation": {
+    "sign_text_verbatim": [],
+    "driving_side": "right",
+    "road_surface_and_markings": "Asphalt road surface, illuminated by yellow streetlights. Two metal tram tracks are embedded in the asphalt on the left side of the road. A faint white painted lane marking line separates the tram tracks from the driving lane.",
+    "license_plates": "Not legible; the license plate on the car ahead is obscured by a grey box.",
+    "poles_bollards_barriers": "A round concrete utility pole stands on the right with overhead wires attached. Multiple streetlights on metal poles illuminate the road. A concrete kerb is present on the right road edge.",
+    "architecture": "Not clearly visible, obscured by darkness and trees.",
+    "vegetation": "Dense deciduous trees with green leaves line the sides of the road, highly illuminated by the streetlights.",
+    "terrain_and_soil": "Flat terrain, ground surface details are obscured by darkness.",
+    "sky_and_light": "Nighttime with a pitch-black sky. Bright yellow-orange artificial light from overhead streetlights creates significant glare and lens flare. Light reflections are visible on the road surface.",
+    "vehicles": "A white car is driving ahead showing red taillights. A light-coloured van is parked on the far right. Oncoming vehicles are visible as bright white headlights in the distance on the left. The dashboard and windshield wipers of the camera vehicle are visible at the bottom of the frame.",
+    "other_details": "Overhead wires are strung across the road. A blurry oval sign is mounted on the concrete pole on the right."
+   },
+   "guess": {
+    "lat": 49.1912668903967,
+    "lng": 7.991468673053432
+   },
+   "km": 1472,
+   "points": 1864,
+   "movedKm": 0,
+   "landedIn": "DE",
+   "topLabel": "Stuttgart (Germany, population 612,663)",
+   "topProbability": 0.018150000000000003
+  },
+  {
+   "photo": "https://api.openstreetcam.org/storage2/files/photo/2016/5/4/proc/3434_16ada_572a5bd15635a.jpeg",
+   "at": {
+    "lat": 44.423825,
+    "lng": 26.094989
+   },
+   "heading": 52.38,
+   "observation": {
+    "sign_text_verbatim": [],
+    "driving_side": "right",
+    "road_surface_and_markings": "Asphalt road with embedded metal tram tracks. Faint, worn white lane markings. The surface is glossy and reflects the streetlights and headlights.",
+    "license_plates": "Wide rectangular plate on the rear of the white hatchback, illuminated but not legible.",
+    "poles_bollards_barriers": "Tall metal streetlight poles with dual lamps. Concrete boundary wall with pillars on the right. Numerous overhead wires are strung across and along the street.",
+    "architecture": "Multi-story urban buildings on the left with dark windows. A low stone or concrete wall with pillars on the right.",
+    "vegetation": "Deciduous trees with dense green foliage are visible along both sides of the street, lit by artificial light.",
+    "terrain_and_soil": "Flat urban terrain, no exposed soil is visible.",
+    "sky_and_light": "Nighttime with a pitch-black sky. Artificial lighting from street lamps and vehicle lights creates bright spots and long reflections on the road.",
+    "vehicles": "A white modern hatchback is directly in front. Oncoming vehicles with bright headlights are in the distance on the left. The hood and dashboard of the camera vehicle are visible at the bottom of the frame.",
+    "other_details": "Green traffic signal on the left. Small blue rectangular signs mounted on utility poles. Overhead tram/trolley power lines."
+   },
+   "guess": {
+    "lat": 50.71556034590994,
+    "lng": 5.140546113554424
+   },
+   "km": 1713,
+   "points": 1586,
+   "movedKm": 265,
+   "landedIn": "BE",
+   "topLabel": "Brussels (Belgium, population 1,019,022)",
+   "topProbability": 0.012584
+  },
+  {
+   "photo": "https://api.openstreetcam.org/storage2/files/photo/2016/5/4/proc/3434_16ada_572a5be12515f.jpeg",
+   "at": {
+    "lat": 44.424493,
+    "lng": 26.096222
+   },
+   "heading": 54.14,
+   "observation": {
+    "sign_text_verbatim": [],
+    "driving_side": "right",
+    "road_surface_and_markings": "Asphalt road surface, reflecting the bright yellow streetlights. A solid white line divides the lane of the camera vehicle from the tram tracks on the left. Two parallel sets of metal tram tracks are embedded in the road surface on the left. A faint white edge line is visible on the right side.",
+    "license_plates": "not legible",
+    "poles_bollards_barriers": "Round metal or concrete utility poles on the left supporting streetlights. A low metal barrier or fence runs along the right side of the road.",
+    "architecture": "Multi-story buildings on the left with dark masonry facades and rectangular window frames. The right side shows a dark wall structure, mostly obscured.",
+    "vegetation": "Deciduous trees with dense green leaves line the left sidewalk, brightly illuminated by the streetlights.",
+    "terrain_and_soil": "not visible",
+    "sky_and_light": "Nighttime with a pitch-black sky. The scene is lit by warm, yellow overhead streetlights and headlights from distant vehicles. The camera vehicle's headlights illuminate the road ahead.",
+    "vehicles": "Headlights of distant oncoming vehicles are visible. A yellow truck or maintenance vehicle is parked on the left side. The black windshield wipers and lower dashboard of the camera vehicle are visible at the bottom of the frame.",
+    "other_details": "Overhead tram wires are strung across the street. A large blurred rectangular patch is present in the upper-middle section of the image."
+   },
+   "guess": {
+    "lat": 50.974674540687694,
+    "lng": 5.927117554316174
+   },
+   "km": 1669,
+   "points": 1634,
+   "movedKm": 62,
+   "landedIn": "NL",
+   "topLabel": "Hannover (Germany, population 515,140)",
+   "topProbability": 0.016848000000000002
+  },
+  {
+   "photo": "https://api.openstreetcam.org/storage2/files/photo/2016/5/4/proc/3434_16ada_572a5be8741fa.jpeg",
+   "at": {
+    "lat": 44.425133,
+    "lng": 26.097517
+   },
+   "heading": 53.79,
+   "observation": {
+    "sign_text_verbatim": [],
+    "driving_side": "right",
+    "road_surface_and_markings": "Asphalt road, dark and reflective under headlights. Multiple sets of metal tram tracks are embedded in the road surface to the left. No painted lane lines are clearly visible on the dark surface due to motion blur and night lighting.",
+    "license_plates": "not legible",
+    "poles_bollards_barriers": "A round concrete utility pole stands on the right supporting overhead wires. A metallic barrier made of repeating curved arches runs along the right side of the road, separating the roadway from the sidewalk area. A low concrete kerb is visible at the edge of the road.",
+    "architecture": "On the left, a dark multi-story building with masonry walls and window frames is partially visible. On the right, a long light-colored concrete boundary wall with decorative arched recesses runs parallel to the road.",
+    "vegetation": "Dark green deciduous trees with dense foliage are visible behind the wall on the right and in the background, showing significant motion blur.",
+    "terrain_and_soil": "Flat paved urban terrain with no visible exposed soil or natural landforms.",
+    "sky_and_light": "Nighttime with a black sky. Multiple overhead streetlights emit a bright, warm yellow-white glow, causing starburst flare effects on the lens. Bright white headlights from oncoming cars illuminate the wet-looking road surface.",
+    "vehicles": "Distant oncoming cars with glowing white headlights are visible on the road. The dark dashboard and windscreen wipers of the camera vehicle are visible at the bottom of the frame.",
+    "other_details": "Overhead wires are strung across the road. On a pole on the right, there are two circular signs: the upper one has a white background, red border, and a black arrow with a red slash; the lower one is blue with a red border and a red cross."
+   },
+   "guess": {
+    "lat": 51.07608231692552,
+    "lng": 6.105160252152206
+   },
+   "km": 1660,
+   "points": 1643,
+   "movedKm": 17,
+   "landedIn": "DE",
+   "topLabel": "Hannover (Germany, population 515,140)",
+   "topProbability": 0.011704000000000003
+  },
+  {
+   "photo": "https://api.openstreetcam.org/storage2/files/photo/2016/5/4/proc/3434_16ada_572a5bf00c97a.jpeg",
+   "at": {
+    "lat": 44.425812,
+    "lng": 26.098706
+   },
+   "heading": 50.98,
+   "observation": {
+    "sign_text_verbatim": [
+     "↑ Berceni",
+     "← Călăraşi"
+    ],
+    "driving_side": "right",
+    "road_surface_and_markings": "Asphalt road surface, reflecting overhead lights and oncoming headlights. Tram tracks are embedded in the road on the left, with a solid white line separating the tracks from the lane on the right.",
+    "license_plates": "not legible",
+    "poles_bollards_barriers": "A tall round concrete utility pole stands on the right side of the road. Along the right pavement edge, there is a low metal barrier made of linked arch-shaped hoops.",
+    "architecture": "A long, low light-colored masonry wall with a series of decorative recessed arches runs along the right side of the street.",
+    "vegetation": "Deciduous trees with dense green leaves line both sides of the street, illuminated from below by the streetlights.",
+    "terrain_and_soil": "Flat terrain; no soil is visible.",
+    "sky_and_light": "Nighttime with a dark, obscured sky. Illumination is provided by bright yellow-orange streetlights that cause glare and reflections on the camera lens, as well as white headlights from oncoming traffic. The camera vehicle's headlights illuminate the road surface directly ahead.",
+    "vehicles": "Oncoming cars are visible in the distance on the left side of the road, identified primarily by their bright headlights. The lower edge of the windshield, including wipers and dashboard of the camera vehicle, is visible at the bottom of the frame.",
+    "other_details": "On the utility pole on the right, there are three signs: a blue rectangular direction sign, a red-bordered triangular warning sign, and a blue circular sign with a red border and red diagonal cross. Overhead tram wires are strung across the street."
+   },
+   "guess": {
+    "lat": 44.40374690868143,
+    "lng": 26.110961776546215
+   },
+   "km": 3,
+   "points": 4991,
+   "movedKm": 1663,
+   "landedIn": "RO",
+   "topLabel": "Sector 4 (Romania, population 287,828)",
+   "topProbability": 0.145597
+  },
+  {
+   "photo": "https://api.openstreetcam.org/storage2/files/photo/2016/5/4/proc/3434_16ada_572a5bfd0eba1.jpeg",
+   "at": {
+    "lat": 44.426365,
+    "lng": 26.100098
+   },
+   "heading": 106.52,
+   "observation": {
+    "sign_text_verbatim": [],
+    "driving_side": "right",
+    "road_surface_and_markings": "Asphalt road surface, reflecting light from streetlamps and headlights. A solid white line divides the traffic directions, and a dashed white line separates the lanes on the right. The edge of the road is marked by kerbs painted with alternating black and yellow segments.",
+    "license_plates": "not legible",
+    "poles_bollards_barriers": "Tall, dark grey metal street light poles with double lamp fixtures. On the right side, there is a pedestrian safety barrier composed of intersecting curved metal arches. The kerbs are made of concrete blocks painted in alternating yellow and black stripes.",
+    "architecture": "not visible",
+    "vegetation": "Dense green trees and shrubs line both sides of the road, lit up by artificial light against the dark background.",
+    "terrain_and_soil": "not visible",
+    "sky_and_light": "Dark night sky. The scene is illuminated by overhead streetlights and oncoming vehicle headlights, creating strong glares and reflections on the road surface.",
+    "vehicles": "One oncoming car is visible with bright, glaring white headlights. Distant red taillights of another vehicle are visible further down the road. The white bonnet and black windshield wipers of the camera vehicle are visible at the bottom of the frame.",
+    "other_details": "Several round and triangular road signs are mounted on poles. On the right, there is a downward-pointing triangular sign with a red border, a blue circular sign with white arrows, and a red circular sign. On the left, another pole has a blue circular sign. A rectangular billboard is visible in the background."
+   },
+   "guess": {
+    "lat": 44.40221487481147,
+    "lng": 26.11369429155174
+   },
+   "km": 3,
+   "points": 4991,
+   "movedKm": 0,
+   "landedIn": "RO",
+   "topLabel": "Sector 4 (Romania, population 287,828)",
+   "topProbability": 0.16296000000000002
+  },
+  {
+   "photo": "https://api.openstreetcam.org/storage2/files/photo/2016/5/4/proc/3434_16ada_572a5c1017afd.jpeg",
+   "at": {
+    "lat": 44.426017,
+    "lng": 26.101701
+   },
+   "heading": 99.49,
+   "observation": {
+    "sign_text_verbatim": [],
+    "driving_side": "right",
+    "road_surface_and_markings": "Asphalt road surface at night with white lane markings. Visible markings include broken white lane lines and a white painted left-turn arrow on the lane surface.",
+    "license_plates": "Not legible on any of the vehicles due to darkness and motion blur.",
+    "poles_bollards_barriers": "Tall, slender, dark metal poles with bright streetlights on top are located on both sides of the road. A low concrete kerb is visible along the left edge of the road. No overhead wires are visible.",
+    "architecture": "A dark, multi-storey building structure is partially visible on the right side behind the trees. Several illuminated signs are visible in the background, but the building shapes themselves are obscured by the night sky.",
+    "vegetation": "Dense, green leafy bushes and hedges line the left side of the road. Medium-sized deciduous trees with green foliage are present along the right side.",
+    "terrain_and_soil": "The terrain appears flat, but soil and ground details are completely obscured by darkness and vegetation.",
+    "sky_and_light": "Night sky, black and dark. The scene is illuminated by bright overhead streetlights, vehicle lights, and glowing signage, creating noticeable motion blur and halos.",
+    "vehicles": "A silver sedan is parked on the right side of the road, followed by other dark-coloured parked cars further ahead. Moving vehicles ahead are visible only as blurry red and yellow lights. The dark bonnet and windshield wipers of the camera vehicle are visible at the bottom of the frame.",
+    "other_details": "A blurred circular road sign is visible on the left side, appearing to have a red border. An advertising board or billboard is visible on the right side, highly blurred."
+   },
+   "guess": {
+    "lat": 44.40285997139949,
+    "lng": 26.113690573614114
+   },
+   "km": 3,
+   "points": 4991,
+   "movedKm": 0,
+   "landedIn": "RO",
+   "topLabel": "Sector 4 (Romania, population 287,828)",
+   "topProbability": 0.167325
+  },
+  {
+   "photo": "https://api.openstreetcam.org/storage2/files/photo/2016/5/4/proc/3434_16ada_572a5c20602b4.jpeg",
+   "at": {
+    "lat": 44.425918,
+    "lng": 26.103307
+   },
+   "heading": 94.92,
+   "observation": {
+    "sign_text_verbatim": [
+     "TIMEX",
+     "splend'or",
+     "FITNESS CENTER"
+    ],
+    "driving_side": "right",
+    "road_surface_and_markings": "Asphalt road, dark and dry, with a solid white line separating the two lanes moving in the camera's direction. A concrete kerb is visible along the left side.",
+    "license_plates": "The rear license plates of the vehicles ahead are long and rectangular with white backgrounds, but the characters are not legible.",
+    "poles_bollards_barriers": "Tall, dark metal streetlights with multiple curved arms and round lamp fixtures. A low, dark metal pedestrian fence runs along the kerb on the left.",
+    "architecture": "A large, multi-story curved building on the right side of the road with multiple rows of windows and illuminated commercial signage on its facade.",
+    "vegetation": "Dense, dark green leafy trees and bushes behind the metal fence on the left side of the road.",
+    "terrain_and_soil": "Flat, paved urban environment with no exposed soil visible.",
+    "sky_and_light": "Night scene with a completely black sky. The scene is lit by overhead streetlights, illuminated building signs, vehicle headlights/taillights, a bright purple-pink billboard, and green traffic lights.",
+    "vehicles": "A yellow sedan (taxi) and a grey hatchback are driving ahead in the same direction. Other distant vehicle headlights are visible. The dashboard and wipers of the camera vehicle are visible at the bottom of the frame.",
+    "other_details": "A diamond-shaped white sign with a blue square sign beneath it is mounted on a post on the left. A green traffic light is active on the left. A large rectangular sign/billboard is visible on the right near a green traffic light."
+   },
+   "guess": {
+    "lat": 44.4051676996403,
+    "lng": 26.114168498936273
+   },
+   "km": 3,
+   "points": 4991,
+   "movedKm": 0,
+   "landedIn": "RO",
+   "topLabel": "Sector 4 (Romania, population 287,828)",
+   "topProbability": 0.14406
+  }
+ ]
+}

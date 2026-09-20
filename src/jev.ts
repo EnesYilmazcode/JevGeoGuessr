@@ -22,17 +22,25 @@ const INSTRUCTIONS =
   "bollards and road markings, the building materials and roof forms, the plant species implied by the described " +
   "foliage, the soil colour, and the sun height, against each other rather than relying on any single one.";
 
-// Jev's service answers 503 in short bursts. They clear in a few hundred ms, so retry fast.
-const unavailable = (error: unknown) =>
-  (error as { statusCode?: number })?.statusCode === 503 || /temporarily unavailable/i.test(String(error));
+// Jev's service fails in two transient ways: 503 "temporarily unavailable" in short bursts, and
+// 504 timeouts when the request is large, which accumulated evidence makes more likely. The
+// gateway marks both retryable and says so; trust that rather than matching on a status alone.
+const transient = (error: unknown): boolean => {
+  const e = error as { statusCode?: number; isRetryable?: boolean; message?: string };
+  if (e?.isRetryable) return true;
+  if (e?.statusCode === 503 || e?.statusCode === 504) return true;
+  return /temporarily unavailable|timed out|timeout|internal server error/i.test(String(e?.message ?? error));
+};
 
 async function withRetry<T>(call: () => Promise<T>, attempts = 8): Promise<T> {
   for (let attempt = 0; ; attempt += 1) {
     try {
       return await call();
     } catch (error) {
-      if (!unavailable(error) || attempt >= attempts) throw error;
-      await new Promise((r) => setTimeout(r, 150 + Math.random() * 250 + attempt * 150));
+      if (!transient(error) || attempt >= attempts) throw error;
+      // Timeouts need real backoff, not the 200ms jitter a 503 burst wants.
+      const base = (error as { statusCode?: number })?.statusCode === 504 ? 1200 : 150;
+      await new Promise((r) => setTimeout(r, base + Math.random() * 250 + attempt * base));
     }
   }
 }

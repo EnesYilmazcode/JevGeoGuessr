@@ -13,3 +13,4 @@ data/places.json
 renders/
 media/fixture.*
 web/drive.json
+media/*.gif

@@ -34,7 +34,14 @@ export async function findDrive(
   lng: number,
   { radiusM = 1000, minSpacingM = 120, maxFrames = 12 } = {},
 ): Promise<Drive | null> {
-  const photos = await nearbyPhotos(lat, lng, radiusM);
+  // KartaView answers 400 on some dense tiles rather than returning fewer photos, so treat a
+  // refusal as no coverage instead of letting it end the run.
+  let photos;
+  try {
+    photos = await nearbyPhotos(lat, lng, radiusM);
+  } catch {
+    return null;
+  }
   if (!photos.length) return null;
 
   const bySequence = new Map<string, Frame[]>();

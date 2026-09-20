@@ -67,7 +67,15 @@ let describerCost = 0, jevTokens = 0;
 
 try {
   for (const [i, frame] of drive.frames.entries()) {
-    const image = await fetchImage(frame);
+    // A frame that will not serve is one missing look, not a failed round. The Cape Town drive
+    // died outright on a photo that answered 409 forever.
+    let image: Uint8Array;
+    try {
+      image = await fetchImage(frame);
+    } catch (error) {
+      console.log(`  frame ${i + 1}: skipped, ${String((error as Error).message).slice(0, 60)}`);
+      continue;
+    }
     let observation: Observation;
     try {
       const seen = await observe(image, frame.id);
@@ -107,8 +115,16 @@ try {
 
 if (!steps.length) { console.error("no frames survived"); process.exit(1); }
 
+const names: Record<string, string> = {};
+for (const step of steps) {
+  if (step.landedIn && !names[step.landedIn]) {
+    names[step.landedIn] = countryByCode(step.landedIn)?.name ?? step.landedIn;
+  }
+}
+
 writeFileSync(new URL(`../${out}`, import.meta.url), JSON.stringify({
   sequenceId: drive.sequenceId,
+  names,
   origin: drive.origin,
   truthCode,
   truthLabel: truthCode ? countryByCode(truthCode)?.name ?? truthCode : "unknown",

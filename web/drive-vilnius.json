@@ -1,0 +1,248 @@
+{
+ "sequenceId": "5895865",
+ "origin": {
+  "lat": 54.693541,
+  "lng": 25.270056
+ },
+ "truthCode": "LT",
+ "truthLabel": "Lithuania",
+ "spanKm": 0.8,
+ "steps": [
+  {
+   "photo": "https://api.openstreetcam.org/storage13/files/photo/2022/8/15/proc/5895865_4bf28_62fa5c939975e.jpg",
+   "at": {
+    "lat": 54.693541,
+    "lng": 25.270056
+   },
+   "heading": 133.87,
+   "observation": {
+    "sign_text_verbatim": [
+     "ELEKTRA"
+    ],
+    "driving_side": "right",
+    "road_surface_and_markings": "The road is paved with smooth grey asphalt. It is marked with a double solid white line in the middle, and a single dashed white line dividing the two lanes on the right. There are some curved black tire skid marks on the lane surface.",
+    "license_plates": "The vehicles have wide, rectangular license plates with a white background and a vertical blue stripe on the left edge. The black characters on them are not legible.",
+    "poles_bollards_barriers": "On the right, round grey metal lampposts stand along the pavement. On the left, a temporary plastic marker post with diagonal red and white stripes stands near the roadside. The road is bordered by grey concrete kerbs. In the distance, a concrete bridge with a light-coloured railing is visible.",
+    "architecture": "On the right side stands a large, multi-story building constructed from light-grey stone or concrete, featuring decorative cornices, small balconies, and a corner turret-like structure at the top. In the far left background, lower-rise structures are visible across the water.",
+    "vegetation": "Rows of mature, leafy green deciduous trees line both sides of the roadway. Grass and low green ground cover grow along the embankment on the left.",
+    "terrain_and_soil": "The terrain is flat, with a sloping bank on the left leading down to a body of water. The exposed earth on the bank is light brown and dry.",
+    "sky_and_light": "The sky is bright blue with a few scattered white clouds. The sun is high, casting distinct shadows from the trees and building towards the right. The dense green foliage suggests a summer season.",
+    "vehicles": "Parked on the right are a white estate car, a dark grey hatchback, and a white SUV. On the left side of the road, a red light flatbed truck is positioned. The dark dashboard and windscreen reflections of the camera vehicle are visible at the bottom of the frame.",
+    "other_details": "A circular road sign with a blue background, red border, and red diagonal cross is mounted on a metal post on the right. A grey passenger shelter stands on the right sidewalk. A distant construction crane is visible in the background sky, and overhead utility wires are strung between poles."
+   },
+   "guess": {
+    "lat": 40.038949374635585,
+    "lng": 21.439451465813782
+   },
+   "km": 1654,
+   "points": 1650,
+   "movedKm": 0,
+   "landedIn": "GR",
+   "topLabel": "Kallithea (Greece, population 100,641)",
+   "topProbability": 0.024150000000000005
+  },
+  {
+   "photo": "https://api.openstreetcam.org/storage13/files/photo/2022/8/15/proc/5895865_d319f_62fa5c96d8ca2.jpg",
+   "at": {
+    "lat": 54.692648,
+    "lng": 25.271426
+   },
+   "heading": 136.88,
+   "observation": {
+    "sign_text_verbatim": [
+     "naresta"
+    ],
+    "driving_side": "right",
+    "road_surface_and_markings": "Asphalt road surface in dry condition. Markings are in white, including a thick dashed line of blocky rectangular segments indicating a crossing or lane boundary in the foreground, and thinner dashed white lines guiding traffic and dividing lanes across the intersection.",
+    "license_plates": "The license plates are not legible.",
+    "poles_bollards_barriers": "In the left foreground is a thick, round, grey metal utility pole holding traffic lights. A network of overhead trolleybus/tram wires is suspended across the street. In the background, there are metal street light poles and metal pedestrian barriers along the bridge on the left. Concrete kerbs define the edge of the pavements.",
+    "architecture": "On the right is a historic church with a red and white baroque-style tower and red-tiled roof. Next to it stands a multi-story building undergoing renovation or demolition with exposed concrete/stone window frames. In the far left background, lower buildings with red tiled roofs are visible.",
+    "vegetation": "Lush, dense, green deciduous trees with full summer foliage are visible in the background, lining the street and the river area.",
+    "terrain_and_soil": "Flat urban terrain; no exposed soil or rock is visible.",
+    "sky_and_light": "Bright blue sky with scattered white cumulus clouds. The sun is high, casting shadows slightly to the right of objects. The light indicates a clear day in late spring or summer.",
+    "vehicles": "Several vehicles are present, including a dark-coloured SUV partially visible in the left foreground, a dark hatchback and other grey/white passenger cars waiting in the lanes ahead, and a red bus or trolleybus on the far right.",
+    "other_details": "A person in a bright orange high-visibility construction outfit stands by the utility pole on the left. In the background, there are two large metal lattice construction cranes, one very tall on the right. Reflection from the camera vehicle's windshield is visible on the image."
+   },
+   "guess": {
+    "lat": 39.00867107181551,
+    "lng": 21.11022805556269
+   },
+   "km": 1772,
+   "points": 1525,
+   "movedKm": 118,
+   "landedIn": "GR",
+   "topLabel": "Kallithea (Greece, population 100,641)",
+   "topProbability": 0.058233
+  },
+  {
+   "photo": "https://api.openstreetcam.org/storage13/files/photo/2022/8/15/proc/5895865_e9f26_62fa5c9bc4d18.jpg",
+   "at": {
+    "lat": 54.691881,
+    "lng": 25.27287
+   },
+   "heading": 125.31,
+   "observation": {
+    "sign_text_verbatim": [],
+    "driving_side": "right",
+    "road_surface_and_markings": "Grey asphalt road surface with some cracks and patches. Road markings are painted in white, including a double solid white line separating traffic directions, dashed white lines dividing lanes, a transverse white stop line, and large white arrows painted on the tarmac indicating lane directions (straight).",
+    "license_plates": "not legible",
+    "poles_bollards_barriers": "Tall, grey metal streetlight poles on both sides, some with curved arms and others with horizontal arms. Wires for trolleybuses or trams are strung overhead across the road. Grey concrete kerbs line the road edges. A dark grey concrete retaining wall is on the far right.",
+    "architecture": "On the right, a large classical five-storey building with a grey stone facade, numerous rectangular windows, and small balconies with ornate balustrades. Adjacent to it is an older, weathered two-storey building with peeling beige stucco. In the far left background, lower buildings with red-tiled pitched roofs are visible.",
+    "vegetation": "Tall, leafy green deciduous trees line both sides of the road and riverbank. Green grass covers the banks of the river visible on the left.",
+    "terrain_and_soil": "Flat terrain along a river valley, with gently sloping grassy banks leading down to the water on the left.",
+    "sky_and_light": "Bright blue sky with scattered white cumulus clouds. The sun is high, casting shadows slightly to the right, suggesting midday or early afternoon light in summer.",
+    "vehicles": "A dark blue five-door hatchback is driving in the opposite direction on the left side of the road. No steering wheel is clearly visible on it. Other distant vehicles are barely visible far down the road.",
+    "other_details": "Traffic lights are mounted on poles at the intersection on the right, displaying green. A square blue sign with three white arrows pointing upwards is visible on a post on the right. Pedestrians are standing on the pavement. The camera vehicle's windshield has reflections of the dashboard visible on the lower section of the frame, but no bonnet or mirrors are in view."
+   },
+   "guess": {
+    "lat": 39.121860489164526,
+    "lng": 20.605914872724423
+   },
+   "km": 1766,
+   "points": 1530,
+   "movedKm": 45,
+   "landedIn": "GR",
+   "topLabel": "Kallithea (Greece, population 100,641)",
+   "topProbability": 0.05313000000000001
+  },
+  {
+   "photo": "https://api.openstreetcam.org/storage13/files/photo/2022/8/15/proc/5895865_2f158_62fa5ca1580d2.jpg",
+   "at": {
+    "lat": 54.691378,
+    "lng": 25.2746
+   },
+   "heading": 105.93,
+   "observation": {
+    "sign_text_verbatim": [],
+    "driving_side": "right",
+    "road_surface_and_markings": "Asphalt road surface, dry and in good condition. There is a double solid white line running down the center of the road, and broken white lines marking lanes in the same direction on either side.",
+    "license_plates": "Not legible.",
+    "poles_bollards_barriers": "Overhead trolley utility wires are strung across the roadway, attached to buildings and tall metal poles. Grey concrete kerbs separate the asphalt from the roadside grass.",
+    "architecture": "A large grey stone building, approximately five stories tall, stands on the right. It features classical architectural details, rectangular windows, and a decorative pediment at the roofline.",
+    "vegetation": "Large, mature deciduous trees with dense green leaves line both sides of the street, casting heavy shade. Neat green grass covers the ground beneath them.",
+    "terrain_and_soil": "Flat urban terrain, with no exposed soil visible.",
+    "sky_and_light": "Bright, direct sunlight under a blue sky with scattered light clouds. The sun is high, casting sharp, dark shadows of trees across the roadway towards the right.",
+    "vehicles": "A blue five-door hatchback is visible on the left. In the oncoming lanes, there is a white panel van, a silver sedan, and other distant cars. No steering wheels are clearly visible.",
+    "other_details": "Overhead wires run parallel to the road. Two pedestrians are visible walking on the sidewalk on the right near the large building. Slight reflections from the camera vehicle's windshield are visible in the foreground."
+   },
+   "guess": {
+    "lat": 39.05946859640633,
+    "lng": 20.98180738371537
+   },
+   "km": 1768,
+   "points": 1528,
+   "movedKm": 33,
+   "landedIn": "GR",
+   "topLabel": "Kallithea (Greece, population 100,641)",
+   "topProbability": 0.050976
+  },
+  {
+   "photo": "https://api.openstreetcam.org/storage13/files/photo/2022/8/15/proc/5895865_1e7a2_62fa5ca72ccf4.jpg",
+   "at": {
+    "lat": 54.691128,
+    "lng": 25.276458
+   },
+   "heading": 103.49,
+   "observation": {
+    "sign_text_verbatim": [
+     "LAISVĖ",
+     "GERAM",
+     "KINUI!"
+    ],
+    "driving_side": "right",
+    "road_surface_and_markings": "Dry, dark grey asphalt surface. White dashed lines mark the lane boundaries and directional guides through the intersection. A solid concrete kerb borders the grassy median on the left.",
+    "license_plates": "Long rectangular shape with a white background and a blue strip on the left edge; characters are not legible.",
+    "poles_bollards_barriers": "On the left median, a dark metal pole supports a traffic light assembly and signs. Tall, slender grey metal streetlight poles are visible on both sides of the road, curving at the top. Overhead trolleybus wires are suspended across the street.",
+    "architecture": "On the right, a multi-story (approx. six levels) stone or concrete building with a grey block facade, regular rectangular windows, small metal balconies, and large dark-framed glass shopfronts on the ground floor.",
+    "vegetation": "A flat, green grassy median strip runs down the centre of the road. On the far left, there is a dense row of mature deciduous trees with lush green foliage and dark trunks.",
+    "terrain_and_soil": "Flat urban terrain. No open soil or natural rock is visible.",
+    "sky_and_light": "Bright blue sky with scattered, fluffy white cumulus clouds. The sun is high, casting distinct shadows from the buildings and vehicles onto the road surface towards the right.",
+    "vehicles": "A silver hatchback and a white hatchback are parked or stopped on the far left. Several modern sedans and SUVs of various dark and light shades are visible driving ahead in the distance.",
+    "other_details": "Overhead wires stretch across the sky. Traffic lights are present, showing a green signal. A blue circular sign with a white diagonal arrow pointing down-right is mounted on the median pole, above a black-and-white diagonally striped hazard marker. On the right, a blue rectangular sign indicates lane directions with three white arrows, with a round red and blue restriction sign below it. Windscreen reflections and wipers of the camera vehicle are visible."
+   },
+   "guess": {
+    "lat": 54.81990893507659,
+    "lng": 24.437270179036222
+   },
+   "km": 55,
+   "points": 4818,
+   "movedKm": 1771,
+   "landedIn": "LT",
+   "topLabel": "Kaunas (Lithuania, population 289,380)",
+   "topProbability": 0.28690200000000005
+  },
+  {
+   "photo": "https://api.openstreetcam.org/storage13/files/photo/2022/8/15/proc/5895865_d237a_62fa5cab78baa.jpg",
+   "at": {
+    "lat": 54.690813,
+    "lng": 25.278318
+   },
+   "heading": 119.46,
+   "observation": {
+    "sign_text_verbatim": [
+     "EISMO RIBOJIMAI",
+     "DVIGUBAS JAUTIENOS",
+     "4,10",
+     "ESBURGER"
+    ],
+    "driving_side": "right",
+    "road_surface_and_markings": "Grey asphalt surface with some cracks and glare. There are white dashed lane lines dividing lanes on the curve, along with white dashed guiding line markers indicating lanes turning through the intersection. No solid centre line is visible in the immediate foreground.",
+    "license_plates": "Not legible due to distance.",
+    "poles_bollards_barriers": "A tall, round, grey metal utility pole is visible on the right, supporting a network of overhead wires with tension brackets. Grey concrete kerbs line both sides of the roadway.",
+    "architecture": "On the right, a classic-style two-storey building with a light-coloured facade, white rectangular windows, and a low-pitched metal roof. In the background, a large multi-storey modern building under construction with concrete walls and an adjacent tower crane.",
+    "vegetation": "Lush deciduous trees with dense green leaves on both sides of the road. A tall, dark-green coniferous tree is visible in the central background. Neatly cut green grass covers the roadside verges and the central island.",
+    "terrain_and_soil": "Flat urban terrain with no exposed soil visible.",
+    "sky_and_light": "Bright blue sky with scattered fluffy white cumulus clouds. High, bright daylight casting soft shadows, with shadows of trees and poles falling slightly forward and to the right.",
+    "vehicles": "Several dark-coloured sedans and hatchbacks are visible driving in the distance. Their steering wheel positions are not visible.",
+    "other_details": "A black traffic light showing a green signal is mounted on a grey post on the left. A temporary metal barricade holds a large pink information banner with a map on the grassy island. Small blue rectangular road signs on thin poles are visible in the distance. The photograph is taken from behind a vehicle windscreen, which shows faint reflections of the dashboard."
+   },
+   "guess": {
+    "lat": 54.80546221570333,
+    "lng": 24.53986280422466
+   },
+   "km": 48,
+   "points": 4840,
+   "movedKm": 7,
+   "landedIn": "LT",
+   "topLabel": "Kaunas (Lithuania, population 289,380)",
+   "topProbability": 0.29216000000000003
+  },
+  {
+   "photo": "https://api.openstreetcam.org/storage13/files/photo/2022/8/15/proc/5895865_99c90_62fa5cc38d483.jpg",
+   "at": {
+    "lat": 54.690768,
+    "lng": 25.281615
+   },
+   "heading": 90,
+   "observation": {
+    "sign_text_verbatim": [
+     "REWO",
+     "TERASOS IR KIEMELIAI",
+     "POŽEMINIS PARKINGAS",
+     "PILIESTIS",
+     "A"
+    ],
+    "driving_side": "right",
+    "road_surface_and_markings": "Asphalt road with some cracks and wear. A double white line separates oncoming lanes (one solid, one broken on the camera side). The rightmost lane is separated by a dashed white line and contains a large painted white 'A' indicating a bus or taxi lane, with further faded white lettering painted on the surface. A solid white line marks the right edge of the drivable road next to the concrete curb.",
+    "license_plates": "not legible",
+    "poles_bollards_barriers": "Tall, round, grey metal lampposts curve over the road on the left. On the right, a vertical grey metal pole stands near the sidewalk. Overhead wires for electric transit are strung across the road, supported by tension cables. A concrete curb separates the road from the sidewalk and the grassy bank.",
+    "architecture": "On the left in the background are modern multi-story residential and commercial buildings, ranging from 6 to over 10 stories, featuring dark glass facades, brown brick elements, and a white tower block on the far left. On the right is a large, older, 4-story building made of yellowish-beige brick with a flat side wall showing some graffiti and a gabled roof edge.",
+    "vegetation": "Lush green grass covers the sloped embankment of the canal on the left. Mature, leafy green deciduous trees stand on the far right and in the background, showing full summer foliage.",
+    "terrain_and_soil": "Flat valley terrain with a constructed canal or river running parallel to the road on the left. The banks are sloped and covered in green grass with no visible bare soil.",
+    "sky_and_light": "Bright blue sky with scattered white cumulus clouds. The sun is high, casting distinct shadows of trees, poles, and buildings from the right onto the road and sidewalk, suggesting early to mid-afternoon.",
+    "vehicles": "No vehicles are clearly visible on the road. The camera vehicle's windshield shows some faint reflections and dust specks.",
+    "other_details": "A sidewalk runs along the right side of the road, where a few pedestrians are walking. A dark construction fence with printed marketing banners blocks the view of the site to the right of the sidewalk. A narrow canal runs on the left side of the grass field."
+   },
+   "guess": {
+    "lat": 54.7945366879617,
+    "lng": 24.614047058571096
+   },
+   "km": 44,
+   "points": 4856,
+   "movedKm": 5,
+   "landedIn": "LT",
+   "topLabel": "Kaunas (Lithuania, population 289,380)",
+   "topProbability": 0.276834
+  }
+ ]
+}

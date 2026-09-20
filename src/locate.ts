@@ -66,16 +66,25 @@ export function weightedCentre(points: { point: Point; weight: number }[]): Poin
   return { lat: deg(Math.atan2(z, hyp)), lng: deg(Math.atan2(y, x)) };
 }
 
-const unavailable = (error: unknown) =>
-  (error as { statusCode?: number })?.statusCode === 503 || /temporarily unavailable/i.test(String(error));
+// Jev's service fails in two transient ways: 503 "temporarily unavailable" in short bursts, and
+// 504 timeouts when the request is large, which accumulated evidence makes more likely. The
+// gateway marks both retryable and says so; trust that rather than matching on a status alone.
+const transient = (error: unknown): boolean => {
+  const e = error as { statusCode?: number; isRetryable?: boolean; message?: string };
+  if (e?.isRetryable) return true;
+  if (e?.statusCode === 503 || e?.statusCode === 504) return true;
+  return /temporarily unavailable|timed out|timeout|internal server error/i.test(String(e?.message ?? error));
+};
 
 async function withRetry<T>(call: () => Promise<T>, attempts = 8): Promise<T> {
   for (let attempt = 0; ; attempt += 1) {
     try {
       return await call();
     } catch (error) {
-      if (!unavailable(error) || attempt >= attempts) throw error;
-      await new Promise((r) => setTimeout(r, 150 + Math.random() * 250 + attempt * 150));
+      if (!transient(error) || attempt >= attempts) throw error;
+      // Timeouts need real backoff, not the 200ms jitter a 503 burst wants.
+      const base = (error as { statusCode?: number })?.statusCode === 504 ? 1200 : 150;
+      await new Promise((r) => setTimeout(r, base + Math.random() * 250 + attempt * base));
     }
   }
 }
@@ -105,7 +114,7 @@ async function rankCells(evidence: Observation[], cells: Cell[], stage: number, 
     },
     questions: { where: { type: "choice" as const, instructions: INSTRUCTIONS(stage, last), criteria } },
     maxRetries: 0,
-    abortSignal: AbortSignal.timeout(60_000),
+    abortSignal: AbortSignal.timeout(120_000),
   }));
 
   const answer = result.answers.where;

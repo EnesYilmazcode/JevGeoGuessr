@@ -1,0 +1,1053 @@
+{
+ "builtAt": "2026-09-20",
+ "probesPerCountry": 6,
+ "covered": [
+  "AD",
+  "AE",
+  "AL",
+  "AT",
+  "AU",
+  "BA",
+  "BD",
+  "BJ",
+  "BW",
+  "BZ",
+  "CA",
+  "CH",
+  "CL",
+  "CR",
+  "CU",
+  "CY",
+  "DE",
+  "DK",
+  "DM",
+  "EC",
+  "EE",
+  "EG",
+  "FI",
+  "FR",
+  "GB",
+  "GE",
+  "GR",
+  "ID",
+  "IE",
+  "IL",
+  "IN",
+  "IQ",
+  "IS",
+  "IT",
+  "JO",
+  "JP",
+  "KE",
+  "KH",
+  "KW",
+  "LB",
+  "LI",
+  "LK",
+  "LS",
+  "LT",
+  "LU",
+  "LV",
+  "LY",
+  "MA",
+  "MC",
+  "ME",
+  "MT",
+  "MY",
+  "MZ",
+  "NL",
+  "NO",
+  "NZ",
+  "OM",
+  "PH",
+  "PL",
+  "PT",
+  "QA",
+  "RO",
+  "RS",
+  "SC",
+  "SI",
+  "SK",
+  "SM",
+  "SV",
+  "TH",
+  "TJ",
+  "UA",
+  "US",
+  "VA",
+  "VN",
+  "ZA"
+ ],
+ "detail": {
+  "AG": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "AR": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "AO": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "AU": {
+   "probes": 6,
+   "hits": 4,
+   "photos": 1122
+  },
+  "AE": {
+   "probes": 6,
+   "hits": 3,
+   "photos": 1761
+  },
+  "BB": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "BD": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 37
+  },
+  "AF": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "BF": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "BA": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 97
+  },
+  "BH": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "AL": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 57
+  },
+  "AT": {
+   "probes": 6,
+   "hits": 4,
+   "photos": 1281
+  },
+  "BI": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "BJ": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 37
+  },
+  "BN": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "BO": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "AM": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "BS": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "BW": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 18
+  },
+  "BR": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "BT": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "CD": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "AZ": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "AD": {
+   "probes": 6,
+   "hits": 3,
+   "photos": 1827
+  },
+  "BZ": {
+   "probes": 6,
+   "hits": 5,
+   "photos": 1082
+  },
+  "CI": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "CL": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 135
+  },
+  "CG": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "CF": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "BE": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "BY": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "CU": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 96
+  },
+  "CM": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "CR": {
+   "probes": 6,
+   "hits": 5,
+   "photos": 463
+  },
+  "CN": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "CV": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "DJ": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "BG": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "CO": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "DO": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "CH": {
+   "probes": 6,
+   "hits": 3,
+   "photos": 755
+  },
+  "CA": {
+   "probes": 6,
+   "hits": 3,
+   "photos": 1831
+  },
+  "DK": {
+   "probes": 6,
+   "hits": 3,
+   "photos": 511
+  },
+  "EC": {
+   "probes": 6,
+   "hits": 3,
+   "photos": 511
+  },
+  "DM": {
+   "probes": 6,
+   "hits": 5,
+   "photos": 3647
+  },
+  "CY": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 139
+  },
+  "ER": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "EE": {
+   "probes": 6,
+   "hits": 3,
+   "photos": 1635
+  },
+  "ET": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "FJ": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "EG": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 135
+  },
+  "FI": {
+   "probes": 6,
+   "hits": 2,
+   "photos": 129
+  },
+  "GA": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "GD": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "DZ": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "FM": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "GH": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "DE": {
+   "probes": 6,
+   "hits": 4,
+   "photos": 1838
+  },
+  "GN": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "CZ": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "GM": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "GW": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "GY": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "GT": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "ES": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "GQ": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "HT": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "FR": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 1
+  },
+  "GE": {
+   "probes": 6,
+   "hits": 2,
+   "photos": 131
+  },
+  "HN": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "GB": {
+   "probes": 6,
+   "hits": 2,
+   "photos": 166
+  },
+  "ID": {
+   "probes": 6,
+   "hits": 2,
+   "photos": 1372
+  },
+  "IN": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 234
+  },
+  "GR": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 19
+  },
+  "IR": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "JM": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "HR": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "IL": {
+   "probes": 6,
+   "hits": 3,
+   "photos": 53
+  },
+  "IQ": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 117
+  },
+  "KE": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 1
+  },
+  "HU": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "IE": {
+   "probes": 6,
+   "hits": 2,
+   "photos": 579
+  },
+  "KM": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "KH": {
+   "probes": 6,
+   "hits": 3,
+   "photos": 29
+  },
+  "KN": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "IS": {
+   "probes": 6,
+   "hits": 5,
+   "photos": 3374
+  },
+  "JO": {
+   "probes": 6,
+   "hits": 2,
+   "photos": 327
+  },
+  "JP": {
+   "probes": 6,
+   "hits": 2,
+   "photos": 603
+  },
+  "LA": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "KW": {
+   "probes": 6,
+   "hits": 3,
+   "photos": 1192
+  },
+  "KR": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "KI": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "KP": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "LK": {
+   "probes": 6,
+   "hits": 2,
+   "photos": 94
+  },
+  "LR": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "IT": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 81
+  },
+  "LC": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "LS": {
+   "probes": 6,
+   "hits": 3,
+   "photos": 969
+  },
+  "LV": {
+   "probes": 6,
+   "hits": 2,
+   "photos": 350
+  },
+  "LB": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 61
+  },
+  "KG": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "LT": {
+   "probes": 6,
+   "hits": 4,
+   "photos": 1775
+  },
+  "KZ": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "MG": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "LI": {
+   "probes": 6,
+   "hits": 4,
+   "photos": 1525
+  },
+  "LU": {
+   "probes": 6,
+   "hits": 4,
+   "photos": 741
+  },
+  "MA": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 129
+  },
+  "MM": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "ML": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "MR": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "MH": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "MU": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "MV": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "MW": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "MX": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "MK": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "MZ": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 10
+  },
+  "MC": {
+   "probes": 6,
+   "hits": 5,
+   "photos": 4903
+  },
+  "NA": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "LY": {
+   "probes": 6,
+   "hits": 4,
+   "photos": 2780
+  },
+  "MT": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 86
+  },
+  "NG": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "NI": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "NO": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 88
+  },
+  "NR": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "MD": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "NP": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "PA": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "OM": {
+   "probes": 6,
+   "hits": 3,
+   "photos": 1408
+  },
+  "PE": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "MY": {
+   "probes": 6,
+   "hits": 4,
+   "photos": 2264
+  },
+  "NZ": {
+   "probes": 6,
+   "hits": 5,
+   "photos": 2095
+  },
+  "PH": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 328
+  },
+  "MN": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "NE": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "ME": {
+   "probes": 6,
+   "hits": 3,
+   "photos": 1698
+  },
+  "PW": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "PG": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "PY": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "QA": {
+   "probes": 6,
+   "hits": 5,
+   "photos": 2737
+  },
+  "RW": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "PK": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "SA": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "SC": {
+   "probes": 6,
+   "hits": 4,
+   "photos": 1380
+  },
+  "SB": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "SD": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "SE": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "RU": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "PL": {
+   "probes": 6,
+   "hits": 3,
+   "photos": 178
+  },
+  "SL": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "NL": {
+   "probes": 6,
+   "hits": 4,
+   "photos": 827
+  },
+  "RO": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 150
+  },
+  "SN": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "SR": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "PT": {
+   "probes": 6,
+   "hits": 3,
+   "photos": 1235
+  },
+  "SS": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "ST": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "RS": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 155
+  },
+  "SZ": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "TD": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "SO": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "TG": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "SV": {
+   "probes": 6,
+   "hits": 2,
+   "photos": 178
+  },
+  "SM": {
+   "probes": 6,
+   "hits": 4,
+   "photos": 870
+  },
+  "SK": {
+   "probes": 6,
+   "hits": 4,
+   "photos": 374
+  },
+  "SI": {
+   "probes": 6,
+   "hits": 3,
+   "photos": 1779
+  },
+  "TO": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "TL": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "TT": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "TH": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 1000
+  },
+  "TJ": {
+   "probes": 6,
+   "hits": 2,
+   "photos": 109
+  },
+  "TN": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "SY": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "SG": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "UG": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "TR": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "TM": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "UY": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "VE": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "VA": {
+   "probes": 1,
+   "hits": 1,
+   "photos": 819
+  },
+  "VU": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "VN": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 7
+  },
+  "WS": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "VC": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "TZ": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "ZM": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "YE": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "ZW": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "TV": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  },
+  "ZA": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 310
+  },
+  "UA": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 94
+  },
+  "US": {
+   "probes": 6,
+   "hits": 1,
+   "photos": 245
+  },
+  "UZ": {
+   "probes": 6,
+   "hits": 0,
+   "photos": 0
+  }
+ }
+}

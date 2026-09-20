@@ -15,7 +15,8 @@
     "test": "node --experimental-strip-types --test src/*.test.ts",
     "typecheck": "tsc --noEmit",
     "borders": "node scripts/build-borders.mjs",
-    "audit:truth": "node --experimental-strip-types scripts/audit-truth.ts"
+    "audit:truth": "node --experimental-strip-types scripts/audit-truth.ts",
+    "ceiling": "node --experimental-strip-types scripts/ceiling.ts"
   },
   "dependencies": {
     "ai": "^7.0.107",

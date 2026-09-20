@@ -1,6 +1,6 @@
 // One round against a live photo. Usage: npm run guess -- <lat> <lng>
 import { nearbyPhotos } from "../src/kartaview.ts";
-import { countryCodeAt } from "../src/truth.ts";
+import { countryCodeAtOffline } from "../src/truth.ts";
 import { playRound } from "../src/guess.ts";
 import { countryByCode } from "../src/countries.ts";
 
@@ -16,7 +16,7 @@ const photos = await nearbyPhotos(lat, lng, 3000);
 if (!photos.length) { console.error("No KartaView coverage there."); process.exit(1); }
 
 const photo = photos[Math.floor(Math.random() * photos.length)]!;
-const truthCode = await countryCodeAt(photo.lat, photo.lng);
+const truthCode = countryCodeAtOffline(photo.lat, photo.lng);
 
 console.log(`photo ${photo.id} by ${photo.username}  ${photo.lat.toFixed(4)}, ${photo.lng.toFixed(4)}`);
 console.log(photo.url);

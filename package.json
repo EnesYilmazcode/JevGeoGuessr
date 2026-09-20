@@ -13,7 +13,9 @@
     "bench": "node --experimental-strip-types scripts/bench.ts",
     "guess": "node --experimental-strip-types scripts/guess-one.ts",
     "test": "node --experimental-strip-types --test src/*.test.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "borders": "node scripts/build-borders.mjs",
+    "audit:truth": "node --experimental-strip-types scripts/audit-truth.ts"
   },
   "dependencies": {
     "ai": "^7.0.107",

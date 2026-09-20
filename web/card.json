@@ -1,0 +1,17 @@
+{
+ "photo": "https://api.openstreetcam.org/storage11/files/photo/2019/6/11/proc/1518926_54c49_1091.jpg",
+ "truth": {
+  "lat": 42.142094,
+  "lng": 19.04656
+ },
+ "guess": {
+  "lat": 42.833,
+  "lng": 12.833
+ },
+ "km": 515,
+ "points": 3540,
+ "guessLabel": "Italy",
+ "truthLabel": "Montenegro",
+ "subtitle": "off",
+ "minSpanDeg": 9
+}

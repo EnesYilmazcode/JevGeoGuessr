@@ -31,8 +31,9 @@ type TestCase = { photo: Photo; truthCode: string; city: string };
 const testset = JSON.parse(readFileSync(setPath, "utf8")) as { mode: string; seed: number; cases: TestCase[] };
 const cases = testset.cases.slice(0, limit);
 
-type VariantResult = { points: number; km: number; countryHit: boolean };
-type Row = { truth: Point; truthCode: string; results: Record<string, VariantResult> };
+type VariantResult = { points: number; km: number; countryHit: boolean; pin: Point };
+type Row = { truth: Point; truthCode: string; photo: string; results: Record<string, VariantResult> };
+type Pin = { lat: number; lng: number };
 
 // Each entry is one way of turning a distribution into a pin. They all read the same observation.
 const STRATEGIES = [
@@ -68,14 +69,16 @@ async function worker() {
       const countries = await rankCountries(observation);
       jevTokens += countries.inputTokens; jevCalls += 1;
       const top = countries.top;
+      const countryPin = { lat: top.lat, lng: top.lng };
       results["country"] = {
-        ...scoreGuess({ lat: top.lat, lng: top.lng }, truth),
+        ...scoreGuess(countryPin, truth),
         countryHit: top.code === test.truthCode,
+        pin: countryPin,
       };
       const blended = weightedCentre(countries.ranking.map((r) => ({
         point: { lat: r.country.lat, lng: r.country.lng }, weight: r.probability,
       })));
-      results["country weighted"] = { ...scoreGuess(blended, truth), countryHit: top.code === test.truthCode };
+      results["country weighted"] = { ...scoreGuess(blended, truth), countryHit: top.code === test.truthCode, pin: blended };
 
       for (const strategy of STRATEGIES) {
         const located = await locate(observation, strategy);
@@ -83,10 +86,11 @@ async function worker() {
         results[strategy.name] = {
           ...scoreGuess(located.guess, truth),
           countryHit: countryCodeAtOffline(located.guess.lat, located.guess.lng) === test.truthCode,
+          pin: located.guess,
         };
       }
 
-      rows.push({ truth, truthCode: test.truthCode, results });
+      rows.push({ truth, truthCode: test.truthCode, photo: test.photo.url, results });
       const best = (VARIANTS as readonly string[]).reduce((a, b) => (results[a]!.points >= results[b]!.points ? a : b));
       console.log(`  ${test.truthCode}  country ${String(results["country"]!.points).padStart(4)}  cells3 ${String(results["cells 3 stages"]!.points).padStart(4)}  best: ${best}`);
     } catch (error) {
@@ -151,6 +155,11 @@ reportErrors();
 
 writeFileSync(new URL("../data/compare.json", import.meta.url), JSON.stringify({
   ranAt: new Date().toISOString(), set: setPath.pathname.split("/").pop(), n, summary,
+ // Per round, so a render or a re-analysis never needs the API again.
+ rounds: rows.map((r) => ({
+  photo: r.photo, truthCode: r.truthCode, truth: r.truth,
+  results: Object.fromEntries(Object.entries(r.results).map(([k, v]) => [k, { points: v.points, km: Math.round(v.km), countryHit: v.countryHit, pin: v.pin }])),
+ })),
   baselines: baselines(rows.map((r) => r.truth), rows.map((r) => r.truthCode)),
 }, null, 1), "utf8");
 console.log("wrote data/compare.json");

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Jev vs the World card</title>
+<style>
+  :root {
+    --paper: #f7f4ec;
+    --ink: #5f5952;
+    --ink-soft: #9a938a;
+    --chip: #cfc7bb;
+    --truth: #e8a33d;
+    --pin: #4f7fd4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    font-family: "Segoe UI", Inter, -apple-system, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    width: 1200px; height: 800px; overflow: hidden;
+  }
+  #card { width: 1200px; height: 800px; padding: 56px 64px; display: flex; flex-direction: column; }
+
+  header { display: flex; align-items: flex-start; gap: 24px; margin-bottom: 26px; }
+  h1 { font-size: 58px; font-weight: 700; letter-spacing: -1px; line-height: 1; }
+  .chip {
+    background: var(--chip); border-radius: 10px; padding: 9px 18px 11px; text-align: center; color: #fff;
+  }
+  .chip small { display: block; font-size: 12px; letter-spacing: 1.4px; font-weight: 700; opacity: .85; }
+  .chip b { display: block; font-size: 27px; font-weight: 700; line-height: 1.1; }
+  .spacer { flex: 1; }
+
+  main { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 34px; min-height: 0; }
+  .panel { position: relative; border-radius: 14px; overflow: hidden; background: #ece7dd; }
+  .panel img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  canvas { width: 100%; height: 100%; display: block; }
+
+  footer { margin-top: 26px; display: flex; align-items: baseline; gap: 18px; }
+  #verdict { font-size: 52px; font-weight: 700; letter-spacing: -1px; }
+  #sub { font-size: 21px; color: var(--ink-soft); }
+  .legend { margin-left: auto; display: flex; gap: 22px; font-size: 17px; color: var(--ink-soft); align-items: center; }
+  .dot { display: inline-block; width: 13px; height: 13px; border-radius: 50%; margin-right: 8px; vertical-align: -1px; }
+</style>
+</head>
+<body>
+<div id="card">
+  <header>
+    <h1>Jev</h1>
+    <div class="chip"><small>GUESSED</small><b id="guessName">—</b></div>
+    <div class="chip" style="background:#d8b578"><small>ACTUALLY</small><b id="truthName">—</b></div>
+    <div class="spacer"></div>
+    <div class="chip" style="background:#bdb4a6"><small>POINTS</small><b id="points">0</b></div>
+  </header>
+
+  <main>
+    <div class="panel"><img id="photo" alt="" /></div>
+    <div class="panel"><canvas id="map"></canvas></div>
+  </main>
+
+  <footer>
+    <div id="verdict">— km</div>
+    <div id="sub">off</div>
+    <div class="legend">
+      <span><i class="dot" style="background:var(--truth)"></i>actual</span>
+      <span><i class="dot" style="background:var(--pin)"></i>Jev's pin</span>
+    </div>
+  </footer>
+</div>
+
+<script type="module">
+const params = new URLSearchParams(location.search);
+const card = await fetch(params.get("data") ?? "card.json").then((r) => r.json());
+const world = await fetch("world.json").then((r) => r.json());
+
+document.getElementById("photo").src = card.photo;
+document.getElementById("guessName").textContent = card.guessLabel;
+document.getElementById("truthName").textContent = card.truthLabel ?? "";
+document.getElementById("points").textContent = card.points.toLocaleString();
+document.getElementById("verdict").textContent = `${card.km.toLocaleString()} km`;
+document.getElementById("sub").textContent = card.subtitle ?? "off";
+
+// Frame the map on the two points, with enough margin that both read as places, not as dots in a void.
+const canvas = document.getElementById("map");
+const rect = canvas.getBoundingClientRect();
+const dpr = 2;
+canvas.width = rect.width * dpr;
+canvas.height = rect.height * dpr;
+const ctx = canvas.getContext("2d");
+ctx.scale(dpr, dpr);
+const W = rect.width, H = rect.height;
+
+const pts = [card.truth, card.guess];
+const pad = Math.max(card.minSpanDeg ?? 14, 0);
+let minLng = Math.min(...pts.map((p) => p.lng)) - pad;
+let maxLng = Math.max(...pts.map((p) => p.lng)) + pad;
+let minLat = Math.min(...pts.map((p) => p.lat)) - pad;
+let maxLat = Math.max(...pts.map((p) => p.lat)) + pad;
+
+// Keep the aspect honest so coastlines are not stretched.
+const aspect = W / H;
+const spanLng = maxLng - minLng, spanLat = maxLat - minLat;
+if (spanLng / spanLat > aspect) {
+  const want = spanLng / aspect, mid = (minLat + maxLat) / 2;
+  minLat = mid - want / 2; maxLat = mid + want / 2;
+} else {
+  const want = spanLat * aspect, mid = (minLng + maxLng) / 2;
+  minLng = mid - want / 2; maxLng = mid + want / 2;
+}
+
+const project = (lng, lat) => [
+  ((lng - minLng) / (maxLng - minLng)) * W,
+  ((maxLat - lat) / (maxLat - minLat)) * H,
+];
+
+ctx.fillStyle = "#ece7dd";
+ctx.fillRect(0, 0, W, H);
+for (const shape of world) {
+  ctx.beginPath();
+  for (const ring of shape.rings) {
+    ring.forEach(([lng, lat], i) => {
+      const [x, y] = project(lng, lat);
+      i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+    });
+    ctx.closePath();
+  }
+  ctx.fillStyle = "#ded7ca";
+  ctx.fill();
+  ctx.strokeStyle = "#cbc2b3";
+  ctx.lineWidth = 1;
+  ctx.stroke();
+}
+
+const a = project(card.guess.lng, card.guess.lat);
+const b = project(card.truth.lng, card.truth.lat);
+ctx.beginPath();
+ctx.moveTo(a[0], a[1]);
+ctx.lineTo(b[0], b[1]);
+ctx.strokeStyle = "#a99f92";
+ctx.lineWidth = 3;
+ctx.setLineDash([7, 7]);
+ctx.stroke();
+ctx.setLineDash([]);
+
+const pin = (p, colour) => {
+  ctx.beginPath();
+  ctx.arc(p[0], p[1], 13, 0, Math.PI * 2);
+  ctx.fillStyle = colour;
+  ctx.fill();
+  ctx.strokeStyle = "#f7f4ec";
+  ctx.lineWidth = 4;
+  ctx.stroke();
+};
+pin(a, "#4f7fd4");
+pin(b, "#e8a33d");
+
+document.title = "ready";
+</script>
+</body>
+</html>

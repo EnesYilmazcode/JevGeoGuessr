@@ -35,6 +35,8 @@ export type StageRanking = { cell: Cell; probability: number }[];
 
 export type Located = {
   guess: Point;
+  /** The option that led, so a render can say which town it settled on. */
+  winner: Cell;
   /** One ranking per stage, coarsest first. */
   stages: StageRanking[];
   inputTokens: number;
@@ -190,5 +192,5 @@ export async function locate(
     // of a border, the pin belongs between them, and distance scoring pays for that.
     : weightedCentre(distribution);
 
-  return { guess, stages: trail, inputTokens, calls, ms: Date.now() - started };
+  return { guess, winner: leader.cell, stages: trail, inputTokens, calls, ms: Date.now() - started };
 }

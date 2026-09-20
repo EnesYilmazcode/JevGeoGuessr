@@ -1,69 +1,83 @@
 {
- "ranAt": "2026-09-20T19:32:51.609Z",
- "set": "testset-smoke.json",
- "n": 7,
+ "ranAt": "2026-09-20T19:45:13.606Z",
+ "set": "dev.json",
+ "n": 23,
  "summary": {
   "country": {
-   "meanPoints": 2362,
-   "medianKm": 1123,
-   "within100": 0,
-   "within500": 2,
-   "countryHits": 1
+   "meanPoints": 2582,
+   "medianKm": 669,
+   "within100": 6,
+   "within500": 11,
+   "countryHits": 12
   },
   "country weighted": {
-   "meanPoints": 2263,
-   "medianKm": 805,
-   "within100": 0,
-   "within500": 0,
-   "countryHits": 1
+   "meanPoints": 2596,
+   "medianKm": 1450,
+   "within100": 6,
+   "within500": 10,
+   "countryHits": 12
   },
   "cells 1 stage": {
-   "meanPoints": 2567,
-   "medianKm": 554,
-   "within100": 0,
-   "within500": 3,
-   "countryHits": 0
+   "meanPoints": 2598,
+   "medianKm": 995,
+   "within100": 2,
+   "within500": 11,
+   "countryHits": 3
   },
   "cells 2 stages": {
-   "meanPoints": 2365,
-   "medianKm": 1498,
-   "within100": 0,
-   "within500": 2,
-   "countryHits": 0
+   "meanPoints": 3142,
+   "medianKm": 348,
+   "within100": 7,
+   "within500": 13,
+   "countryHits": 6
   },
   "cells 3 stages": {
-   "meanPoints": 2735,
-   "medianKm": 722,
-   "within100": 1,
-   "within500": 3,
-   "countryHits": 1
+   "meanPoints": 3093,
+   "medianKm": 542,
+   "within100": 9,
+   "within500": 11,
+   "countryHits": 13
   },
-  "cells 2 stages argmax": {
-   "meanPoints": 2396,
-   "medianKm": 1407,
-   "within100": 1,
-   "within500": 3,
-   "countryHits": 1
+  "cells 3 stages argmax": {
+   "meanPoints": 3253,
+   "medianKm": 244,
+   "within100": 9,
+   "within500": 12,
+   "countryHits": 14
+  },
+  "cells 3 stages beam 3": {
+   "meanPoints": 2978,
+   "medianKm": 671,
+   "within100": 8,
+   "within500": 10,
+   "countryHits": 10
+  },
+  "cells 3 stages beam 3, gated": {
+   "meanPoints": 2912,
+   "medianKm": 778,
+   "within100": 9,
+   "within500": 11,
+   "countryHits": 9
   }
  },
  "baselines": [
   {
    "name": "Random country",
-   "accuracy": 0.005,
-   "meanPoints": 519.8357142857143,
+   "accuracy": 0.005869565217391304,
+   "meanPoints": 447.6576086956522,
    "note": "uniform over 194, averaged over 200 draws"
   },
   {
    "name": "Most common country in the set",
-   "accuracy": 0.14285714285714285,
-   "meanPoints": 1527.5714285714287,
-   "note": "always Luxembourg, which is 1 of 7 photos"
+   "accuracy": 0.13043478260869565,
+   "meanPoints": 1850.5217391304348,
+   "note": "always Austria, which is 3 of 23 photos"
   },
   {
    "name": "Best single country",
-   "accuracy": 0.14285714285714285,
-   "meanPoints": 1777.4285714285713,
-   "note": "always Qatar, chosen with hindsight on this very set"
+   "accuracy": 0,
+   "meanPoints": 1922,
+   "note": "always Croatia, chosen with hindsight on this very set"
   }
  ]
 }

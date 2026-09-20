@@ -16,6 +16,7 @@ import { scoreGuess, distanceKm, type Point } from "../src/geo.ts";
 import { countryCodeAtOffline } from "../src/truth.ts";
 import { baselines } from "../src/baselines.ts";
 import { usd, costOf } from "../src/pricing.ts";
+import { isBudgetError, BudgetExhausted, reportCredits } from "../src/budget.ts";
 
 process.loadEnvFile(new URL("../.env", import.meta.url).pathname.slice(1));
 
@@ -47,6 +48,8 @@ const VARIANTS = ["country", "country weighted", ...STRATEGIES.map((s) => s.name
 
 const rows: Row[] = [];
 let cursor = 0, jevTokens = 0, jevCalls = 0, describerCost = 0, leaks = 0, errors = 0;
+const errorKinds = new Map<string, number>();
+let budgetHit: string | null = null;
 const started = Date.now();
 
 async function worker() {
@@ -87,15 +90,33 @@ async function worker() {
       const best = (VARIANTS as readonly string[]).reduce((a, b) => (results[a]!.points >= results[b]!.points ? a : b));
       console.log(`  ${test.truthCode}  country ${String(results["country"]!.points).padStart(4)}  cells3 ${String(results["cells 3 stages"]!.points).padStart(4)}  best: ${best}`);
     } catch (error) {
-      if (error instanceof PlaceLeakError) leaks += 1; else errors += 1;
+      if (error instanceof PlaceLeakError) { leaks += 1; continue; }
+      // Spend failures are not per-photo errors. Carrying on just burns the rest of the test set
+      // and produces a table that looks fine and is mostly missing.
+      if (isBudgetError(error)) { budgetHit = String((error as Error).message); cursor = cases.length; return; }
+      errors += 1;
+      // Swallowing these hid that most of a run was failing. Keep the reasons.
+      const why = String((error as Error).message ?? error).slice(0, 90);
+      errorKinds.set(why, (errorKinds.get(why) ?? 0) + 1);
     }
   }
 }
 
+await reportCredits();
+console.log("");
 await Promise.all(Array.from({ length: concurrency }, worker));
+if (budgetHit) throw new BudgetExhausted(budgetHit);
+
+const reportErrors = () => {
+  if (!errorKinds.size) return;
+  console.log(`\nwhy rounds failed (${errors} of ${cases.length}):`);
+  for (const [why, count] of [...errorKinds.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8)) {
+    console.log(`  ${String(count).padStart(4)}x  ${why}`);
+  }
+};
 
 const n = rows.length;
-if (!n) { console.log("no rounds completed"); process.exit(1); }
+if (!n) { reportErrors(); console.log("no rounds completed"); process.exit(1); }
 
 const median = (xs: number[]) => {
   const s = [...xs].sort((a, b) => a - b);
@@ -126,6 +147,7 @@ const jevCost = costOf("typesafe-ai/jev", { inputTokens: jevTokens, outputTokens
 console.log(`\nJev: ${jevCalls} calls, ${jevTokens.toLocaleString()} tokens, ${usd(jevCost)}`);
 console.log(`describer: ${usd(describerCost)} (cached photos cost nothing)`);
 console.log(`${((Date.now() - started) / 1000).toFixed(0)}s wall clock, ${leaks} place leaks, ${errors} errors`);
+reportErrors();
 
 writeFileSync(new URL("../data/compare.json", import.meta.url), JSON.stringify({
   ranAt: new Date().toISOString(), set: setPath.pathname.split("/").pop(), n, summary,
